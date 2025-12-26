@@ -1,0 +1,14 @@
+langchain
+langchain-community
+pinecone
+sentence-transformers
+pypdf
+huggingface-hub
+pip
+pymupdf
+langchain_groq
+dotenv
+requests
+beautifulsoup4
+lxml
+selenium
