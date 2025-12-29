@@ -1,5 +1,9 @@
 langchain
 langchain-community
+langchain-experimental
+langchain-huggingface
+huggingface_hub 
+hf_xet
 pinecone
 sentence-transformers
 pypdf
@@ -12,3 +16,5 @@ requests
 beautifulsoup4
 lxml
 selenium
+pandas
+numpy

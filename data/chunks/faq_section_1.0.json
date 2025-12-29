@@ -1,0 +1,947 @@
+[
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0000",
+    "chunk_index": 0,
+    "text": "--- ACCOUNTS & DEPOSITS | Minor Savings Account ---\nWhat is a Minor Savings Account? Minor savings account is a savings variant for children aged between 10 years to 17 years & 9 months . Minor account is named “Bhavishya” savings account. How many minor accounts can be opened under one parent? At max, only 3 minors are allowed to open a minor savings account under each parent. How will the account be opened? The minor savings account can be opened through E-KYC mode only. What will happen when a minor turns major? Upon minors turning major, the customer has to do a Re-KYC and has to select available savings variant. Is DBT facility available for minor savings account? Yes, DBT facility can be availed through a minor savings account. Minors can get scholarship in Bhavishya savings account. What are mandatory requirements to open a minor savings account? PAN card / Form 60, Aadhar card and a valid mobile number are mandatory requirements to open a minor savings account. A minor’s contact details should be different from the parent’s contact details? Yes, the parent’s mobile number must be different from the registered mobile number of the minor. Is parent consent required to open a minor savings account? Yes, the parent has to give consent through OTP authentication to open a minor savings account. What are the charges & transaction limits on a minor saving account?",
+    "text_length": 1387,
+    "word_count": 235,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0001",
+    "chunk_index": 1,
+    "text": "Refer Schedule of charges for detail. Does the minor savings account come with a debit card? Yes, the minor account comes with a debit card with no issuance or annual charges. Only ATM transactions are allowed. Are there any re-issuance charges for the debit card? Yes, in case of reissuance of debit card charges will be levied to the customer. Refer schedule of charges for more detail.",
+    "text_length": 388,
+    "word_count": 67,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0002",
+    "chunk_index": 2,
+    "text": "What is the overall limit of cash deposit in the account? The overall limit for deposit is to remain Rs50,000 and no sweep facility will be provided for a minor savings account. Will a minor savings account have all the rights for mobile banking through BPay? The minor will have view only rights for BPay application. Minor’s Aadhar authentication failed while opening the account? The minor can open an account only if the bio authentication is updated in UIDAI base. ============================================================\n\n--- ACCOUNTS & DEPOSITS | Jan Savings Account ---\nWhat is a Jan savings account? Jan savings account is a subscription-based savings account variant offered to customers but without the facility of debit card and no monthly minimum balance commitment. What is Subscription Model? Subscription model is annual charges levied on the a/c i.e., Rs249 p.a. (including GST). Customer will only need to pay an annual subscription fee at time of account activation and on annual basis as applicable from the next year onwards. How will the account be opened?",
+    "text_length": 1082,
+    "word_count": 171,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0004",
+    "chunk_index": 4,
+    "text": "Applicable interest will be provided on the amount deposited during the period. Can I open a Joint account? Currently, you cannot open a joint account. How will I identify which merchant is registered with FINO? The merchants registered with Fino will have a Fino branding at the merchant shop. What are the documents required to open a savings account? Fino savings account can be opened with just your Aadhaar number and mobile number. Can I open an account if I don’t have a PAN card? Yes, you can open an account if you don’t have a PAN card. Instead, you will need to submit Form 60.",
+    "text_length": 588,
+    "word_count": 106,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0005",
+    "chunk_index": 5,
+    "text": "============================================================\n\n--- ACCOUNTS & DEPOSITS | Account Maintenance Process ---\nHow do I change my address? Please visit the branch with proof of new address to change your address.",
+    "text_length": 221,
+    "word_count": 29,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0006",
+    "chunk_index": 6,
+    "text": "How do I change my mobile number? To change your number, please visit your nearest Fino Payments Bank Branch. What happens if I don't use my savings/current account for a very long time? The account becomes inactive if there are no customer initiated transactions in the account for a continuous period of 1 year and dormant if there are no customer initiated transactions (excludes system generated transactions like credit interest, debit interest), in the account for a continuous period of two years. If the account status is 'Dormant', transactions through direct banking channels like ATM, NetBanking, phone banking, etc., are not be allowed by the bank. How do I activate an 'Inactive' account? Please visit the branch and do a transaction in your account to make it active again.",
+    "text_length": 787,
+    "word_count": 129,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0007",
+    "chunk_index": 7,
+    "text": "How do I activate a 'Dormant' account? We request you to complete your re-KYC through VKYC with Fino at your convenience by following the below steps:\n\n1)  Log in to your account using “FinoPay” Application\n\n2) Click on “Your profile” (Top left corner)\n\n3) Click on “Re-KYC through V-KYC” to complete your re-KYC at home\n\nYou can also complete your re-KYC by visiting the branch or Fino Merchant point. How do I change my name?",
+    "text_length": 427,
+    "word_count": 75,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0009",
+    "chunk_index": 9,
+    "text": "These documents should be in the name of the proprietary concern. What are the documents required for opening a current account of a partnership firm? We currently do not provide current account services to partnership firms. Can a company open a current account? We currently do not provide current account services to companies. What documents are required to change the address of an entity? Following documents are required to change the address of an entity:\n\nRequest letter for address change signed by the proprietor/partner/authorised signatory (in case of a company)\n\nAlong with the following list of documents:\n\nLandline telephone bill/electricity bill of public and approved private operators in the state. (Bills not to be older than 4 months from the date of account opening)\nProperty ownership deed i.e., the title deeds of the property in the name of the firm duly stamped and registered\nTAN allotment letter issued in the name of the firm\nLatest property tax or water tax paid receipt/bill raised in the name of the firm\nExisting bank account statement or passbook of a PSU/private sector /foreign bank. (Statement not older than 4 months from the date of account opening to be accepted;\nWhat if I am unable to maintain the required MAB? Customer will be charged a non-maintenance charge as per the schedule of charges. Will I receive interest on the amount in Current account? No. current accounts do not offer interest. ============================================================\n\n--- ACCOUNTS & DEPOSITS | Fund Transfer ---\nHow to transfer funds through bank account? Please visit Fino branch or Fino registered merchants to transfer money through your bank account. You can also use mobile banking to transfer funds. What is IMPS? IMPS stands for Immediate Payment Service. It is an instant interbank electronic fund transfer service, which can be accessed from mobile banking or NetBanking. As a Fino Bank customer, you can send money instantly to anyone in any participating bank (including another Fino Bank customer). You can also receive money through this mechanism from anyone else in a participating bank (including another Fino Bank customer). What details of my beneficiary do I need to send money? You will need your beneficiary’s account number and IFSC code to send money. (Beneficiary needs to be added in mobile banking in order to transfer money.)\n\nWhat are the charges for doing IMPS transactions? Service charges will be levied on all IMPS outgoing transactions; please refer to the schedule of charges for more details. What happens if the transaction is not credited to the beneficiary? We wish to inform you that in case your account is debited and beneficiary account has not been credited for the referred IMPS transaction, the funds pertaining to the failed transaction will be credited back to your account within 3 working days. In case the same is not received after the time period, please contact our call centre or write back to us with the following details.",
+    "text_length": 3010,
+    "word_count": 487,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0010",
+    "chunk_index": 10,
+    "text": ". Beneficiary account number\nBeneficiary Bank Name\nDate and amount of the transaction\nTransaction Reference Number\n============================================================\n\n--- ACCOUNTS & DEPOSITS | Account Settlement – Deceased case ---\nDeceased Claim\n\nIn the event of death of a current account or savings account holder, the balance in the account of the deceased needs to be transferred to the nominee/legal heir and the account needs to be closed. The nominee or relative of the customer has to inform the bank that the customer has deceased. What is the process of settlement of account in case of customer deceased? The nominee/legal heir needs to visit the Fino Payments Bank branch with an application form and required documents to proceed for the settlement and closure of the account. The nominee/legal heir may also contact customer care or merchants to know the process in case of customer deceased. Please note -\n\nThe nominee/legal heir can also inform about the customer deceased on customercare@finobank.com. Kindly attach death certificate with account detail. Which all documents are required process for account settlement in case of customer deceased? The following documents are required to be submitted by nominal/legal heir:\n\n1. Death certificate of deceased customer\n2. If nominee is registered than KYC copy of nominee: (Refer Annexure I for details)\n\nAddress proof\nIdentity proof\n\n3. If nominee is not registered then: (Refer Annexure I for details)\n\nAddress proof of claimant\nIdentity proof of claimant\nLegal succession certificate/Court Affidavit by legal heir\n\n4. Indemnity letter signed by nominee/legal heir (Format attached in Annexure 1)\n5. Account detail of nominee:\n\nIf within Fino Payments Bank, then account number/CIF\nIf with any other bank, then account number along with IFSC code, bank name and address, and cancelled copy of cheque/passbook\nFrom where can the claimant download the application form & Annexure I? Letter of Indemnity form for deceased claim -Click Here\n\nApplication form for deceased claim settlement -Click Here\n\nAnnexure I - Click Here\n============================================================\n\n--- CARDS |  ---\nFino Payments Bank Prepaid Cards\n\nFrequently Asked Questions (FAQs) Prepaid Cards\n\n\n\tWhat is Fino Payments Bank Prepaid Card? Fino Payments Bank Prepaid Card is a popular alternative to regular debit and credit cards which is pre-loaded with a certain amount of money. Fino Payments Bank offers General Purpose Reloadable (GPR) and Gift Cards to the customers to allow easy payments to merchants, e-commerce transactions, fund transfer and ATM withdrawals. What are the benefits of Fino Payments Bank Prepaid Card? Convenient: The card can be used across merchant outlets, ATMs in India. It can be used for e-com transactions as well\n\t\tAccessible: The funds on the cards shall be accessed 24X7 and will no longer be limited to bank operating hours\n\t\tSafe & Secure: The fund available on Fino Payments Bank Prepaid Card is secured by a PIN which is only known to the customer. Hence, it is a safe and secure mode of payment.",
+    "text_length": 3103,
+    "word_count": 481,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0011",
+    "chunk_index": 11,
+    "text": "What is a PIN? PIN or Personal Identification Number is a four-digit secret number (known only to you) which will be required while withdrawing cash through ATMs and also for making purchase at merchant outlets. How do I ensure the safety of my Fino Payments Bank Prepaid Card? If the applicant uses the card, he needs to sign on the reverse of the card on receipt of the card to avoid its unauthorised use\n\tWhat should I do if my Fino Payments Bank Prepaid Card is lost or stolen? If your Fino Payments Bank Prepaid Card is lost or stolen, call the customer care at022-6868 1414 and get the card blocked immediately to prevent any further usage. How will I get a new card in case I lose my card?",
+    "text_length": 696,
+    "word_count": 130,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0013",
+    "chunk_index": 13,
+    "text": "We will then provide you with a replaced card at a minimal cost. Can I use the Fino Payments Bank Prepaid Card in countries other than India? No, the Fino Payments Bank Prepaid Card can be used only in India. Frequently Asked Questions (FAQs) – General Purpose Reloadable Cards\n\n\n\tWhat is Fino Payments Bank General Purpose Reloadable (GPR) Card? Fino Payments Bank GPR Card is an EMV chip based prepaid card, which can be loaded in INR. The card does not have any minimum balance requirement and it offers you the flexibility of using the card for POS, E-com and ATM transactions in India. What are the types of General Purpose Reloadable Card? Min KYC: It is issued after obtaining minimum details of the prepaid card customer. This card can only be used for E-com and POS transactions. Full KYC: It is issued after completing Know Your Customer (KYC) of prepaid card holder. This card can be used for purchase of goods and services (POS & E-com) and ATM withdrawals. What are the documents required to get a Fino Payments Bank GPR Card? Min KYC: Mobile No. based OTP validation & Official Valid Document\n\t\tFull KYC:Mobile No. based OTP validation, Know Your Customer (KYC) documents\n\t\n\t\n\tWhat is the validity of Fino Payments Bank GPR Prepaid Card? General Purpose Reloadable card comes with a validity of 5 years.The expiry date is visible to the customer on the card in physical or virtual form\n\tWhat is the maximum amount that can be loaded on GPR Cards? The maximum amount that can be loaded at a time is,​\n\t\n\t\t₹10,000 for Minimum KYC and\n\t\t₹200,000 for Full KYC\n\t\n\t\n\tHow do I withdraw cash from an ATM using Fino Payments Bank Prepaid Card? Insert the card in the card slot as advised on the ATM panel.",
+    "text_length": 1710,
+    "word_count": 301,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0014",
+    "chunk_index": 14,
+    "text": "The ATM will ask you for your PIN\n\t\tEnter the ATM-PIN of you card. Once your ATM-PIN is validated, the machine will prompt you to enter the amount of cash you wish to withdraw\n\t\tEnter the amount of cash you need. If your Fino Payments Bank Prepaid Card has sufficient funds, the machine will dispense the requested cash\n\t\n\t\n\n\nNote: ATM withdrawals will only be allowed on full KYC prepaid cards\n\n\n\t What happens if I withdraw an amount which is more than the balance amount? If you attempt to withdraw the value which is higher than the actual balance available on the card, the transaction will be declined. What are the limits of min KYC GPR Cards? The limits of min KYC GPR Cards are as follows:\n\n\n\n\tMaximum balance at any time – ₹10,000\n\tMaximum monthly credit – ₹10,000\n\tMaximum monthly debit – ₹10,000. What are the limits of min KYC GPR Cards? The limits of full KYC GPR Cards are as follows:\n\t\n\t\tMaximum balance at any time – ₹200,000*\n\t\n\t\n\n\nFrequently Asked Questions (FAQs) – Gift Cards\n\n\n\tWhat is Fino Payments Bank Gift Card? Fino Payments Bank Gift Card is a magnetic-strip-based prepaid card, offering a unique mode of gifting solution to individuals and corporates. What is the validity of Fino Payments Bank Gift Card? Gift Card comes with a minimum validity of 12 months from the date of card issuance.The expiry date is visible to the customer on the card in physical or virtual form. What is the maximum amount that can be loaded on Gift cards? Fino Payments Bank Gift Card can be loaded with a maximum amount of ₹10,000\n\t\n\t\n\tCan the value of the Fino Payments Bank Gift Card be topped up? The Fino Payments Bank Gift Card is a single load card and the value on the card cannot be re-loaded\n\t\n\t\n\tDo I need to have a Fino Payments Bank savings account to purchase Fino Payments Bank Gift Card? No, you don’t need to have a Fino Payments Bank savings account to purchase a Fino Payments Bank Gift Card. Where can I use Fino Payments Bank Gift Card? Fino Payments Bank Gift Card can be used at merchant outlets across the country including retail stores and e-commerce platform\n\tHow can the balance on the card be used? The only way to use the available balance on the gift card is by making a purchase with the card. Every time you do this, the full amount of the purchase, including taxes and any other fees, gets deducted from the available balance. Can I withdraw cash on my Fino Payments Bank Gift Card? Fino Payments Bank Gift cards cannot be used for cash withdrawals at ATMs. ============================================================\n\n--- CARDS |  ---\nWhat is RuPay debit card? RuPay debit card is an indigenous domestic debit card introduced by National Payment Corporation of India (NPCI). This card is accepted at all ATMs (for cash withdrawal) and at most of the PoS machines (for making cashless payment for purchases) in the country. How can I apply for a Fino Bank debit card? You can apply for a Fino Bank debit card at the time of opening your account. In case, you have not applied for a Fino Bank debit card, you can visit the branch and request a new debit card. What is PIN Number? Personal Identification Number (PIN) is a code for the use of ATM Card at the time of withdrawal of money from an ATM and also at the time of making payment on PoS. What is the procedure to replace a damaged debit card?",
+    "text_length": 3341,
+    "word_count": 596,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0015",
+    "chunk_index": 15,
+    "text": "We request you to contact our customer care, where you can Hotlist your existing card immediately. You can visit the branch to replace your debit card. What should be done if the debit card is misplaced? In case of loss of debit card, you can call our customer care to immediately block your debit card. You can raise a request for a new debit card which can be sent to your registered communication address. You can also visit your nearest Fino Bank branch, and request an Insta debit card which can be issued to you immediately at the branch. Will I get any intimation for my debit card transactions?",
+    "text_length": 602,
+    "word_count": 109,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0016",
+    "chunk_index": 16,
+    "text": "Yes. You will receive SMS and e-mail alerts for all debit card transactions to your registered mobile number and e-mail ID registered with the Bank. If you have not registered either of these, you can call Fino Bank customer care and update it. What should I do if my debit card is not working? If your card is not working, we request you to contact our customer care or visit your nearest branch. The Fino Bank officer will assist you to identify the problem with the debit card. How to use a debit card for retail transactions? Step 1: The merchant swipes or dips your card at a Point of Sale (PoS) terminal. Step 2: He enters the transaction amount on the PoS terminal. Step 3: The PoS machine will prompt the debit card ATM PIN to be entered by you. Please do not disclose your debit card PIN to the merchant. Step 4: Once you enter the correct PIN and sign the charge slip, the transaction is confirmed and completed, and the transaction amount will be deducted from your bank account. Step 5: Ensure that the debit card is returned to you. Is there any fee for using my debit card for retail or online transactions? No. There is no fee for using your debit card at retail outlets or online websites. However, at certain merchant categories like railways and fuel, a fee may be levied by the merchant on every purchase. How do I set/change my debit card PIN? You can set/change your debit card PIN using Fino Payments Bank Mobile Banking Application (BPay). To set or change your debit card PIN, please follow the below steps:\n  Step 1: Login in your BPay application\n  Step 2: Select your account variant\n  Step 3: Click on ‘Your Card’ option\n  Step 4: Click on ‘Set debit card PIN’ option\n  Step 5: Enter your debit card CVV and expiry date of card\n  Step 6: Set your debit card PIN\n  Step 7: Select the colour and image set at the time of registration for authentication\n  Step 8: On successful authentication, your PIN will be generated\nAlternatively, you can also set your debit card PIN by visiting your nearest Fino Payments Bank branch. I am not able to view the pin generation option in my app.",
+    "text_length": 2108,
+    "word_count": 382,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0017",
+    "chunk_index": 17,
+    "text": "What should I do? Your BPay application may not have been updated. Kindly update the BPay app and check again. In case you are still facing any issues, please call us at our customer care number. I do not remember the colour and image I had set during registration. What should I do? Step 1: Go to Login page click on ‘forgot MPIN’. Step 2: On next screen click on ‘Forgot your security question’. Step 3: Answer the verification questions and set your colour and security image. Are there any charges for generating debit card PIN through BPay? There are no charges for generating debit card PIN through BPay. What should one do if the card is sucked in by the ATM? Please call at our contact centre to report the issue.",
+    "text_length": 721,
+    "word_count": 132,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0019",
+    "chunk_index": 19,
+    "text": "If services are down or not working for the service provider\n\nWhom do I contact for transaction related concerns? You can contact Customer Care through email: care@finopaytech.com and through phone number :8080668800\n\nWill I receive any receipt for bill payments? Yes, you will receive an SMS,\n\nWhat will happen if I enter an incorrect account number? For mobile bill payment, an incorrect mobile number if active and working, will receive the transaction amount. What if my status shows that bill payment is pending after successful transaction? Reach out to the service provider. Status shows that bill payment is successful, but payment was not received. Reach out to us at Customer Care,\n\nHow can I contact Fino Money?",
+    "text_length": 722,
+    "word_count": 117,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0020",
+    "chunk_index": 20,
+    "text": "You can contact Fino Money Customer Care. ============================================================\n\n--- PAYMENTS |  ---\nIMPS (Immediate Payment service)\n\n1.1 Product Features\n\n\n\tSend and receive money instantly\n\tAvailable 24X7X365\n\tFund transfer can be done on Sunday and bank holidays\n\tInstant confirmation to sender and receiver via SMS and email\n\tSafe and secure transaction\n\tThis service is available across all the bank branches\n\tFunds transfer to all the PSUs and private banks including ICICI, SBI, HDFC\n\tSend up to Rs25,000\n\tCost effective\n\n\n\n\n\t\n\t\t\n\t\t\t \n\t\t\tAmount (in INR)\n\n\t\t\tCharges (in INR)\n\t\t\n\t\n\t\n\t\t\n\t\t\tDomestic Remittance\n\t\t\t100-1000\n\t\t\t15\n\t\t\n\t\t\n\t\t\t1001-2000\n\t\t\t30\n\t\t\n\t\t\n\t\t\t2001-3000\n\t\t\t45\n\t\t\n\t\t\n\t\t\t3001-4000\n\t\t\t60\n\t\t\n\t\t\n\t\t\t4001-5000\n\t\t\t75\n\t\t\n\t\t\n\t\t\t5001-10000\n\t\t\t100\n\t\t\n\t\t\n\t\t\t10001-15000\n\t\t\t150\n\t\t\n\t\t\n\t\t\t15001-20000\n\t\t\t200\n\t\t\n\t\t\n\t\t\t20001-25000\n\t\t\t250\n\t\t\n\t\n\n\n\n1.2 FAQs\n\n\n\tWhat is Immediate Payment Service (IMPS)? Immediate Payment Service is an instant real-time inter-bank electronic funds transfer system\n\tHow can I access IMPS? IMPS can be accessed from any Fino Branches and MPs\n\tWho can use IMPS? All Indian residents can use IMPS\n\tHow can I transfer funds using IMPS? Beneficiary Account Number and IFSC\n\tWhat are the steps for IMPS fund transfer? 1. Add beneficiary using IFSC, branch, account verification\n\t2. Select transfer type IMPS and enter amount\n\t3. Click on transfer\n\tWhat is OTP? One time Password(OTP) to be used at time of initiating a transaction\n\tDo I need to register for IMPS separately? No\n\tDo I need to register beneficiary details for sending money using IMPS? Yes\n\tWhat happens in case I enter a wrong beneficiary detail while sending money? The bank will not be liable for any wrong credit to the beneficiary as the bank relies completely on the details shared by the customer. How long does it take for the money to get credited into the beneficiary account? Money gets credited into the beneficiary account instantly. Will I receive any intimation from the bank for the IMPS transaction? On successful completion of the transaction, alerts will be sent on your preferred mobile number registered with the bank. When will I get my money back if the transaction is not processed? For any reason, if the IMPS transaction is not processed, the money will be instantly credited to the sender's account. In case the fate of the transaction is not determined immediately, the reversal of funds will happen on the next working day. What are the timings for sending and receiving money via IMPS? IMPS facility is available 24X7 without any holiday restrictions. What is txn limit? Txn limit is Rs5,000.",
+    "text_length": 2640,
+    "word_count": 401,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0021",
+    "chunk_index": 21,
+    "text": "2. NEFT\n\n2.1 Product Features\n\n\n\tNational Electronic Funds Transfer (NEFT) is electronic funds transfer system, which facilitates transfer of funds to other bank accounts across the country. NEFT is a simple, secure, and safe mode of payment\n\tCustomers can remit up to Rs25, 000 using NEFT. Customers intending to remit money through NEFT have to furnish the following particulars:\n\n\t\n\t\tIFSC (Indian Financial System Code) of the beneficiary bank/branch\n\t\tFull account number of the beneficiary. Name of the beneficiary.",
+    "text_length": 520,
+    "word_count": 78,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0022",
+    "chunk_index": 22,
+    "text": "Customers can use this facility between 8 a.m. and 06.30 p.m. on weekdays and between 8 a.m. and 06:30 p.m. on Saturday (except 2nd & 4th Saturdays). There are twelve hourly settlements between 8 a.m. and 7 p.m. on all weekdays and between 8 a.m.",
+    "text_length": 246,
+    "word_count": 45,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0023",
+    "chunk_index": 23,
+    "text": "and 7 p.m. on Saturday (except 2nd & 4th Saturdays)\n\tCredit confirmation of the remittances sent by SMS or email. Near real time transfer of the funds to the beneficiary account in a secure manner\n\tCost effective way to transfer funds especially for retail remittances\n\n\n\n\n\t\n\t\t\n\t\t\t \n\t\t\tAmount (in INR)\n\t\t\tCharges (in INR\n\t\t\n\t\n\t\n\t\t\n\t\t\tDomestic Remittance\n\t\t\t100-1000\n\t\t\t15\n\t\t\n\t\t\n\t\t\t1001-2000\n\t\t\t30\n\t\t\n\t\t\n\t\t\t2001-3000\n\t\t\t45\n\t\t\n\t\t\n\t\t\t3001-4000\n\t\t\t60\n\t\t\n\t\t\n\t\t\t4001-5000\n\t\t\t75\n\t\t\n\t\t\n\t\t\t5001-10000\n\t\t\t100\n\t\t\n\t\t\n\t\t\t10001-15000\n\t\t\t150\n\t\t\n\t\t\n\t\t\t15001-20000\n\t\t\t200\n\t\t\n\t\t\n\t\t\t20001-25000\n\t\t\t250\n\t\t\n\t\n\n\n\n2.2 FAQs\n\n\n\tWhat is the transaction limit? Txn Limit is Rs5,000\n\tAre there any charges for fund transfers? Charges are given above\n\tHow much time does it take to transfer the funds? NEFT operates in hourly batches. Currently there are twelve settlements from 8 a.m. to 7 p.m.",
+    "text_length": 866,
+    "word_count": 119,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0024",
+    "chunk_index": 24,
+    "text": "on weekdays. Therefore, the beneficiary can expect to get the credit for the transactions put through between 8 a.m. to 5 p.m, on weekdays on the same day.",
+    "text_length": 155,
+    "word_count": 28,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0025",
+    "chunk_index": 25,
+    "text": "For transactions settled in the 6 and 7 p.m. batches on weekdays, the credit will be afforded either on the same day or on the next working day\n\tWhat is National Electronic Funds transfer (NEFT)? National Electronic Funds Transfer (NEFT) is a nation-wide payment system facilitating one-to-one funds transfer. What is an IFSC code? IFSC is short for Indian Financial System Code and is represented by a 11-digit character. This 11-character code helps identify the individual bank branches that participate in the various online money transfer options like NEFT and RTGS. How do I register a beneficiary for Fund Transfer facility?",
+    "text_length": 631,
+    "word_count": 101,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0027",
+    "chunk_index": 27,
+    "text": "Ans. Customer can visit any of the FPB Branches and Merchants to enrol for this policy. What is the premium plan for the policy and what are the benefits under each plan? Sum Insured Band\n\t\t\tPremium Amount (inclusive of taxes)\n\t\t\tBenefits\n\t\t\n\t\n\t\n\t\t\n\t\t\tRs.25,000\n\t\t\tRs.581\n\t\t\t\n\t\t\t\n\t\t\t\tRs. 25,000 on positive diagnosis\n\t\t\t\tRs. 12,500 if quarantined in a government authorized centre\n\t\t\t\tUp to Rs. 1250 per day for a maximum of 30 days if quarantined for 14 days consecutively\n\t\t\t\tUp to Rs. 12,500 for loss of job due to COVID-19 if unemployed for 30 days consecutively\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\tRs.50,000\n\t\t\tRs.1161\n\t\t\t\n\t\t\t\n\t\t\t\tRs. 50,000 on positive diagnosis\n\t\t\t\tRs. 25,000 if quarantined in a government authorized centre\n\t\t\t\tUp to Rs. 2500 per day for a maximum of 30 days if quarantined for 14 days consecutively\n\t\t\t\tUp to Rs. 25,000 for loss of job due to COVID-19 if unemployed for 30 days consecutively\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\tRs.1 Lakh\n\t\t\tRs. 2322\n\t\t\t\n\t\t\t\n\t\t\t\tRs. 1 Lakh on positive diagnosis\n\t\t\t\tRs. 50,000 if quarantined in a government authorised centre\n\t\t\t\tUp to Rs. 5000 per day for a maximum of 30 days if quarantined for 14 days consecutively\n\t\t\t\tUp to Rs. 50,000 for loss of job due to COVID-19 if unemployed for 30 days consecutively\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\tRs. 2 Lakhs\n\t\t\tRs. 4643\n\t\t\t\n\t\t\t\n\t\t\t\tRs. 2 Lakhs on positive diagnosis\n\t\t\t\tRs. 1,00,000 if quarantined in a government authorized centre\n\t\t\t\tUp to Rs. 10,000 per day for a maximum of 30 days if quarantined for 14 days consecutively\n\t\t\t\tUp to Rs. 1,00,000 for loss of job due to COVID-19 if unemployed for 30 days consecutively\n\t\t\t\n\t\t\t\n\t\t\n\t\n\n\n\nAre these premium inclusive of taxes? Yes\n\nWhat is the term of the policy? 1 year\n\nIs there any requirement for any medical tests? No, there is no requirement for any medical tests.",
+    "text_length": 1774,
+    "word_count": 285,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0028",
+    "chunk_index": 28,
+    "text": "What are the documents required to avail this policy? In case of any new customer to the bank, any one of the following OVD documents are required – passport, driving licence, voter ID, MNREGA card, Aadhaar Card, NPRC (National Population Registrar Controller in case of Assam and Meghalaya only). In case of existing customers, no documentation is required.",
+    "text_length": 358,
+    "word_count": 58,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0029",
+    "chunk_index": 29,
+    "text": "What is the age limit for enrolling in this policy? 1 year to 60 years\n\nBy enrolling for this policy, is any family member of insured member is also covered? No, this is an individual cover. Hence, only the insured person is covered under this policy. Is the treatment of COVID-19 in any hospital covered under this policy? No, only treatment in government authorised hospitals is covered under this policy. If the insured person is found infected with COVID-19 within a week of enrolling for this \n\nNo, the initial waiting period for this policy is 15 days, so any claim which comes before 15 days of enrolling for this policy shall not be processed. How is the Certificate of Insurance (COI) provided to the customer? COI shall be sent to the insured person’s mobile number through an SMS on T+5 days (where T is Policy Issuance Day) and by email on the email id provided by the customer. In case the customer has deleted the SMS, how can he receive the COI again? Customers can call our Customer Care number 1860 266 3466. The COI will be sent to the customer again through SMS and email. Alternatively, Branch User or Merchant can also raise a ticket on Fino Sahyog to provide customer COI by providing customer details. What are the key features of the policy which make it unique?",
+    "text_length": 1286,
+    "word_count": 229,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0030",
+    "chunk_index": 30,
+    "text": "This product will reduce the financial implications that this pandemic can bring to an individual. This plan provides 100 % sum insured in a lump sum on being tested positive for the virus. The patient does not need to wait for the entire treatment to be completed to receive the claim. The plan provides 50 % of sum insured if quarantined for 14 days consecutively. The plan provides 5 % of sum insured for loss of pay due to quarantine or COVID-19 treatment for 14 consecutive days, up to a maximum of 30 days. The plan provides 50 % of sum insured for loss of job for a duration of 1 month. Children from 1 year of birth onwards also can be insured under this policy plan. Premium rates are age agnostic i.e., they do not change as per different age brackets. No medical tests required. No documentation required for enrolment. What are the Terms & Conditions which need to be kept in mind before enrolling for this policy? The insured person should not have undergone hospitalisation, surgery or Day Care procedure(s) within 90 days immediately preceding the COI period start date\n\tInsured member should not have travelled to the countries listed in the ‘Travel Advisory & Home Isolation/ Quarantine & restricted travel issued by Ministry of Health & FW, GOI as applicable on the date of policy purchase, 60 days prior to policy purchase and any date after policy purchase date. Travel advisory can be found on https://www.mohfw.gov.in\n\tThe total payment under diagnosis cover and quarantine cover, both put together, shall not exceed 100 % of the sum insured. In case the insured person makes a claim under both loss of job and loss of pay cover, only one of these claims, whichever is higher, will be payable. The loss of job cover is offered only to those employees who receive fixed and regular compensation for performing his/her duties and works full time. What are the key exclusions of the policy?",
+    "text_length": 1909,
+    "word_count": 332,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0032",
+    "chunk_index": 32,
+    "text": "For example, if your hospitalisation expense is Rs5,000, the benefit paid under this policy will still be Rs10,000. No medicals are required in this product even above the age of 45\n\tICICI Lombard has a very good track record of claim payments i.e., it has a claims disposal ratio of 99% as opposed to 7580% in the rest of the industry. When can an insured lodge a claim in case of Dengue & Malaria Insurance? The customer has to initiate a claim within 3 months of the event occurring.. How can you claim for Dengue & Malaria insurance? You can claim in the following ways:\n\n\n\tVisit any Fino Payments Bank branch or Customer Service Point\n\tCall ICICI Lombard’s call centre\n\n\nIf any of the details entered for this policy is correct, can I correct it? Yes, you can. You can approach any Fino Payments Bank branch or Customer Service Point or call ICICI Lombard’s call centre to make any changes within the term of the policy. Can Dengue & Malaria insurance policy be cancelled? How do I cancel it? Yes, you can cancel within 15 days of purchase of policy. You can cancel in the following ways:\n\n\n\tVisit any Fino Payments Bank branch or Customer Service Point\n\tCall Fino Payments Bank\n  Call ICICI Lombard’s call centre\n============================================================\n\n--- INSURANCE |  ---\nWhat is this value-added offering – Hospicash with Shubh Account? Hospicash insurance is offered along with the opening of a new Shubh account for a customer with his/her consent. This is an option given to the customer.",
+    "text_length": 1522,
+    "word_count": 258,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0034",
+    "chunk_index": 34,
+    "text": "Ans. It is an easy way to provide 2 useful financial products to the customer at one go: Shubh SA and Hospicash\n\nWhat are the key features of this value added offering? Consent-based enrolment for Hospicash insurance: While processing a Shubh savings account, customer consent for Hospicash insurance is enabled by ticking the check box. Easy policy booking process: ICICI Lombard Hospicash Policy will be booked 3 days after savings account is activated. Premium payment at ease through auto debit option: Premium payment for Hospicash policy will be auto debited from the customer’s Shubh savings account, based on the consent given by customer while opening the Shubh savings account. Easy access to policy document: Post successful policy booking, customer will receive an SMS confirming policy booking details along with bitly link through which customer can download the policy document. How can we enrol customers for Hospicash while opening Shubh account? If the customer is interested in enrolling for Hospicash while opening Shubh savings account, then you can enrol him/her on step 4, i.e., Payment Screen. How much does the customer need to pay to Fino Bank as initial funding while opting for this value added offering? For those customers, who opt for Hospicash along with Shubh SA, the cash to be taken is Rs399 (annual charges for Shubh SA) + Rs600 (Hospicash base cover premium) = Rs1000. What happens to the Hospicash enrolment, if the Shubh zccount goes into revision? In case the Shubh SA goes in revision, the Hospicash Policy shall still be booked for the customer. What is the TAT for booking Hospicash for the customer, once he/she opts for the same while opening Shubh Account? TAT for the same is 3 working days. What is the TAT for receiving the Certificate of Insurance (COI) of the Hospicash product in case he/she opts for the same while opening Shubh Account? COI for Hospicash shall be sent to the customer on his mobile number immediately on premium deduction from the Shubh Account. Premium deduction will happen 3 days after Shubh account is activated. What if the customer mistakenly deletes the SMS with COI details from his phone? In this case, the customer can avail the COI by visiting any Fino branch or merchant point. ============================================================\n\n--- PERSONAL ACCIDENTAL POLICY |  ---\nWhat is Personal Accidental Policy? ICICI Lombard’s Personal Accidental Policy is now available as a standalone product for our customers. What are the benefits of this Personal Accidental Policy? It provides a fixed benefit in case of unfortunate death or permanent disability in case of an accident to the customer. Policy also covers hospitalisation expenses occurred due to an accident, of Rs1,000 daily for 30 days. This is an annual premium policy subject to renewals. Annual Premium is Rs135(No tax applicable). What are the key features of Personal Accidental Policy? In case of accidental death of the customer, Rs1.25 lakh benefit is payable to the nominee. Rs1.25 lakh benefit is provided for permanent total disability\n   Daily cash benefit of Rs1,000 for a maximum of 30 days for 24 hours confinement in hospital due to accident. Protects customer against loss of income when he/she cannot go to work due to accident. Low premium product with annual premium of Rs135 (No Tax applicable). Premium is same for all age groups. No medicals are required in this product even above the age of 45 years. No documentation is required for policy booking. Policy COI is issued immediately. ICICI Lombard has a very good track record of claim payments. What is the entry age for enrolling for this policy?",
+    "text_length": 3668,
+    "word_count": 597,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0035",
+    "chunk_index": 35,
+    "text": "Entry age for the policy is 20 – 55 yrs. What is the TAT for the policy to start the risk cover of the personal accident of the insured person? Risk Cover starts from T+5 days (T is policy issuance day)\n\nWhat if the customer mistakenly deletes the SMS with COI details from his phone? The customer will receive the COI immediately once enrolment is completed. What if the customer mistakenly deletes the SMS with COI details from his phone? In this case, the COI for the customer is available in the ‘History’ tab of insurance in Fino portal and Mitra application. Customer can search using his/her mobile number and the COI can be sought from the History tab of insurance module with customer authentication. ============================================================\n\n--- UPI |  ---\nUPI stands for Unified Payments Interface (UPI) which is platform provided by NPCI to facilitate inter-operability amongst various banks. It is a one stop solution for multiple bank accounts, one app. It allows all account holders to send and receive money using their smartphones with a single identifier – virtual payments address (VPA)/ UPI ID – without entering any bank account information. Therefore, customers do not need to know the payee's or payer’s IFS Code ode, bank account details, etc. and this makes the process simpler. ============================================================\n\n--- UPI |  ---\nA VPA/ UPI ID is an identifier which you create and link any of your bank accounts to make secure payments. The VPA/ UPI ID can be yourname@finobank or mobilenumber@finobank which is easy to remember. ============================================================\n\n--- UPI |  ---\nAs we are upgrading your UPI experience, you will not be able to UPI transaction on the application between 19-04-2023 8:00 PM to 21-04-2023 10:00 AM .We regret the inconvenience caused and will be back soon. ============================================================\n\n--- UPI |  ---\nA VPA/ UPI ID can be alphabetical, numeric or alphanumeric. It should be of minimum 4 characters. It cannot contain any special characters (*, #, @ etc.) except dot (.) and hyphen (-) which are permissible. Your ID should be easy to remember such as yourname@finobank or mobilenumber@finobank\n============================================================\n\n--- UPI |  ---\nWe have upgrading your UPI experience, You will not be able to UPI transaction on the application between 19-04-2023 8:00 PM to 21-04-2023 10:00 AM .We regret the inconvenience caused . ============================================================\n\n--- UPI |  ---\nGo to Fino BPay app. Click on UPI, you will be asked to register a VPA like yourname@finobank. Once registered, you can add more VPA from the ‘Add VPA’ option in the ‘Manage Section’ of UPI. ============================================================\n\n--- UPI |  ---\nApologies for the inconvenience caused.",
+    "text_length": 2905,
+    "word_count": 437,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0036",
+    "chunk_index": 36,
+    "text": "The application update is complete from our end but Google playstore takes 30-50 minutes. We request you to please try after an hour\n============================================================\n\n--- UPI |  ---\nService charges are levied on debit transactions done through UPI; please refer the schedule of charges for more details\n============================================================\n\n--- UPI |  ---\nWe have upgraded your user experience .We request you to please download the latest version of the application from Google playstore\n============================================================\n\n--- UPI |  ---\nLogin to BPay app and click on UPI. Click on \"Send Money\". Fill out the details on the screen such as beneficiary VPA or account details, amount and remarks. If you have multiple accounts/virtual payment addresses, your default VPA will be selected for debit. Click on ‘Proceed’.",
+    "text_length": 897,
+    "word_count": 125,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0037",
+    "chunk_index": 37,
+    "text": "Please review the next screen carefully to ensure you have filled all details correctly. ============================================================\n\n--- UPI |  ---\nYou can send money by either using IFSC (beneficiary’s account details) or by entering the beneficiary’s VPA. ============================================================\n\n--- UPI |  ---\nYou can make transaction up to Rs25,000 per bank account within 24 hrs. ============================================================\n\n--- UPI |  ---\nUPI PIN (UPI Personal Identification Number) is a 4–6-digit secret code you create/set during the first-time registration with this app. You have to enter this UPI PIN to authorise all bank transactions. If you have already set up a UPI PIN with other UPI apps, you can use the same on BPay. For bank accounts linked to Fino, you can use the BPay MPIN as UPI PIN or create a new MPIN. Important - Please do not share your UPI PIN with anyone. Bharat Interface for Money does not store or read your UPI PIN details and your bank's customer support will never ask for it. ============================================================\n\n--- UPI |  ---\nThe service is instant and available 24X7, even on public/bank holidays. Customers can transfer funds in simple steps by providing the virtual payment address of the beneficiary.",
+    "text_length": 1327,
+    "word_count": 197,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0038",
+    "chunk_index": 38,
+    "text": "Also, there is no pre - registration required for the beneficiary. ============================================================\n\n--- MERCHANT |  ---\nA merchant can offer these services to their customers\n\n\n  Domestic money transfer\n   Bill payment\n   Recharge\n   Travel booking\n============================================================\n\n--- MERCHANT |  ---\nJust register with your name, mobile number and email on the home page so that we can call you back & assist you to become a Fino merchant or give a missed call on 8955559984. This is a very simple and robust process, and you can become a merchant within a few hours. ============================================================\n\n--- MERCHANT |  ---\nFor every transaction, the merchant will receive instant commission\n\tAccess transaction ledger and reconcile your earnings in real time\n\tAccess through mobile App, wired computer & laptop\n\tVerify bank account details before sending money\n\tGenerate receipts in real time with every transaction as a proof of authenticity and reliability for your customers\n\tEasy and hassle-free process\n============================================================\n\n--- MERCHANT |  ---\nFor any failed transaction, Fino will refund your money to your account and the same will be seen in your ledger. ============================================================\n\n--- MERCHANT |  ---\nThe safety of your money is our priority. Your transactions are secured using the highest level of encryption. There are multiple layers of security implemented to protect your money from any unauthorised access. Any unauthorised request is rejected at the outermost security layer itself.",
+    "text_length": 1662,
+    "word_count": 227,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0039",
+    "chunk_index": 39,
+    "text": "============================================================\n\n--- MERCHANT |  ---\nYou can instantly reset your password using forgot password link. ============================================================\n\n--- MERCHANT |  ---\nFor any support on how to become a Merchant, contact our Merchant desk at 022 6868 1234 or drop a mail at care@finobank.com\n============================================================\n\n--- LEGAL ENTITY IDENTIFIER |  ---\nHow to submit Legal Entity Identifier (LEI) Code along with expiry date to Bank? 1.",
+    "text_length": 534,
+    "word_count": 65,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0040",
+    "chunk_index": 40,
+    "text": "Customer to share duly signed Request letter, LEI Certificate along with self-attested ID proof for signature verification. The document to be dispatched to the Banks Registered Office at Fino Payments Bank, Mindspace, Plot No - Gen 2/1/F, Tower- 1, 8 Floor, TTC Industrial Area, MIDC Shirwane, Juinagar, Navi Mumbai - 400706\n\n2. Customer to send the request for updation of LEI No from his registered mail ID to customercare@finobank.com, alternatively the  customer can visit the nearest branch to submit the request. 3.",
+    "text_length": 522,
+    "word_count": 82,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  },
+  {
+    "policy_id": "faq_section",
+    "version_number": "1.0",
+    "chunk_id": "faq_section_1.0_0041",
+    "chunk_index": 41,
+    "text": "Upon receipt of the physical request and post verification of the details the LEI No. shall be updated in banks Core Banking System within 48 hrs. ============================================================\n\n--- REWARD POINTS |  ---\nFino Reward Points is a loyalty reward program offered by Fino Payments Bank to their customers through the FinoPay mobile application. Customers accumulate Fino Reward Points by participating in transactions or engaging in designated events during specified campaign periods. ============================================================\n\n--- REWARD POINTS |  ---\nCustomers will earn Fino Reward Points on selected financial and non-financial transactions (Only successful) made through the FinoPay Mobile app (only on Android). Applicable during the offer period only. ============================================================\n\n--- REWARD POINTS |  ---\nNo, there is no requirement for customers to enter a coupon code to earn Fino Reward Points. ============================================================\n\n--- REWARD POINTS |  ---\nPlease follow steps to check your Fino Reward Points balance:\n\n     1. Log in to the FinoPay mobile application. 2. Navigate to the Rewards Icon located at the bottom of the dashboard screen. 3.",
+    "text_length": 1265,
+    "word_count": 168,
+    "metadata": {
+      "policy_id": "faq_section",
+      "version_number": "1.0",
+      "status": "Active",
+      "effective_date_ts": 1767036985,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-12-30",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "fino_full_qa_dump.txt",
+      "policy_name": "Fino Bank FAQs (Website)",
+      "sr": "FAQ-001"
+    },
+    "extraction_stats": {
+      "total_chars": 88607,
+      "total_words": 13783,
+      "source": "faq_txt"
+    }
+  }
+]

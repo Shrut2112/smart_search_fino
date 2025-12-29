@@ -1,0 +1,436 @@
+[
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0000",
+    "chunk_index": 0,
+    "text": "Cheque Collection Policy V6.0 Cheque Collection Policy INDEX SR \nNo Particulars \nPage No. Introduction \nArrangements for Collection \nTime Frame for collection of local/outstation instruments \nDealing with dishonored cheques \nPayment of interest for delayed collection of instruments \nInstruments lost in transit \nForce Majeure \nCharges \nPolicy revision \nComplaints \nRegulatory reference \n[TABLE-DATA]\nSR\\nNo Particulars Page\\nNo. Introduction 2\nArrangements for Collection 2\nTime Frame for collection of local/outstation instruments 3\nDealing with dishonored cheques 3\nPayment of interest for delayed collection of instruments 4\nInstruments lost in transit 4\nForce Majeure 4\nCharges 5\nPolicy revision 5\nComplaints 5\nRegulatory reference 5\n[/TABLE-DATA] Cheque Collection Policy V6.0 Cheque Collection Policy INDEX SR \nNo \nParticulars \nPage \nNo. Introduction \nArrangements for Collection \nTime Frame for collection of local/outstation instruments \nDealing with dishonored cheques \nPayment of interest for delayed collection of instruments \nInstruments lost in transit \nForce Majeure \nCharges \nPolicy revision \nComplaints \nRegulatory reference\n\n=== PAGE BREAK ===\n\nCheque Collection Policy V6.0 \n. Introduction At present, FINO Payments Bank (FPB) is not operating under CTS membership \nmechanism. Currently, the Bank provides cheque collection facility under the agency \narrangements with ICICI Bank. Cheque collection is allowed only to CASA + customers and thus in case a Customer lodges a \ncheque for collection, it is deemed that he/she is opting to upgrade the existing account to \nCASA+ account subject to eligibility, and thus to the provisions of Cheque Collection  Policy. Appropriate communication is sent to the customers.",
+    "text_length": 1732,
+    "word_count": 238,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0002",
+    "chunk_index": 2,
+    "text": "Arrangements for Collection The bank has applicable processes and systems in place and in line with this policy for the \npurpose of Cheque collection. All the Instruments (cheques /demand drafts either local / \noutstation) deposited by eligible CASA plus customers for credit to their FPB accounts, shall \nbe lodged through ICICI Bank, as per  the arrangement between FPB and ICICI Bank.The \nprocess flow is briefly outlined hereunder: a. The FPB customer deposits/lodges/tenders the instruments at any of the FPB branch/ CSP / Drop Box during branch working hours. b. The FPB branches / Collection Center provides an acknowledgement to the customer for the cheque deposited and arranges for the submission of the cheques to the \ndesignated office of ICICI Bank for lodgment, on the same day  of  collection  of \ncheques at the branch/CSP or maximum by T+1. c.",
+    "text_length": 860,
+    "word_count": 138,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0003",
+    "chunk_index": 3,
+    "text": "ICICI Bank forwards the instruments to the respective CTS grid for realization. d. Upon receipt of cheque deposition report from ICICI bank, the bank processes the shadow credit to customer’s account e. Upon receipt of realization report from ICICI bank, customer account will be finally credited for cleared cases. In case of return of the instrument, ICICI Bank sends the physical cheque with a memo detailing \nreasons for the return. Cheque return charges shall be levied only in cases where the customer is \nat fault and is responsible for such returns and as per schedule of charges. The illustrative list of \nreasons for returns, where the customers are not at fault is attached as Annexure 1. The policy shall be made available on Bank’s website, besides displaying its salient features \non the notice board of the branches/CSPs. The Banks processes and systems shall be suitably modified in case FPB starts participating \nin CTS clearing as a direct or indirect member in future. Cheque Collection Policy V6.0 \n. Introduction At present, FINO Payments Bank (FPB) is not operating under CTS membership \nmechanism. Currently, the Bank provides cheque collection facility under the agency \narrangements with ICICI Bank. Cheque collection is allowed only to CASA + customers and thus in case a Customer lodges a \ncheque for collection, it is deemed that he/she is opting to upgrade the existing account to \nCASA+ account subject to eligibility, and thus to the provisions of Cheque Collection  Policy. Appropriate communication is sent to the customers.",
+    "text_length": 1557,
+    "word_count": 249,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0005",
+    "chunk_index": 5,
+    "text": "Arrangements for Collection The bank has applicable processes and systems in place and in line with this policy for the \npurpose of Cheque collection. All the Instruments (cheques /demand drafts either local / \noutstation) deposited by eligible CASA plus customers for credit to their FPB accounts, shall \nbe lodged through ICICI Bank, as per  the arrangement between FPB and ICICI Bank.The \nprocess flow is briefly outlined hereunder: a. The FPB customer deposits/lodges/tenders the instruments at any of the FPB branch/ \nCSP / Drop Box during branch working hours. b. The FPB branches / Collection Center provides an acknowledgement to the customer \nfor the cheque deposited and arranges for the submission of the cheques to the \ndesignated office of ICICI Bank for lodgment, on the same day  of  collection  of \ncheques at the branch/CSP or maximum by T+1. c.",
+    "text_length": 862,
+    "word_count": 138,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0007",
+    "chunk_index": 7,
+    "text": ". Dealing with dishonored cheques The paying banks are required to clearly indicate the return reason code on the return memo / \nobjection slip which should bear the signature / initial of the bank officials as prescribed in \nRule 6 of the Uniform Regulations and Rules for Bankers’ Clearing Houses (URRBCH). The Bank on receipt of dishonored cheques from ICICI bank shall immediately dispatch the \nsame to its customers on their communication address. Dispatch details such as courier \nName & AWB(Airway Bill) no.",
+    "text_length": 514,
+    "word_count": 83,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0009",
+    "chunk_index": 9,
+    "text": ". Dealing with dishonored cheques The paying banks are required to clearly indicate the return reason code on the return memo / \nobjection slip which should bear the signature / initial of the bank officials as prescribed in \nRule 6 of the Uniform Regulations and Rules for Bankers’ Clearing Houses (URRBCH). The Bank on receipt of dishonored cheques from ICICI bank shall immediately dispatch the \nsame to its customers on their communication address. Dispatch details such as courier \nName & AWB(Airway Bill) no.",
+    "text_length": 514,
+    "word_count": 83,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0010",
+    "chunk_index": 10,
+    "text": "etc. shall be maintained by the branches in cheque outward \nregister. Data in respect of each dishonored cheque for amount of Rs. 1 crore and above shall be \nmade part of bank's MIS. For the purpose of adducing evidence to prove the fact of dishonor \nof cheque on behalf of a complainant (i.e., payee / holder of a dishonored cheque) in any\n\n=== PAGE BREAK ===\n\nCheque Collection Policy V6.0 proceeding relating to dishonored cheque before a court, consumer forum or any other \ncompetent authority, the bank shall extend full co-operation, and shall furnish him/her \ndocumentary proof of fact of dishonor of cheques. The Bank shall place a consolidated report \nin respect of such matters before its Standing Committee on Customer Service, on a quarterly \nbasis.",
+    "text_length": 761,
+    "word_count": 126,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0012",
+    "chunk_index": 12,
+    "text": ". Force Majeure: The Bank is not to compensate customers for delayed credit in case of any unforeseen event (including \nbut not limited to civil commotion, sabotage, lockout, disturbances, accident, fires, natural disasters Cheque Collection Policy V6.0 proceeding relating to dishonored cheque before a court, consumer forum or any other \ncompetent authority, the bank shall extend full co-operation, and shall furnish him/her \ndocumentary proof of fact of dishonor of cheques. The Bank shall place a consolidated report \nin respect of such matters before its Standing Committee on Customer Service, on a quarterly \nbasis.",
+    "text_length": 623,
+    "word_count": 93,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0014",
+    "chunk_index": 14,
+    "text": ". Force Majeure: The Bank is not to compensate customers for delayed credit in case of any unforeseen event (including \nbut not limited to civil commotion, sabotage, lockout, disturbances, accident, fires, natural disasters\n\n=== PAGE BREAK ===\n\nCheque Collection Policy V6.0 or other “Acts of God”, war, damage to the bank’s facilities or of its correspondent bank(s), types of \ntransportation, etc. beyond the control of the bank prevents it from performing its obligations within the \nspecified service delivery parameters.",
+    "text_length": 525,
+    "word_count": 79,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0015",
+    "chunk_index": 15,
+    "text": ". Charges :  \nForallcollectionservicestheBankmayrecoverappropriatecharges,asdecidedbytheBank \nfrom time to time and in line with RBI Guidelines/Notifications also it is been \ncommunicated to customers. .",
+    "text_length": 204,
+    "word_count": 23,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0016",
+    "chunk_index": 16,
+    "text": "Policy Revision : • \nThis policy is reviewed from time to time. • \nSubsequent changes / modifications, consequent upon any change in regulatory \nguidelines, market conditions, etc., such changes  and approvals shall  be deemed to be \npart of the policy and included therein during the time of periodic review. . Complaints: \nAny customer complaints in this regard are handled as per Bank’s Customer Service and customer Grievance Policy.",
+    "text_length": 437,
+    "word_count": 68,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0017",
+    "chunk_index": 17,
+    "text": ". Regulatory Reference: Regulator \nRegulation name \nRegulation date \nRegulation code RBI \nMaster Circular on \nCustomer Service \nst July, \nDBR No.Leg.BC.21/09.07.006/2015-16 RBI Master Directions on \nFrauds – Classification \nand Reporting by \ncommercial banks and \nselect FIs \n(ChequeRelated \nFrauds, Precautions to \nbe taken and Reporting \nto RBI and the Police)x` \nrd July, \nDBS.CO.CFMC.BC.006/23.04.001/2014- \n[TABLE-DATA]\nRegulator Regulation name Regulation\\ndate Regulation code RBI Master Circular on\\nCustomer Service  1st July,\\n2005 DBR No.Leg.BC.21/09.07.006/2015-16 RBI Master Directions on\\nFrauds – Classification\\nand Reporting by\\ncommercial banks and\\nselect FIs\\n(ChequeRelated\\nFrauds, Precautions to\\nbe taken and Reporting\\nto RBI and the Police)x`  3rd July,\\n2017 DBS.CO.CFMC.BC.006/23.04.001/2014-\\n15\n[/TABLE-DATA] Cheque Collection Policy V6.0 or other “Acts of God”, war, damage to the bank’s facilities or of its correspondent bank(s), types of \ntransportation, etc. beyond the control of the bank prevents it from performing its obligations within the \nspecified service delivery parameters.",
+    "text_length": 1119,
+    "word_count": 133,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0018",
+    "chunk_index": 18,
+    "text": ". Charges : \n \nForallcollectionservicestheBankmayrecoverappropriatecharges,asdecidedbytheBank \nfrom time to time and in line with RBI Guidelines/Notifications also it is been \ncommunicated to customers. .",
+    "text_length": 205,
+    "word_count": 23,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  },
+  {
+    "policy_id": "chequecollectionpolicy",
+    "version_number": "1",
+    "chunk_id": "chequecollectionpolicy_1_0019",
+    "chunk_index": 19,
+    "text": "Policy Revision : \n• \nThis policy is reviewed from time to time. • \nSubsequent changes / modifications, consequent upon any change in regulatory \nguidelines, market conditions, etc., such changes  and approvals shall  be deemed to be \npart of the policy and included therein during the time of periodic review. . Complaints: \nAny customer complaints in this regard are handled as per Bank’s Customer Service and \ncustomer Grievance Policy.",
+    "text_length": 439,
+    "word_count": 68,
+    "metadata": {
+      "policy_id": "chequecollectionpolicy",
+      "version_number": "1",
+      "status": "Active",
+      "effective_date_ts": 1744309800,
+      "expiry_date_ts": 4102425000,
+      "effective_date": "2025-04-11",
+      "expiry_date": "2100-01-01",
+      "language": "en",
+      "file_name": "1744362993_ChequeCollectionPolicy.pdf",
+      "last_updated_at": "2025-12-27T14:22:42.473611",
+      "download_url": "https://content.fino.bank.in/sites/default/files/2025-06/1744362993_ChequeCollectionPolicy.pdf",
+      "sr": "15"
+    },
+    "extraction_stats": {
+      "total_pages": 6,
+      "text_blocks": 116,
+      "table_blocks": 3,
+      "raw_chars": 11674,
+      "total_chars": 24425,
+      "total_words": 3720
+    }
+  }
+]
