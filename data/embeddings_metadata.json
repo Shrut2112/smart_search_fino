@@ -1,0 +1,4172 @@
+[
+  {
+    "chunk_id": "attached_onappointmentofstatutoryauditors_1_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "attached_onappointmentofstatutoryauditors_1_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "attached_onappointmentofstatutoryauditors_1_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "attached_onappointmentofstatutoryauditors_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "attached_onappointmentofstatutoryauditors_1_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "attached_onappointmentofstatutoryauditors_1_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "attached_onappointmentofstatutoryauditors_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "attached_onappointmentofstatutoryauditors_1_0008",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "attached_onappointmentofstatutoryauditors_1_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "attached_onappointmentofstatutoryauditors_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0008",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0012",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0020",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0030",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0033",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0034",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0035",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0036",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0037",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "bsbdapolicy_1_0039",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0012",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0015",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "chequecollectionpolicy_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0008",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0012",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0015",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0020",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0026",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0030",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0031",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "citizenscharter_1_0032",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0008",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0012",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0024",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0025",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0026",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0030",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0031",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0032",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0033",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0035",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0036",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0039",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0041",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0042",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0043",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0045",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0046",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0047",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0048",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0050",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0051",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0052",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0053",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0054",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "codeofbankscommittmenttocustomers_1_0055",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0024",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0025",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0026",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0030",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0031",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0032",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0033",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0034",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0035",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0036",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0037",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0040",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0041",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0042",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0043",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0044",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0045",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0048",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0049",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0050",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0051",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0052",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0053",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0054",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0056",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0057",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0058",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0059",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0060",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0061",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0062",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0063",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0064",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0066",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0069",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0071",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0073",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0074",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0075",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0076",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0077",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0079",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0080",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0081",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0082",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0083",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0085",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0086",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "comprehensivedepositpolicy_7_0087",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0012",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0015",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0020",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0024",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0026",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0031",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0039",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0040",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0041",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0044",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0045",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0048",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0049",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0050",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0051",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customercompensationpolicy_1_0052",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0008",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0012",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0020",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0025",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customergrievancepolicy_1_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0008",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0012",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0015",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0024",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0025",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0026",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0030",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0031",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0032",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0033",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0034",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0035",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0036",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0037",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0038",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0039",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0040",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0041",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0042",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0043",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0044",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0045",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0046",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0048",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0049",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0050",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0051",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0052",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0054",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0057",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0058",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0059",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0060",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0061",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0062",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0064",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0066",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0067",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0068",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0070",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0072",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0073",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0075",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0076",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0077",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0079",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0081",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0082",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0084",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0086",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0087",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0089",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0091",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0092",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0093",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0094",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0095",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0096",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0097",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0098",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0099",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0100",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0101",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0102",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0103",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0104",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0105",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0107",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0108",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0109",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0110",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0111",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0113",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0114",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0115",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0117",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0118",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0119",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0121",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0122",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0123",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0124",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0125",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0127",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0128",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0129",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0130",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0131",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0132",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0133",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0134",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0135",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0137",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0138",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0139",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0140",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0141",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0142",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0143",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0144",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0145",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0148",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0149",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0150",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0151",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0152",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0154",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0155",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0156",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0157",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0159",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0160",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0161",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0162",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0163",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0164",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0165",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0166",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0168",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0172",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0174",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0175",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0177",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0178",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0179",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0181",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0182",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0185",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0187",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0188",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0190",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0192",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0194",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0195",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0198",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0205",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0206",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0207",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0208",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0209",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0210",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0211",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0212",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0213",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0214",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0216",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0217",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0218",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0220",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0221",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0222",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0223",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0224",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0225",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0226",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0227",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0228",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0229",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "customerservicepolicy_1_0230",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0008",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0015",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0024",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0025",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0026",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0030",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0031",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0036",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0037",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0044",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "deceasedclaimsettlementpolicy_1_0046",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0015",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0020",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0024",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0025",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0030",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0032",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0034",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0035",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0036",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0037",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0038",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0039",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0040",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "faq_section_1.0_0041",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0008",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0012",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0015",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0020",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0024",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0025",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0026",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0030",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0031",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0033",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0035",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0037",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0038",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0039",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0041",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0042",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0043",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0044",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0046",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0047",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0048",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0050",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0051",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0053",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0055",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0057",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0058",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0060",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0066",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0068",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0070",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0071",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0072",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0074",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0076",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0077",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0078",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0079",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0080",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0081",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0083",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0084",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0085",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0086",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0088",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0089",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0090",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0093",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0094",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0095",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0098",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0102",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0104",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0107",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0108",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0109",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0111",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0112",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0113",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0117",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0118",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0120",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0121",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0122",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0123",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0125",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0126",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0127",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0133",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0137",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0138",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0139",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0140",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0141",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0142",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0143",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0145",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0146",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0147",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0148",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0150",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0151",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0153",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0154",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0155",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0156",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0158",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0159",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0161",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0162",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0163",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0165",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0166",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0167",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0169",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0170",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0174",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0175",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0176",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0177",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0179",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0180",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0181",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0182",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0185",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0186",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0187",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0188",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0189",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0191",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0192",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0193",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0196",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0198",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0199",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0200",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0201",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0202",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0203",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0204",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0205",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0206",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0208",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0209",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0210",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0212",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0213",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0214",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0215",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0216",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0217",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0218",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0219",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0220",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0221",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0223",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0227",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0228",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0229",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0233",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0234",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0235",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0236",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0237",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0238",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0239",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0243",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0244",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0245",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0247",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0250",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0251",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0253",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0255",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0256",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0260",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0261",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0262",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0264",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0265",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0268",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0269",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0271",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0272",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0273",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0274",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0280",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0282",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0289",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0290",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0291",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0293",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0294",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0296",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0300",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0301",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0302",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0304",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0305",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0307",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0308",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0309",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0310",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0311",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0312",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "kycamlcftpolicy_1_0313",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0008",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0015",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0025",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0026",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "policyoncustomersuitabilityandappropriateness_1_0030",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0002",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0009",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0012",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0015",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0020",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0024",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0025",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0026",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0028",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0029",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0030",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0031",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0032",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0034",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0035",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0036",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0037",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0038",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0039",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0040",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "privacy_formitraapplication_1_0041",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0000",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0001",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0003",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0004",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0005",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0006",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0007",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0008",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0010",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0011",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0012",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0013",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0014",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0015",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0016",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0017",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0018",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0019",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0020",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0021",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0022",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0023",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0025",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0026",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0027",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0031",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0032",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0034",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0035",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0036",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0037",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0038",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0039",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0040",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0041",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0042",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0043",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0045",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0046",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0048",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0049",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0050",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0051",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0052",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0053",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0055",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0057",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0058",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0060",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0061",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0062",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0063",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0065",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0067",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0070",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0074",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0076",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0077",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0078",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0080",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0081",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0083",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0084",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0085",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0086",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0087",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0088",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0089",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0090",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0091",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  },
+  {
+    "chunk_id": "revisedkyc_wef2ndmay2023_1_0095",
+    "embedding_dims": 1024,
+    "embedding_model": "e5-large"
+  }
+]
