@@ -1,0 +1,10 @@
+Sample Fino Bank policy document for parser testing
+Page 1: Deposit policy details
+[TABLE]
+Name    Amount    Date
+John    5000      2025-01-15
+Jane    2500      2025-01-16
+[/TABLE]
+
+Classification: Internal Use Only
+FINO Payments Bank Limited
