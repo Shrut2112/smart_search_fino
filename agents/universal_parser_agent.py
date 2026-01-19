@@ -1,11 +1,4 @@
 # agents/universal_parser_agent.py
-"""
-Fino Bank RAG Pipeline: Universal Parser Agent (Production Fixed)
-✅ Naming agent integration (normalized_filename = doc_id)
-✅ Production chunk format 
-✅ Rich metadata + quality scoring
-✅ Single source of truth
-"""
 
 from typing import TypedDict, List, Dict, Any, Tuple
 from pathlib import Path
@@ -20,7 +13,7 @@ from langchain_experimental.text_splitter import SemanticChunker
 from langchain_huggingface import HuggingFaceEmbeddings
 import io
 
-# Optional OCR (production safe)
+# Optional OCR 
 try:
     import pytesseract
     from PIL import Image
@@ -29,24 +22,20 @@ except ImportError:
     HAS_OCR = False
 
 # =============================================================================
-# PRODUCTION STATE (Naming → Parser → Comparison)
+# STATE (Naming → Parser → Comparison)
 # =============================================================================
 
 class ParserState(TypedDict):
     file_path: str
-    normalized_filename: str        # ✅ SOURCE OF TRUTH (from naming agent)
+    normalized_filename: str       # from naming  
     raw_text: str
-    chunks: List[Dict[str, Any]]    # ✅ Production RAG format
-    metadata: Dict[str, Any]        # ✅ Document-level stats
+    chunks: List[Dict[str, Any]]    
+    metadata: Dict[str, Any]        
     quality_score: float
     extraction_stats: Dict[str, Any]
     tables: List[str]
     parsing_errors: List[str]
-    status: str
-
-# =============================================================================
-# INFRA INTERFACES (Pipeline layer implements)
-# =============================================================================
+    status: str   # failed / unsupported_format / chunked
 
 def log_extraction_metrics(metrics: Dict):
     """INFRA HOOK: LangSmith/Prometheus - pipeline provides"""
@@ -57,7 +46,7 @@ def log_extraction_metrics(metrics: Dict):
 # =============================================================================
 
 def extract_structure_fixed(state: ParserState) -> ParserState:
-    """Blocks → Tables → Fallback (Antigravity layers perfected)"""
+    """Blocks → Tables → Fallback """
     file_path = Path(state['file_path'])
     
     if not file_path.exists():
@@ -170,13 +159,12 @@ def extract_structure_fixed(state: ParserState) -> ParserState:
 # =============================================================================
 
 def clean_text_fixed(state: ParserState) -> ParserState:
-    """✅ normalized_filename = doc_id (NO HASHING)"""
+    """ normalized_filename = doc_id (NO HASHING)"""
     text = state["raw_text"]
     
     # Fino-specific cleaning
     text = re.sub(r'Classification: Internal.*?(?=\n{2,}|\Z)', '', text, flags=re.IGNORECASE | re.DOTALL)
     text = re.sub(r'FINO Payments Bank Limited\s*\n?', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'^\s*\d+\s*\n?', '', text, flags=re.MULTILINE)
     text = re.sub(r'\n{5,}', '\n\n\n', text)
     text = re.sub(r'\s{4,}', ' ', text)
     
@@ -184,13 +172,14 @@ def clean_text_fixed(state: ParserState) -> ParserState:
     state["extraction_stats"]["total_chars_post_clean"] = len(text)
     state["extraction_stats"]["total_words_post_clean"] = len(text.split())
     
-    # ✅ SINGLE SOURCE OF TRUTH
-    doc_id = state["normalized_filename"]  # deposit_policy_v5.pdf
+    #  SINGLE SOURCE OF TRUTH
+    doc_id = state["normalized_filename"]  
     
+    #this is doc hash
     content_hash = hashlib.sha256(text.encode()).hexdigest()
     
     metadata = {
-        "doc_id": doc_id,  # ✅ Exact naming agent output
+        "doc_id": doc_id,  #  Exact naming agent output
         "normalized_filename": state["normalized_filename"],
         "content_hash": content_hash,
         "extraction_stats": state["extraction_stats"].copy(),
@@ -207,13 +196,13 @@ def clean_text_fixed(state: ParserState) -> ParserState:
     }
 
 # =============================================================================
-# PRODUCTION CHUNKING (Canonical IDs)
+#  CHUNKING (Canonical IDs)
 # =============================================================================
 
 def semantic_chunking_production(state: ParserState) -> ParserState:
-    """✅ Canonical chunk IDs: docname_c001"""
+    """ Canonical chunk IDs: docname_c001"""
     text = state["raw_text"]
-    doc_id = state["metadata"]["doc_id"]  # ✅ normalized_filename
+    doc_id = state["metadata"]["doc_id"]  #  normalized_filename
     
     if not text.strip():
         return {**state, "chunks": [], "quality_score": 0.0}
@@ -222,7 +211,7 @@ def semantic_chunking_production(state: ParserState) -> ParserState:
     # === SEMANTIC CHUNKING MODEL (PHASE-1 COMPATIBLE) ===
     E5_MODEL_PATH = os.getenv(
         "EMBEDDING_MODEL_PATH",
-        r"D:\models\e5-large"   # 👈 EXACTLY what you used in Phase-1
+        r"D:\models\e5-large"   # EXACTLY what you used in Phase-1
     )
 
     if not Path(E5_MODEL_PATH).exists():
@@ -235,7 +224,7 @@ def semantic_chunking_production(state: ParserState) -> ParserState:
         model_name=E5_MODEL_PATH
     )
 
-    print(f"🧠 Semantic chunking model (LOCAL E5): {E5_MODEL_PATH}")
+    print(f" Semantic chunking model (LOCAL E5): {E5_MODEL_PATH}")
 
  
     # Semantic chunking
@@ -253,19 +242,21 @@ def semantic_chunking_production(state: ParserState) -> ParserState:
             f"Semantic chunking failed using E5 model: {e}"
         )
     
-    # ✅ PRODUCTION CHUNKS
+    #  PRODUCTION CHUNKS
     chunks = []
     for i, chunk_text in enumerate(chunk_texts):
         chunk_text = chunk_text.strip()
         if len(chunk_text) < 100:
             continue
             
+
+        #this is chunk hash
         is_table = bool(re.search(r'\[TABLE[^\]]*\]', chunk_text))
         chunk_hash = hashlib.md5(chunk_text.encode()).hexdigest()
         quality = calculate_chunk_quality(chunk_text, is_table)
         
         chunk = {
-            "chunk_id": f"{doc_id}_c{i:03d}",  # ✅ Canonical: deposit_policy_v5.pdf_c001
+            "chunk_id": f"{doc_id}_c{i:03d}", 
             "chunk_index": i,
             "text": chunk_text,
             "text_hash": chunk_hash,
@@ -274,7 +265,7 @@ def semantic_chunking_production(state: ParserState) -> ParserState:
             "is_table": is_table,
             "quality_score": quality,
             "metadata": {
-                "doc_id": doc_id,  # ✅ SAME EVERYWHERE
+                "doc_id": doc_id,  
                 "normalized_filename": state["normalized_filename"],
                 "chunk_index": i,
                 "chunk_type": "table" if is_table else "text",
@@ -284,6 +275,7 @@ def semantic_chunking_production(state: ParserState) -> ParserState:
         }
         chunks.append(chunk)
     
+    #doc score
     quality_score = sum(c["quality_score"] for c in chunks) / max(len(chunks), 1)
     
     return {
@@ -318,7 +310,7 @@ def calculate_chunk_quality(text: str, is_table: bool = False) -> float:
     return min(1.0, score)
 
 # =============================================================================
-# OCR (Production-safe, limited)
+# OCR
 # =============================================================================
 
 def ocr_fallback_fixed(state: ParserState) -> ParserState:
