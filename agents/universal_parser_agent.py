@@ -417,8 +417,10 @@ def run_parser_pipeline(file_path: str, normalized_filename: str) -> ParserState
 
 if __name__ == "__main__":
     # Simulate naming agent output
-    test_filename = "deposit_policy_v5.pdf"
-    test_file = "sample_policy.pdf"
+    BASE_DIR = Path(__file__).parent.parent  
+
+    test_file = BASE_DIR / "data" / "pdfs" / "deposit_policy_v1.pdf"
+    test_filename = "deposit_policy_v1.pdf"  
     
     result = run_parser_pipeline(test_file, test_filename)
     
