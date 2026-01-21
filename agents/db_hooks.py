@@ -6,17 +6,6 @@ from contextlib import contextmanager
 from dotenv import load_dotenv
 from psycopg2.extras import execute_values
 
-load_dotenv()
-
-# ye config change krde
-
-DB_CONFIG = {
-    "dbname": os.getenv("DB_NAME", "fino_db"),
-    "user": os.getenv("DB_USER", "postgres"),
-    "password": os.getenv("DB_PASSWORD", "postgres"),
-    "host": os.getenv("DB_HOST", "localhost"),
-    "port": os.getenv("DB_PORT", "5432")
-}
 
 
 @contextmanager
@@ -24,7 +13,8 @@ def get_db_connection():
     """Safe DB connection with auto-close"""
     conn = None
     try:
-        conn = psycopg2.connect("postgresql://postgres:[Codeis@04]@db.cxoartbafydqirizvyzh.supabase.co:5432/postgres")
+        DB_URL = os.environ("DB_URL")
+        conn = psycopg2.connect()
         yield conn
     finally:
         if conn:
