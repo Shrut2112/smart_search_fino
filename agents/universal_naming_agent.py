@@ -2,15 +2,16 @@
 from typing import TypedDict, Callable
 from pathlib import Path
 import re
-
-class NamingState(TypedDict):
-    original_filename: str
-    normalized_name: str
-    version: str
-    revision_tag: str | None
-    is_collision: bool
-    confidence: float
-    version_detected: bool
+from utils.schema import State
+# using global state instead
+# class NamingState(TypedDict):
+#     original_filename: str
+#     normalized_filename: str
+#     version: str
+#     revision_tag: str | None
+#     is_collision: bool
+#     confidence: float
+#     version_detected: bool
 
 # INFRA INTERFACE (TOP LEVEL - clearly marked)
 def collision_exists(filename: str) -> bool:
@@ -27,7 +28,7 @@ def collision_exists(filename: str) -> bool:
     """
     return False  # ← INTENTIONAL STUB
 
-def universal_name_refiner_v4(state: NamingState) -> NamingState:
+def universal_name_refiner_v4(state: State) -> State:
     """Pure agent logic - NO DB DEPENDENCY"""
     filename = Path(state['original_filename']).stem.lower()
     
@@ -73,18 +74,18 @@ def universal_name_refiner_v4(state: NamingState) -> NamingState:
         base_components.append(revision_tag)
     
     base_name = "_".join(base_components)
-    normalized_name = f"{base_name}.pdf"
+    normalized_filename = f"{base_name}.pdf"
     
     # STEP 7: LENGTH SAFETY
-    if len(normalized_name) > 80:
+    if len(normalized_filename) > 80:
         version_part = f"_{version}{'_revised' if revision_tag else ''}.pdf"
         max_main = 80 - len(version_part)
         clean_name = clean_name[:max_main]
-        normalized_name = f"{clean_name}{version_part}"
+        normalized_filename = f"{clean_name}{version_part}"
     
     # STEP 8: COLLISION RESOLUTION (DB-AGNOSTIC)
     counter = 0
-    final_name = normalized_name
+    final_name = normalized_filename
     
     # 👈 INTERFACE CALL (Infra provides implementation)
     while collision_exists(final_name) and counter < 999:
@@ -103,7 +104,7 @@ def universal_name_refiner_v4(state: NamingState) -> NamingState:
     
     return {
         **state,
-        "normalized_name": final_name,
+        "normalized_filename": final_name,
         "version": version,
         "revision_tag": revision_tag,
         "version_detected": version_detected,

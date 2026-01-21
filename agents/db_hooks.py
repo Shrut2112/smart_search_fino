@@ -4,6 +4,7 @@ from typing import List, Dict, Any
 import os
 from contextlib import contextmanager
 from dotenv import load_dotenv
+from psycopg2.extras import execute_values
 
 load_dotenv()
 
@@ -23,11 +24,27 @@ def get_db_connection():
     """Safe DB connection with auto-close"""
     conn = None
     try:
-        conn = psycopg2.connect(**DB_CONFIG)
+        conn = psycopg2.connect("postgresql://postgres:[Codeis@04]@db.cxoartbafydqirizvyzh.supabase.co:5432/postgres")
         yield conn
     finally:
         if conn:
             conn.close()
+
+def check_doc_with_name_version(filename:str,version_no:str)->bool:
+    """Check Doc exists if no revised name"""
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT EXISTS(
+                    SELECT 1
+                    FROM document_version
+                    WHERE doc_id = %s and version = %s
+                )                
+                """,(filename,version_no))
+
+            result = cur.fetchone()
+            return result[0] if result else False
+    
 
 def query_doc_exists(doc_hash: str) -> bool:
     """SHA256 doc hash exists? check"""
@@ -112,8 +129,6 @@ def upsert_chunks(chunks: List[Dict[str, Any]]):
                     chunk["metadata"].get("chunk_index", 0),
                     chunk["metadata"].get("quality_score", 0.0)
                 ))
-
-            from psycopg2.extras import execute_values
             
             execute_values(cur, """
                 INSERT INTO chunks (

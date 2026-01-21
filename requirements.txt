@@ -21,3 +21,5 @@ numpy
 pillow
 pytesseract
 pytest
+pip
+psycopg2

@@ -12,6 +12,9 @@ from langgraph.graph import StateGraph, END
 from langchain_experimental.text_splitter import SemanticChunker
 from langchain_huggingface import HuggingFaceEmbeddings
 import io
+from utils.schema import State
+from dotenv import load_dotenv
+load_dotenv()
 
 # Optional OCR 
 try:
@@ -25,17 +28,17 @@ except ImportError:
 # STATE (Naming → Parser → Comparison)
 # =============================================================================
 
-class ParserState(TypedDict):
-    file_path: str
-    normalized_filename: str       # from naming  
-    raw_text: str
-    chunks: List[Dict[str, Any]]    
-    metadata: Dict[str, Any]        
-    quality_score: float
-    extraction_stats: Dict[str, Any]
-    tables: List[str]
-    parsing_errors: List[str]
-    status: str   # failed / unsupported_format / chunked
+# class ParserState(TypedDict):
+#     original_filename: str
+#     normalized_filename: str       # from naming  
+#     raw_text: str
+#     chunks: List[Dict[str, Any]]    
+#     metadata: Dict[str, Any]        
+#     quality_score: float
+#     extraction_stats: Dict[str, Any]
+#     tables: List[str]
+#     parsing_errors: List[str]
+#     status: str   # failed / unsupported_format / chunked
 
 def log_extraction_metrics(metrics: Dict):
     """INFRA HOOK: LangSmith/Prometheus - pipeline provides"""
@@ -45,29 +48,29 @@ def log_extraction_metrics(metrics: Dict):
 # LAYER 1-3: EXTRACTION ENGINE (Fixed)
 # =============================================================================
 
-def extract_structure_fixed(state: ParserState) -> ParserState:
+def extract_structure_fixed(state: State) -> State:
     """Blocks → Tables → Fallback """
-    file_path = Path(state['file_path'])
+    original_filename = Path(state['original_filename'])
     
-    if not file_path.exists():
+    if not original_filename.exists():
         return {
             **state,
             "status": "failed",
-            "parsing_errors": [f"File not found: {file_path}"],
+            "parsing_errors": [f"File not found: {original_filename}"],
             "chunks": [],
             "quality_score": 0.0
         }
     
-    if file_path.suffix.lower() != '.pdf':
+    if original_filename.suffix.lower() != '.pdf':
         return {
             **state,
             "status": "unsupported_format",
-            "parsing_errors": [f"Unsupported format: {file_path.suffix}"],
+            "parsing_errors": [f"Unsupported format: {original_filename.suffix}"],
             "chunks": []
         }
     
     try:
-        doc = fitz.open(file_path)
+        doc = fitz.open(original_filename)
     except Exception as e:
         return {
             **state,
@@ -139,10 +142,11 @@ def extract_structure_fixed(state: ParserState) -> ParserState:
             
         full_text_parts.append("\n".join(page_text_content))
     
-    doc.close()
-    
     full_text = "\n\n=== PAGE BREAK ===\n\n".join(full_text_parts)
     needs_ocr = len(doc) > 0 and (low_quality_pages / len(doc)) > 0.2
+    
+    doc.close()
+    
     
     return {
         **state,
@@ -158,7 +162,7 @@ def extract_structure_fixed(state: ParserState) -> ParserState:
 # LAYER 4: CLEANING + METADATA (SINGLE SOURCE OF TRUTH)
 # =============================================================================
 
-def clean_text_fixed(state: ParserState) -> ParserState:
+def clean_text_fixed(state: State) -> State:
     """ normalized_filename = doc_id (NO HASHING)"""
     text = state["raw_text"]
     
@@ -199,7 +203,7 @@ def clean_text_fixed(state: ParserState) -> ParserState:
 #  CHUNKING (Canonical IDs)
 # =============================================================================
 
-def semantic_chunking_production(state: ParserState) -> ParserState:
+def semantic_chunking_production(state: State) -> State:
     """ Canonical chunk IDs: docname_c001"""
     text = state["raw_text"]
     doc_id = state["metadata"]["doc_id"]  #  normalized_filename
@@ -220,8 +224,9 @@ def semantic_chunking_production(state: ParserState) -> ParserState:
             "Set EMBEDDING_MODEL_PATH correctly."
         )
 
+    print(f"Model is getting load")
     embeddings = HuggingFaceEmbeddings(
-        model_name=E5_MODEL_PATH
+         model_name=E5_MODEL_PATH
     )
 
     print(f" Semantic chunking model (LOCAL E5): {E5_MODEL_PATH}")
@@ -313,12 +318,12 @@ def calculate_chunk_quality(text: str, is_table: bool = False) -> float:
 # OCR
 # =============================================================================
 
-def ocr_fallback_fixed(state: ParserState) -> ParserState:
+def ocr_fallback_fixed(state: State) -> State:
     """OCR only first 5 pages if needed"""
     if not state.get("needs_ocr", False) or not HAS_OCR:
         return state
     
-    pdf_path = Path(state['file_path'])
+    pdf_path = Path(state['original_filename'])
     doc = fitz.open(pdf_path)
     ocr_parts = []
     
@@ -348,7 +353,7 @@ def ocr_fallback_fixed(state: ParserState) -> ParserState:
 # WORKFLOW ROUTING
 # =============================================================================
 
-def quality_gate_fixed(state: ParserState) -> str:
+def quality_gate_fixed(state: State) -> str:
     """Smart conditional routing"""
     if state.get("needs_ocr", False) and HAS_OCR:
         return "ocr"
@@ -358,40 +363,43 @@ def quality_gate_fixed(state: ParserState) -> str:
 # PERFECTED LANGGRAPH
 # =============================================================================
 
-workflow = StateGraph(ParserState)
-workflow.add_node("extract", extract_structure_fixed)
-workflow.add_node("ocr", ocr_fallback_fixed)
-workflow.add_node("clean", clean_text_fixed)
-workflow.add_node("chunk", semantic_chunking_production)
+def parser_graph(state:State):
+    workflow = StateGraph(State)
+    workflow.add_node("extract", extract_structure_fixed)
+    workflow.add_node("ocr", ocr_fallback_fixed)
+    workflow.add_node("clean", clean_text_fixed)
+    workflow.add_node("chunk", semantic_chunking_production)
 
-workflow.set_entry_point("extract")
-workflow.add_conditional_edges("extract", quality_gate_fixed, {
-    "ocr": "ocr",
-    "clean": "clean"
-})
-workflow.add_edge("ocr", "clean")
-workflow.add_edge("clean", "chunk")
-workflow.add_edge("chunk", END)
+    workflow.set_entry_point("extract")
+    workflow.add_conditional_edges("extract", quality_gate_fixed, {
+        "ocr": "ocr",
+        "clean": "clean"
+    })
+    workflow.add_edge("ocr", "clean")
+    workflow.add_edge("clean", "chunk")
+    workflow.add_edge("chunk", END)
 
-parser_agent = workflow.compile()
+    parser_agent = workflow.compile()
+    
+    return parser_agent
 
 # =============================================================================
 # PRODUCTION INTEGRATION API
 # =============================================================================
 
-def run_parser_pipeline(file_path: str, normalized_filename: str) -> ParserState:
+# def run_parser_pipeline(original_filename: str, normalized_filename: str) -> ParserState:
     """
     Naming Agent → Parser Agent handoff
     
     Args:
-        file_path: Raw PDF path
+        original_filename: Raw PDF path
         normalized_filename: Naming agent output ("deposit_policy_v5.pdf")
     
     Returns:
         Complete ParserState with production chunks
     """
     result = parser_agent.invoke({
-        "file_path": file_path,
+        "original_filename": original_filename,
         "normalized_filename": normalized_filename,  # ✅ Source of truth
         "chunks": [],
         "parsing_errors": [],
@@ -415,20 +423,20 @@ def run_parser_pipeline(file_path: str, normalized_filename: str) -> ParserState
 # TEST & VALIDATION
 # =============================================================================
 
-if __name__ == "__main__":
-    # Simulate naming agent output
-    BASE_DIR = Path(__file__).parent.parent  
+# if __name__ == "__main__":
+#     # Simulate naming agent output
+#     BASE_DIR = Path(__file__).parent.parent  
 
-    test_file = BASE_DIR / "data" / "pdfs" / "deposit_policy_v1.pdf"
-    test_filename = "deposit_policy_v1.pdf"  
+#     test_file = BASE_DIR / "data" / "pdfs" / "deposit_policy_v1.pdf"
+#     test_filename = "deposit_policy_v1.pdf"  
     
-    result = run_parser_pipeline(test_file, test_filename)
+#     result = run_parser_pipeline(test_file, test_filename)
     
-    print("✅ PIPELINE COMPLETE")
-    print(f"📄 Doc ID: {result['metadata']['doc_id']}")
-    print(f"📊 Chunks: {len(result['chunks'])}")
-    print(f"⭐ Quality: {result['quality_score']:.3f}")
-    print(f"📋 Tables: {result['extraction_stats']['table_blocks']}")
-    print(f"\n🔗 First chunk: {result['chunks'][0]['chunk_id']}")
-    print(f"🔗 Chunk doc_id: {result['chunks'][0]['metadata']['doc_id']}")
-    print(f"✅ CONSISTENT: {result['metadata']['doc_id'] == result['chunks'][0]['metadata']['doc_id']}")
+#     print("✅ PIPELINE COMPLETE")
+#     print(f"📄 Doc ID: {result['metadata']['doc_id']}")
+#     print(f"📊 Chunks: {len(result['chunks'])}")
+#     print(f"⭐ Quality: {result['quality_score']:.3f}")
+#     print(f"📋 Tables: {result['extraction_stats']['table_blocks']}")
+#     print(f"\n🔗 First chunk: {result['chunks'][0]['chunk_id']}")
+#     print(f"🔗 Chunk doc_id: {result['chunks'][0]['metadata']['doc_id']}")
+#     print(f"✅ CONSISTENT: {result['metadata']['doc_id'] == result['chunks'][0]['metadata']['doc_id']}")
