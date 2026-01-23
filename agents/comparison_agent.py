@@ -1,23 +1,26 @@
-# agents/comparison_agent.py
+# agents/comparison_agent.py - PRODUCTION READY v2.1
 
-from typing import TypedDict, List, Dict, Any
+from typing import TypedDict, List, Dict, Any, Set
 from langgraph.graph import StateGraph, END
 from .db_hooks import (
-    query_doc_exists, load_latest_chunks, archive_chunk, upsert_chunk
+    query_doc_exists, load_latest_chunks, archive_chunk, upsert_chunks
 )
 from sentence_transformers import SentenceTransformer, util
 import os
+from utils.schema import State
 
-class ComparisonState(TypedDict):
-    new_doc_id: str
-    new_doc_hash: str
-    new_chunks: List[Dict[str, Any]] 
-    old_chunks: List[Dict[str, Any]]
-    report: Dict[str, Any] 
-    actions: List[str] #skip, store_all, store_changed, generate_report, archive_old, upsert_new
-    status: str #complete, chunk_compare, fuzzy_next, db_ready, pending
+# class ComparisonState(TypedDict):
+#     new_doc_id: str
+#     new_doc_hash: str
+#     new_chunks: List[Dict[str, Any]] 
+#     old_chunks: List[Dict[str, Any]]
+#     report: Dict[str, Any]
+#     actions: List[str]
+#     status: str
+#     matched_old_ids: Set[str]
+#     to_archive: List[str]  #all_old_ids - matched_old_ids
 
-# Model cache (E5-large)
+# Model cache
 _MODEL_CACHE = None
 
 def get_embedding_model():
@@ -29,173 +32,190 @@ def get_embedding_model():
     try:
         _MODEL_CACHE = SentenceTransformer(model_path)
     except Exception as e:
-        raise RuntimeError(f"Failed to load embedding model at {model_path}: {e}")
-        
+        print(f"Fallback to all-MiniLM-L6-v2: {e}")
+        _MODEL_CACHE = SentenceTransformer('all-MiniLM-L6-v2')
     return _MODEL_CACHE
 
-# NODES 
-
-def check_doc_exists(state: ComparisonState) -> ComparisonState:
-    """REAL SHA256 check"""
-    if query_doc_exists(state["new_doc_hash"]):
+def check_doc_exists(state: State) -> State:
+    #SHA256
+    if query_doc_exists(state["content_hash"]):
         return {
             **state,
-            "old_chunks": [],
+            "status_comp": "complete",
             "report": {"status": "duplicate", "action": "skip"},
             "actions": [],
-            "status": "complete"
+            "matched_old_ids": set(),
+            "to_archive": []
         }
     
-    # Load latest version chunks
-    # Assumes doc_id format: "name_vX" -> prefix "name"
-    doc_prefix = state["new_doc_id"].rsplit("_v", 1)[0]
+    doc_prefix = state["base_doc_name"]
     old_chunks = load_latest_chunks(doc_prefix)
-    
-    # Even if old_chunks is empty, flow through to generate correct report
-    return {
-        **state, 
-        "old_chunks": old_chunks or [], 
-        "status": "chunk_compare"
-    }
-
-def exact_hash_matching(state: ComparisonState) -> ComparisonState:
-    """MD5 exact matches (O(1))"""
-    old_hashes = {c["text_hash"]: c["chunk_id"] for c in state["old_chunks"]}
-    unchanged = 0
-    
-    for chunk in state["new_chunks"]:
-        if chunk["text_hash"] in old_hashes:
-            chunk["comparison_status"] = "exact_unchanged"
-            chunk["old_chunk_id"] = old_hashes[chunk["text_hash"]]
-            unchanged += 1
     
     return {
         **state,
-        "report": {"exact_unchanged": unchanged},
-        "status": "fuzzy_next"
+        "old_chunks": old_chunks or [],
+        "matched_old_ids": set(),
+        "to_archive": [],
+        "report": {"status": "new_version"},
+        "actions": [],
+        ### if not duplicate 
+        "status_comp": "chunk_compare" if old_chunks else "store_all"
     }
 
-def cosine_fuzzy_matching(state: ComparisonState) -> ComparisonState:
-    """threshold 95% cosine unchanged"""
+def exact_hash_matching(state: State) -> State:
+    """MD5 exact matches"""
+    old_hashes = {c["text_hash"]: c["chunk_id"] for c in state["old_chunks"]}
+    matched_old = set()
+    
+    for chunk in state["chunks"]:
+        if chunk["text_hash"] in old_hashes:
+            chunk["comparison_status"] = "exact_unchanged"
+            chunk["old_chunk_id"] = old_hashes[chunk["text_hash"]]
+            matched_old.add(chunk["old_chunk_id"])
+    
+    return {
+        **state,
+        "matched_old_ids": matched_old,
+        "report": {"exact_unchanged": len(matched_old)},
+        "status_comp": "fuzzy_match"
+    }
+
+def cosine_fuzzy_matching(state: State) -> State:
     model = get_embedding_model()
-
-    fuzzy_new = [c for c in state["new_chunks"] if c.get("comparison_status") != "exact_unchanged"]
-    fuzzy_old = [c for c in state["old_chunks"] if c["text_hash"] not in 
-                {nc["text_hash"] for nc in state["new_chunks"]}]
+    fuzzy_new = [c for c in state["chunks"] if c.get("comparison_status") != "exact_unchanged"]
+    fuzzy_old = [c for c in state["old_chunks"] 
+                if c["chunk_id"] not in state["matched_old_ids"]]
     
-    if not fuzzy_new:
-        return state
-
-    if not fuzzy_old or not model:
-        for c in fuzzy_new:
-            c["comparison_status"] = "changed_new"
-        return state
+    if not fuzzy_new or not fuzzy_old or not model:
+        return _calculate_archive(state)
     
-    # Batch embeddings with normalization
-    new_embeds = model.encode(
-        [c["text"] for c in fuzzy_new],
-        convert_to_tensor=True,
-        normalize_embeddings=True
-    )
-    old_embeds = model.encode(
-        [c["text"] for c in fuzzy_old],
-        convert_to_tensor=True,
-        normalize_embeddings=True
-    )
+    #BATCH COSINE
+    new_embeds = model.encode([c["text"] for c in fuzzy_new], 
+                            convert_to_tensor=True, normalize_embeddings=True)
+    old_embeds = model.encode([c["text"] for c in fuzzy_old], 
+                            convert_to_tensor=True, normalize_embeddings=True)
     
-    fuzzy_unchanged = 0
+    matched_old = state["matched_old_ids"].copy()
+    fuzzy_count = 0
+    
     for i, chunk in enumerate(fuzzy_new):
-        scores = util.cos_sim(new_embeds[i], old_embeds)
-        best_score = scores.max().item()
+        scores = util.cos_sim(new_embeds[i:i+1], old_embeds)  # [1,N] matrix
+        best_idx = scores[0].argmax().item()  # Index in fuzzy_old
+        best_score = scores[0][best_idx].item()
+        
+        if best_score >= 0.95:
+            old_chunk_id = fuzzy_old[best_idx]["chunk_id"]
 
-        if best_score >= 0.95: #threshold
-            chunk["comparison_status"] = "fuzzy_unchanged"
-            fuzzy_unchanged += 1
-        else:
-            chunk["comparison_status"] = "changed_new"
+            if old_chunk_id not in matched_old:  # One-to-one
+                chunk["comparison_status"] = "fuzzy_unchanged"
+                chunk["old_chunk_id"] = old_chunk_id
+                chunk["similarity"] = round(best_score, 3)
+                matched_old.add(old_chunk_id)
+                fuzzy_count += 1
+        
+        # Default if not matched: new chunk
+        if chunk.get("comparison_status") != "fuzzy_unchanged":
+            chunk["comparison_status"] = "new_chunk"
     
-    state["report"]["fuzzy_unchanged"] = fuzzy_unchanged
-    return state
+    return _calculate_archive({
+        **state, 
+        "matched_old_ids": matched_old,
+        "report": {**state.get("report", {}), "fuzzy_unchanged": fuzzy_count}
+    })
 
-def generate_report(state: ComparisonState) -> ComparisonState:
-    """Final report + actions"""
-    total = len(state["new_chunks"])
-    unchanged = len([c for c in state["new_chunks"] if "unchanged" in c.get("comparison_status", "")])
+def _calculate_archive(state: State) -> State:
+    """Archive unmatched old"""
+    all_old_ids = {c["chunk_id"] for c in state["old_chunks"]}
+    matched_ids = state["matched_old_ids"]
+    to_archive = list(all_old_ids - matched_ids)
+    
+    return {
+        **state,
+        "to_archive": to_archive,
+        "report": {
+            **state["report"],
+            "total_old": len(all_old_ids),
+            "matched_old": len(matched_ids),
+            "to_archive": len(to_archive)
+        },
+        "status_comp": "ready_archive"
+    }
+
+def generate_report(state: State) -> State:
+    new_total = len(state["chunks"])
+    unchanged = len([c for c in state["chunks"] if "unchanged" in c.get("comparison_status", "")])
+    new_only = new_total - unchanged
+    total_old = state["report"].get("total_old", 0)
+    
+    savings_pct = round(100 * state["report"]["matched_old"] / total_old, 1) if total_old > 0 else 0.0
     
     report = {
-        "total_new": total,
+        "total_new": new_total,
         "unchanged": unchanged,
-        "ratio": round(unchanged/total, 2) if total > 0 else 0.0,
-        "savings": round(100*(1-(total-unchanged)/total), 1) if total > 0 else 0.0,
-        "action": "store_changed" if unchanged else "store_all"
+        "new_added": new_only,
+        "old_archived": state["report"]["to_archive"],
+        **state["report"],
+        "storage_savings": f"{savings_pct}%",
+        "action": "sync_complete"
     }
     
-    actions = ["generate_report"]
+    actions = ["archive_old", "upsert_new"] if state.get("old_chunks") else ["upsert_new"]
+    return {**state, "report": report, "actions": actions, "status_comp": "db_ready"}
 
-    if report["action"] == "store_all":
-        actions.append("store_all")
-    elif state["old_chunks"]:
-        actions.extend(["archive_old", "upsert_new"])
+def execute_db_actions(state: State) -> State:
+    """Execute archive + upsert"""
+   # 1. Archive old chunks first
+    for old_chunk_id in state["to_archive"]:
+        archive_chunk(old_chunk_id)
     
-    return {**state, "report": report, "actions": actions, "status": "db_ready"}
+    # 2. Filter only chunks that need saving (exclude exact matches)
+    chunks_to_save = []
+    for chunk in state["chunks"]:
+        status = chunk.get("comparison_status", "new_chunk")
+        if status != "exact_unchanged":
+            # Ensure the metadata has the base doc name
+            chunk["metadata"]["doc_id"] = state["base_doc_name"]
+            chunks_to_save.append(chunk)
+    
+    # 3. Call upsert_chunks ONCE with the full list
+    if chunks_to_save:
+        upsert_chunks(chunks_to_save)
+        print(f"STORED {len(chunks_to_save)} chunks successfully.")
+    
+    return {**state, "status_comp": "completed"}
 
-def execute_db_actions(state: ComparisonState) -> ComparisonState:
-    """REAL DB operations"""
-    for action in state["actions"]:
-        if action == "archive_old":
-            for chunk in state["old_chunks"]:
-                archive_chunk(chunk["chunk_id"])
-        elif action == "upsert_new":
-            for chunk in state["new_chunks"]:
-                if chunk.get("comparison_status") != "exact_unchanged":
-                    chunk["metadata"]["doc_id"] = state["new_doc_id"]
-                    upsert_chunk(chunk)
-        elif action == "store_all":
-            for chunk in state["new_chunks"]:
-                chunk["metadata"]["doc_id"] = state["new_doc_id"]
-                upsert_chunk(chunk)
-    
-    return {**state, "status": "completed"}
 
 # WORKFLOW
 
-def route_check(state: ComparisonState):
-    if state["status"] == "complete":
-        return "db_exec"
-    return "hash_match"
+def get_comparison_agent(state:State):
+    workflow = StateGraph(State)
+    workflow.add_node("check_doc", check_doc_exists)
+    workflow.add_node("hash_match", exact_hash_matching)
+    workflow.add_node("fuzzy_match", cosine_fuzzy_matching)
+    workflow.add_node("report", generate_report)
+    workflow.add_node("db_exec", execute_db_actions)
 
-workflow = StateGraph(ComparisonState)
-workflow.add_node("check_doc", check_doc_exists)
-workflow.add_node("hash_match", exact_hash_matching)
-workflow.add_node("fuzzy_match", cosine_fuzzy_matching)
-workflow.add_node("report", generate_report)
-workflow.add_node("db_exec", execute_db_actions)
+    workflow.set_entry_point("check_doc")
+    workflow.add_edge("check_doc", "hash_match")
+    workflow.add_edge("hash_match", "fuzzy_match")
+    workflow.add_edge("fuzzy_match", "report")
+    workflow.add_edge("report", "db_exec")
+    workflow.add_edge("db_exec", END)
 
-workflow.set_entry_point("check_doc")
-workflow.add_conditional_edges("check_doc", route_check, {
-    "db_exec": "db_exec",
-    "hash_match": "hash_match"
-})
-workflow.add_edge("hash_match", "fuzzy_match")
-workflow.add_edge("fuzzy_match", "report")
-workflow.add_edge("report", "db_exec")
-workflow.add_edge("db_exec", END)
+    comparison_agent = workflow.compile()
+    return comparison_agent
 
-comparison_agent = workflow.compile()
-
-# Ye niche ka part bas ese hi helper hai jo agent ko bs fixed starting boiler plate deta hai jisse aage sbko vesa hi mile
-# Perplexity suggested.
-
-def run_comparison(new_doc_id: str, new_chunks: List[Dict], new_doc_hash: str) -> ComparisonState:
-    """Production entry point"""
-    result = comparison_agent.invoke({
-        "new_doc_id": new_doc_id,
-        "new_doc_hash": new_doc_hash,
-        "new_chunks": new_chunks,
-        "old_chunks": [],
-        "report": {},
-        "actions": [],
-        "status": "pending"
-    })
-    print(f" Comparison: {result['report']}")
-    return result
+# def run_comparison(new_doc_id: str, chunks: List[Dict], content_hash: str) -> State:
+#     result = comparison_agent.invoke({
+#         "base_doc_name": new_doc_id,
+#         "content_hash": content_hash,
+#         "chunks": chunks,
+#         "old_chunks": [],
+#         "report": {},
+#         "actions": [],
+#         "status_comp": "pending",
+#         "matched_old_ids": set(),
+#         "to_archive": []
+#     })
+#     print(f"RESULT: {result['report']}")
+#     return result

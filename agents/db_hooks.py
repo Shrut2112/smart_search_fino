@@ -5,17 +5,26 @@ import os
 from contextlib import contextmanager
 from dotenv import load_dotenv
 from psycopg2.extras import execute_values
-
-
+import json
 
 @contextmanager
 def get_db_connection():
     """Safe DB connection with auto-close"""
     conn = None
     try:
-        DB_URL = os.environ("DB_URL")
-        conn = psycopg2.connect()
+        load_dotenv()
+        conn = psycopg2.connect(
+            dbname="postgres",
+            user="postgres.cxoartbafydqirizvyzh", 
+            password="Codeis@04fino", 
+            host="aws-1-ap-southeast-2.pooler.supabase.com", # Get this from Supabase Dashboard
+            port=6543, # Pooler port
+            sslmode="require"
+        )
+        print("DB connected")
         yield conn
+    except Exception as e:
+        print("Error occured: ",e)
     finally:
         if conn:
             conn.close()
@@ -27,14 +36,30 @@ def check_doc_with_name_version(filename:str,version_no:str)->bool:
             cur.execute("""
                 SELECT EXISTS(
                     SELECT 1
-                    FROM document_version
-                    WHERE doc_id = %s and version = %s
+                    FROM document_versions
+                    WHERE doc_id = %s and version = %s and active_status = 'active'
                 )                
                 """,(filename,version_no))
 
             result = cur.fetchone()
-            return result[0] if result else False
-    
+            return result[0] if result else False 
+
+def check_doc_present(filename:str,version_no:str)->bool:
+    """Check Doc exists if no revised name"""
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT EXISTS (
+                    SELECT 1
+                    FROM document_versions
+                    WHERE doc_id = %s
+                      AND version <> %s
+                      AND active_status = 'active'
+                )                
+                """,(filename,version_no))
+
+            result = cur.fetchone()
+            return result[0] if result else False 
 
 def query_doc_exists(doc_hash: str) -> bool:
     """SHA256 doc hash exists? check"""
@@ -43,7 +68,7 @@ def query_doc_exists(doc_hash: str) -> bool:
             cur.execute("""
                 SELECT EXISTS (
                     SELECT 1 FROM document_versions 
-                    WHERE content_hash = %s
+                    WHERE content_hash = %s and active_status = 'active'
                 )
             """, (doc_hash,))
             return cur.fetchone()[0]
@@ -54,7 +79,7 @@ def load_latest_chunks(doc_prefix: str) -> List[Dict[str, Any]]:
     """
     with get_db_connection() as conn:
         with conn.cursor(cursor_factory=RealDictCursor) as cur:
-            base_name = doc_prefix.rsplit('_v', 1)[0] if '_v' in doc_prefix else doc_prefix
+            base_name = doc_prefix
             
             # Get latest doc_id first
             cur.execute("""
@@ -83,47 +108,98 @@ def load_latest_chunks(doc_prefix: str) -> List[Dict[str, Any]]:
             
             return [dict(r) for r in cur.fetchall()]
 
-def archive_chunk(chunk_id: str):
-    """Archive old chunk: status='archived'"""
+def archive_chunk(doc_id : str):
+    """Archive old chunk: active_status='archived' to match your schema screenshot"""
     with get_db_connection() as conn:
         with conn.cursor() as cur:
+            # Update chunks table
             cur.execute("""
                 UPDATE chunks 
                 SET status = 'archived', 
                     archived_at = NOW()
-                WHERE chunk_id = %s AND status = 'active'
-            """, (chunk_id,))
+                WHERE doc_id = %s AND status = 'active'
+            """, (doc_id,))
+            
+            # Update document_versions table (Column is active_status per screenshot)
+            cur.execute("""
+                UPDATE document_versions
+                SET active_status = 'archived', 
+                    archived_at = NOW()
+                WHERE doc_id = %s;
+            """, (doc_id,))
             conn.commit()
 
+def upsert_doc(doc_id,version,extraction_stats,content_hash):
+    """Registers the parent document. MUST be called before upsert_chunks."""
+    with get_db_connection() as conn:
+        with conn.cursor() as curr:
+            # FIX: Convert dict to JSON string to avoid 'can't adapt type dict'
+            stats_json = json.dumps(extraction_stats) if isinstance(extraction_stats, dict) else extraction_stats
+            
+            curr.execute("""
+                INSERT INTO document_versions (
+                    doc_id, version, extraction_stats, active_status, content_hash
+                )
+                VALUES (%s, %s, %s, %s, %s)
+                
+            """, (doc_id, version, stats_json, "active", content_hash))
+            conn.commit() # FIX: CRITICAL for Foreign Key Constraint
+            print(f"Document {doc_id} registered successfully.")
+    
 def upsert_chunks(chunks: List[Dict[str, Any]]):
-    """Batch upsert chunks logic"""
+    """
+    Batch upserts chunks by automatically resolving the parent UUID 
+    from the document_versions table.
+    """
     if not chunks:
         return
 
-    import json
+    # 1. Extract the doc_id (filename) from the first chunk's metadata
+    # We assume all chunks in one batch belong to the same document
+    sample_doc_id = chunks[0].get("metadata", {}).get("doc_id")
     
+    if not sample_doc_id:
+        print("Error: No doc_id found in metadata. Cannot resolve Foreign Key.")
+        return
+
     with get_db_connection() as conn:
         with conn.cursor() as cur:
+            # 2. RESOLVE UUID: Find the PK from document_versions
+            cur.execute("""
+                SELECT id FROM document_versions 
+                WHERE doc_id = %s AND active_status = 'active'
+                LIMIT 1
+            """, (sample_doc_id,))
+            
+            result = cur.fetchone()
+            if not result:
+                print(f"Error: Parent document '{sample_doc_id}' not found in DB.")
+                return
+            
+            parent_uuid = result[0]
+
+            # 3. PREPARE VALUES: Map chunks to the resolved UUID
             values = []
             for chunk in chunks:
-                chunk_id = chunk["chunk_id"]
-                text_hash = chunk["text_hash"]
-                text = chunk["text"][:8000]
-                metadata = json.dumps(chunk["metadata"]) # CORRECT: JSON string
-                doc_id = chunk["metadata"]["doc_id"]
-                # DB status matches standard active/archived. Comparison status is in metadata.
-                status = "active" 
-                
+                meta_dict = chunk.get("metadata", {})
                 values.append((
-                    chunk_id, text_hash, text, metadata, doc_id, status,
-                    chunk["metadata"].get("chunk_index", 0),
-                    chunk["metadata"].get("quality_score", 0.0)
+                    chunk["chunk_id"], 
+                    sample_doc_id,      # Original doc_id string (if column exists)
+                    chunk["text_hash"], 
+                    chunk["text"][:8000], 
+                    json.dumps(meta_dict), 
+                    "active",
+                    meta_dict.get("chunk_index", 0),
+                    meta_dict.get("quality_score", 0.0),
+                    parent_uuid        # THE RESOLVED FOREIGN KEY (chunk_doc_id_fkey)
                 ))
             
+            # 4. EXECUTE: Insert with the resolved parent_uuid
+            # Note: Ensure the column names below match your exact DB schema
             execute_values(cur, """
                 INSERT INTO chunks (
-                    chunk_id, text_hash, text, metadata, doc_id, status, 
-                    chunk_index, quality_score
+                    chunk_id, doc_id, text_hash, text, metadata, status, 
+                    chunk_index, quality_score, chunks_doc_id_fkey
                 )
                 VALUES %s
                 ON CONFLICT (chunk_id) 
@@ -131,8 +207,8 @@ def upsert_chunks(chunks: List[Dict[str, Any]]):
                     text_hash = EXCLUDED.text_hash,
                     text = EXCLUDED.text,
                     metadata = EXCLUDED.metadata,
-                    doc_id = EXCLUDED.doc_id,
-                    status = EXCLUDED.status,
-                    updated_at = NOW()
+                    updated_at = NOW();
             """, values)
+            
             conn.commit()
+            print(f"Successfully upserted {len(chunks)} chunks for {sample_doc_id}")

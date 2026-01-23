@@ -116,6 +116,7 @@ def universal_name_refiner_v4(state: State) -> State:
     return {
         **state,
         "normalized_filename": final_name,
+        "base_doc_name": clean_name,
         "version": version,
         "revision_tag": revision_tag,
         "version_detected": version_detected,

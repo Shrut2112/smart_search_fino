@@ -177,7 +177,7 @@ def clean_text_fixed(state: State) -> State:
     state["extraction_stats"]["total_words_post_clean"] = len(text.split())
     
     #  SINGLE SOURCE OF TRUTH
-    doc_id = state["normalized_filename"]  
+    doc_id = state["base_doc_name"]  
     
     #this is doc hash
     content_hash = hashlib.sha256(text.encode()).hexdigest()
@@ -194,6 +194,7 @@ def clean_text_fixed(state: State) -> State:
     
     return {
         **state,
+        "content_hash": content_hash,
         "raw_text": text.strip(),
         "metadata": metadata,
         "status": "cleaned"
@@ -207,7 +208,7 @@ def semantic_chunking_production(state: State) -> State:
     """ Canonical chunk IDs: docname_c001"""
     text = state["raw_text"]
     doc_id = state["metadata"]["doc_id"]  #  normalized_filename
-    
+    version = state['version']
     if not text.strip():
         return {**state, "chunks": [], "quality_score": 0.0}
     
@@ -261,7 +262,7 @@ def semantic_chunking_production(state: State) -> State:
         quality = calculate_chunk_quality(chunk_text, is_table)
         
         chunk = {
-            "chunk_id": f"{doc_id}_c{i:03d}", 
+            "chunk_id": f"{doc_id}_{version}_c{i:03d}", 
             "chunk_index": i,
             "text": chunk_text,
             "text_hash": chunk_hash,
