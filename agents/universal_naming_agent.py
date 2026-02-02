@@ -3,17 +3,7 @@ from typing import TypedDict, Callable
 from pathlib import Path
 import re
 from utils.schema import State
-# using global state instead
-# class NamingState(TypedDict):
-#     original_filename: str
-#     normalized_filename: str
-#     version: str
-#     revision_tag: str | None
-#     is_collision: bool
-#     confidence: float
-#     version_detected: bool
 
-# INFRA INTERFACE (TOP LEVEL - clearly marked)
 def collision_exists(filename: str) -> bool:
     """
     INFRA HOOK - Implement in pipeline layer.
@@ -26,7 +16,7 @@ def collision_exists(filename: str) -> bool:
         
     DEFAULT STUB: Always safe (no collision)
     """
-    return False  # ← INTENTIONAL STUB
+    return False  
 
 def universal_name_refiner_v4(state: State) -> State:
     """Pure agent logic - NO DB DEPENDENCY"""

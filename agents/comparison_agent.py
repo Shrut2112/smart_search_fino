@@ -3,24 +3,12 @@
 from typing import TypedDict, List, Dict, Any, Set
 from langgraph.graph import StateGraph, END
 from .db_hooks import (
-    query_doc_exists, load_latest_chunks, archive_chunk, upsert_chunks
+    query_doc_exists, load_latest_chunks, archive_chunk, upsert_chunks,archive_chunk_by_chunk_id
 )
 from sentence_transformers import SentenceTransformer, util
 import os
 from utils.schema import State
 
-# class ComparisonState(TypedDict):
-#     new_doc_id: str
-#     new_doc_hash: str
-#     new_chunks: List[Dict[str, Any]] 
-#     old_chunks: List[Dict[str, Any]]
-#     report: Dict[str, Any]
-#     actions: List[str]
-#     status: str
-#     matched_old_ids: Set[str]
-#     to_archive: List[str]  #all_old_ids - matched_old_ids
-
-# Model cache
 _MODEL_CACHE = None
 
 def get_embedding_model():
@@ -166,7 +154,7 @@ def execute_db_actions(state: State) -> State:
     """Execute archive + upsert"""
    # 1. Archive old chunks first
     for old_chunk_id in state["to_archive"]:
-        archive_chunk(old_chunk_id)
+        archive_chunk_by_chunk_id(old_chunk_id)
     
     # 2. Filter only chunks that need saving (exclude exact matches)
     chunks_to_save = []

@@ -10,6 +10,7 @@ import os
 from datetime import datetime
 from langgraph.graph import StateGraph, END
 from langchain_experimental.text_splitter import SemanticChunker
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 import io
 from utils.schema import State
@@ -24,26 +25,37 @@ try:
 except ImportError:
     HAS_OCR = False
 
-# =============================================================================
-# STATE (Naming → Parser → Comparison)
-# =============================================================================
-
-# class ParserState(TypedDict):
-#     original_filename: str
-#     normalized_filename: str       # from naming  
-#     raw_text: str
-#     chunks: List[Dict[str, Any]]    
-#     metadata: Dict[str, Any]        
-#     quality_score: float
-#     extraction_stats: Dict[str, Any]
-#     tables: List[str]
-#     parsing_errors: List[str]
-#     status: str   # failed / unsupported_format / chunked
-
 def log_extraction_metrics(metrics: Dict):
     """INFRA HOOK: LangSmith/Prometheus - pipeline provides"""
     pass
 
+
+embeddings = None
+def init_worker():
+    global embeddings
+    E5_MODEL_PATH = os.getenv(
+        "EMBEDDING_MODEL_PATH",
+        r"D:\models\e5-large"   # EXACTLY what you used in Phase-1
+    )
+    if embeddings is None:
+        model_kwargs = {
+            'device': 'cpu',
+            'prompts': {
+                "query": "query: ",
+                "passage": "passage: "
+            }
+        }
+        
+        embeddings = HuggingFaceEmbeddings(
+            model_name=E5_MODEL_PATH,
+            model_kwargs=model_kwargs,
+            encode_kwargs={
+                'batch_size': 64,
+                'normalize_embeddings': True
+            }
+        )
+        print("Embedding model initialized. 64 batch size, CPU device.")
+    
 # =============================================================================
 # LAYER 1-3: EXTRACTION ENGINE (Fixed)
 # =============================================================================
@@ -158,9 +170,7 @@ def extract_structure_fixed(state: State) -> State:
         "status": "extracted"
     }
 
-# =============================================================================
-# LAYER 4: CLEANING + METADATA (SINGLE SOURCE OF TRUTH)
-# =============================================================================
+
 
 def clean_text_fixed(state: State) -> State:
     """ normalized_filename = doc_id (NO HASHING)"""
@@ -191,7 +201,8 @@ def clean_text_fixed(state: State) -> State:
         "has_tables": state["extraction_stats"]["table_blocks"] > 0,
         "cleaned_timestamp": datetime.utcnow().isoformat()
     }
-    
+    with open("write.txt", "w", encoding="utf-8") as f:
+        f.write(text)
     return {
         **state,
         "content_hash": content_hash,
@@ -204,90 +215,72 @@ def clean_text_fixed(state: State) -> State:
 #  CHUNKING (Canonical IDs)
 # =============================================================================
 
+
 def semantic_chunking_production(state: State) -> State:
-    """ Canonical chunk IDs: docname_c001"""
-    text = state["raw_text"]
-    doc_id = state["metadata"]["doc_id"]  #  normalized_filename
+    """Chunks based on Page Breaks. Fast, reliable, and preserves context."""
+    global embeddings
+    raw_text = state["raw_text"]
+    doc_id = state["metadata"]["doc_id"]
     version = state['version']
-    if not text.strip():
-        return {**state, "chunks": [], "quality_score": 0.0}
     
-    # Embedding model fallback chain
-    # === SEMANTIC CHUNKING MODEL (PHASE-1 COMPATIBLE) ===
-    E5_MODEL_PATH = os.getenv(
-        "EMBEDDING_MODEL_PATH",
-        r"D:\models\e5-large"   # EXACTLY what you used in Phase-1
+    # Split by the markers we created in the extraction step
+    pages = raw_text.split("=== PAGE BREAK ===")
+    
+    # Fallback splitter ONLY for exceptionally long pages
+    fallback_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000, #char size not tokens
+        chunk_overlap=200,
+        separators=["\n\n", "\n", " "]
     )
-
-    if not Path(E5_MODEL_PATH).exists():
-        raise RuntimeError(
-            f"E5 model not found at {E5_MODEL_PATH}. "
-            "Set EMBEDDING_MODEL_PATH correctly."
-        )
-
-    print(f"Model is getting load")
-    embeddings = HuggingFaceEmbeddings(
-         model_name=E5_MODEL_PATH
-    )
-
-    print(f" Semantic chunking model (LOCAL E5): {E5_MODEL_PATH}")
-
- 
-    # Semantic chunking
-    try:
-        chunker = SemanticChunker(
-            embeddings,
-            breakpoint_threshold_type="percentile",
-            breakpoint_threshold_amount=85
-        )
-        chunk_texts = chunker.split_text(text)
     
-    except Exception as e:
+    final_chunks = []
+    chunk_idx = 0
     
-        raise RuntimeError(
-            f"Semantic chunking failed using E5 model: {e}"
-        )
-    
-    #  PRODUCTION CHUNKS
-    chunks = []
-    for i, chunk_text in enumerate(chunk_texts):
-        chunk_text = chunk_text.strip()
-        if len(chunk_text) < 100:
-            continue
+    for pg_num, page_content in enumerate(pages):
+        page_content = page_content.strip()
             
-
-        #this is chunk hash
-        is_table = bool(re.search(r'\[TABLE[^\]]*\]', chunk_text))
-        chunk_hash = hashlib.md5(chunk_text.encode()).hexdigest()
-        quality = calculate_chunk_quality(chunk_text, is_table)
-        
-        chunk = {
-            "chunk_id": f"{doc_id}_{version}_c{i:03d}", 
-            "chunk_index": i,
-            "text": chunk_text,
-            "text_hash": chunk_hash,
-            "text_length": len(chunk_text),
-            "word_count": len(chunk_text.split()),
-            "is_table": is_table,
-            "quality_score": quality,
-            "metadata": {
-                "doc_id": doc_id,  
-                "normalized_filename": state["normalized_filename"],
-                "chunk_index": i,
-                "chunk_type": "table" if is_table else "text",
-                "extraction_method": "semantic",
-                "quality_score": quality
-            }
-        }
-        chunks.append(chunk)
-    
-    #doc score
-    quality_score = sum(c["quality_score"] for c in chunks) / max(len(chunks), 1)
-    
+        # If the page is a reasonable size, make it one chunk
+        if len(page_content) <= 1200: 
+            page_parts = [page_content]
+        else:
+            # Only use the splitter if the page is huge
+            page_parts = fallback_splitter.split_text(page_content)
+            
+        for part in page_parts:
+            # Clean up text
+            clean_part = part.replace("=== PAGE BREAK ===", "").strip()
+            
+            is_table = "[TABLE" in clean_part
+            chunk_hash = hashlib.md5(clean_part.encode()).hexdigest()
+            quality = calculate_chunk_quality(clean_part, is_table)
+            
+            final_chunks.append({
+                "chunk_id": f"{doc_id}_{version}_c{chunk_idx:03d}",
+                "chunk_index": chunk_idx,
+                "text": clean_part,
+                "text_hash": chunk_hash,
+                "quality_score": quality,
+                "metadata": {
+                    **state["metadata"],
+                    "page_number": pg_num + 1,
+                    "chunk_index": chunk_idx,
+                    "is_table": is_table
+                }
+            })
+            chunk_idx += 1
+    chunk_text = [c["text"] for c in final_chunks]
+    # EMBEDDING
+    model = embeddings
+    embed_vectors = model.embed_documents(chunk_text)
+    embed_chunks = []
+    for i, chunk in enumerate(final_chunks):
+        chunk_copy = chunk.copy()
+        chunk_copy["embedding"] = embed_vectors[i]
+        embed_chunks.append(chunk_copy)
     return {
         **state,
-        "chunks": chunks,
-        "quality_score": quality_score,
+        "chunks": embed_chunks,
+        "quality_score": sum(c["quality_score"] for c in final_chunks) / max(len(final_chunks), 1),
         "status": "chunked"
     }
 
@@ -315,9 +308,6 @@ def calculate_chunk_quality(text: str, is_table: bool = False) -> float:
     
     return min(1.0, score)
 
-# =============================================================================
-# OCR
-# =============================================================================
 
 def ocr_fallback_fixed(state: State) -> State:
     """OCR only first 5 pages if needed"""
@@ -350,19 +340,12 @@ def ocr_fallback_fixed(state: State) -> State:
     
     return {**state, "status": "ocr_completed"}
 
-# =============================================================================
-# WORKFLOW ROUTING
-# =============================================================================
 
 def quality_gate_fixed(state: State) -> str:
     """Smart conditional routing"""
     if state.get("needs_ocr", False) and HAS_OCR:
         return "ocr"
     return "clean"
-
-# =============================================================================
-# PERFECTED LANGGRAPH
-# =============================================================================
 
 def parser_graph(state:State):
     workflow = StateGraph(State)
@@ -384,60 +367,3 @@ def parser_graph(state:State):
     
     return parser_agent
 
-# =============================================================================
-# PRODUCTION INTEGRATION API
-# =============================================================================
-
-# def run_parser_pipeline(original_filename: str, normalized_filename: str) -> ParserState:
-    """
-    Naming Agent → Parser Agent handoff
-    
-    Args:
-        original_filename: Raw PDF path
-        normalized_filename: Naming agent output ("deposit_policy_v5.pdf")
-    
-    Returns:
-        Complete ParserState with production chunks
-    """
-    result = parser_agent.invoke({
-        "original_filename": original_filename,
-        "normalized_filename": normalized_filename,  # ✅ Source of truth
-        "chunks": [],
-        "parsing_errors": [],
-        "tables": [],
-        "status": "pending"
-    })
-    
-    # Production metrics
-    log_extraction_metrics({
-        "doc_id": result["metadata"]["doc_id"],
-        "normalized_filename": normalized_filename,
-        "chunks_created": len(result["chunks"]),
-        "quality_score": result["quality_score"],
-        "tables_detected": result["extraction_stats"]["table_blocks"],
-        "status": result["status"]
-    })
-    
-    return result
-
-# =============================================================================
-# TEST & VALIDATION
-# =============================================================================
-
-# if __name__ == "__main__":
-#     # Simulate naming agent output
-#     BASE_DIR = Path(__file__).parent.parent  
-
-#     test_file = BASE_DIR / "data" / "pdfs" / "deposit_policy_v1.pdf"
-#     test_filename = "deposit_policy_v1.pdf"  
-    
-#     result = run_parser_pipeline(test_file, test_filename)
-    
-#     print("✅ PIPELINE COMPLETE")
-#     print(f"📄 Doc ID: {result['metadata']['doc_id']}")
-#     print(f"📊 Chunks: {len(result['chunks'])}")
-#     print(f"⭐ Quality: {result['quality_score']:.3f}")
-#     print(f"📋 Tables: {result['extraction_stats']['table_blocks']}")
-#     print(f"\n🔗 First chunk: {result['chunks'][0]['chunk_id']}")
-#     print(f"🔗 Chunk doc_id: {result['chunks'][0]['metadata']['doc_id']}")
-#     print(f"✅ CONSISTENT: {result['metadata']['doc_id'] == result['chunks'][0]['metadata']['doc_id']}")

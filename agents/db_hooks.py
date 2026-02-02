@@ -1,34 +1,45 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from typing import List, Dict, Any
-import os
 from contextlib import contextmanager
 from dotenv import load_dotenv
 from psycopg2.extras import execute_values
 import json
+from psycopg2 import pool
+import os
+
+# Create the pool ONCE at the top level of the module
+# minconn=1, maxconn=10 (adjust maxconn based on your max_workers)
+_db_pool = None
+
+def init_db_pool():
+    global _db_pool
+    if _db_pool is None:
+        load_dotenv()
+        _db_pool = psycopg2.pool.SimpleConnectionPool(
+            1, 10,
+            dbname="postgres",
+            user="postgres.cxoartbafydqirizvyzh",
+            password="Codeis@04fino",
+            host="aws-1-ap-southeast-2.pooler.supabase.com",
+            port=6543,
+            sslmode="require"
+        )
+        print("🚀 Connection Pool Initialized")
 
 @contextmanager
 def get_db_connection():
-    """Safe DB connection with auto-close"""
-    conn = None
+    """Borrow a connection from the pool"""
+    if _db_pool is None:
+        init_db_pool()
+    
+    conn = _db_pool.getconn()
     try:
-        load_dotenv()
-        conn = psycopg2.connect(
-            dbname="postgres",
-            user="postgres.cxoartbafydqirizvyzh", 
-            password="Codeis@04fino", 
-            host="aws-1-ap-southeast-2.pooler.supabase.com", # Get this from Supabase Dashboard
-            port=6543, # Pooler port
-            sslmode="require"
-        )
-        print("DB connected")
         yield conn
-    except Exception as e:
-        print("Error occured: ",e)
     finally:
-        if conn:
-            conn.close()
-
+        # Give the connection back to the pool instead of closing it
+        _db_pool.putconn(conn)
+        
 def check_doc_with_name_version(filename:str,version_no:str)->bool:
     """Check Doc exists if no revised name"""
     with get_db_connection() as conn:
@@ -128,6 +139,18 @@ def archive_chunk(doc_id : str):
                 WHERE doc_id = %s;
             """, (doc_id,))
             conn.commit()
+def archive_chunk_by_chunk_id(chunk_id: str):
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                UPDATE chunks
+                SET status = 'archived',
+                    archived_at = NOW()
+                WHERE chunk_id = %s
+                  AND status = 'active'
+            """, (chunk_id,))
+            conn.commit()
+
 
 def upsert_doc(doc_id,version,extraction_stats,content_hash):
     """Registers the parent document. MUST be called before upsert_chunks."""
@@ -186,7 +209,8 @@ def upsert_chunks(chunks: List[Dict[str, Any]]):
                     chunk["chunk_id"], 
                     sample_doc_id,      # Original doc_id string (if column exists)
                     chunk["text_hash"], 
-                    chunk["text"][:8000], 
+                    chunk["text"][:8000],
+                    chunk["embedding"],
                     json.dumps(meta_dict), 
                     "active",
                     meta_dict.get("chunk_index", 0),
@@ -198,16 +222,10 @@ def upsert_chunks(chunks: List[Dict[str, Any]]):
             # Note: Ensure the column names below match your exact DB schema
             execute_values(cur, """
                 INSERT INTO chunks (
-                    chunk_id, doc_id, text_hash, text, metadata, status, 
+                    chunk_id, doc_id, text_hash, text, embedding, metadata, status, 
                     chunk_index, quality_score, chunks_doc_id_fkey
                 )
                 VALUES %s
-                ON CONFLICT (chunk_id) 
-                DO UPDATE SET
-                    text_hash = EXCLUDED.text_hash,
-                    text = EXCLUDED.text,
-                    metadata = EXCLUDED.metadata,
-                    updated_at = NOW();
             """, values)
             
             conn.commit()
