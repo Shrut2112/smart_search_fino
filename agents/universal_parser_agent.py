@@ -222,6 +222,15 @@ def clean_text_fixed(state: State) -> State:
 
     text = re.sub(r'\n{5,}', '\n\n\n', text)
     text = re.sub(r'\s{4,}', ' ', text)
+    footer_start = "Registered Office: Mindspace Juinagar"
+    footer_end = "website: www.finobank.com"
+
+    # 2. Create a pattern that handles multi-line breaks and extra spaces
+    # \s+ matches one or more whitespace characters (space, tab, or newline)
+    flexible_pattern = re.escape(footer_start) + r".*?" + re.escape(footer_end)
+
+    # 3. Use re.DOTALL so the '.' matches newlines as well
+    text = re.sub(flexible_pattern, '', text, flags=re.DOTALL | re.IGNORECASE)
 
     state["extraction_stats"]["total_chars_post_clean"] = len(text)
 
@@ -365,7 +374,8 @@ def semantic_chunking_production(state: State) -> State:
         embed_vectors = embeddings.embed_documents(chunk_text)
 
         for i, chunk in enumerate(final_chunks):
-            chunk["metadata"]["embedding"] = embed_vectors[i].tolist()
+            vector = embed_vectors[i]   
+            chunk["embedding"] = vector.tolist() if hasattr(vector, 'tolist') else vector
 
     return {
         **state,
@@ -458,7 +468,7 @@ def quality_gate_fixed(state: State) -> str:
 
 # WORKFLOW
 
-def parser_graph():
+def parser_graph(state:State):
 
     workflow = StateGraph(State)
 
@@ -485,4 +495,4 @@ def parser_graph():
     return workflow.compile()
 
 
-parser_agent = parser_graph()
+# parser_agent = parser_graph()

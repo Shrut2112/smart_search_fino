@@ -22,6 +22,7 @@ class State(TypedDict):
     parsing_errors: List[str]
     status: str   # failed / unsupported_format / chunked
     
+    structured_tables: List[str]
     # new_doc_hash: str
     
     old_chunks: List[Dict[str, Any]]
