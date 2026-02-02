@@ -2,7 +2,7 @@
 
 from typing import TypedDict, List, Dict, Any, Tuple
 from pathlib import Path
-import fitz  
+import fitz
 import pandas as pd
 import hashlib
 import re
@@ -107,7 +107,7 @@ def extract_structure_fixed(state: State) -> State:
         "extraction_timestamp": datetime.utcnow().isoformat()
     }
 
-    #PDFPLUMBER 
+    # PDFPLUMBER
     with pdfplumber.open(original_filename) as pdf_plumber:
 
         for page_num, pdf_page in enumerate(pdf_plumber.pages[:len(doc)]):
@@ -150,19 +150,19 @@ def extract_structure_fixed(state: State) -> State:
             else:
                 low_quality_pages.add(page_num)
 
-    # ---------- PYMUPDF FALLBACK ----------
-    full_text_parts = []
+    # ---------- PYMUPDF FALLBACK (ONLY LOW QUALITY) ----------
+    full_text_parts = text_blocks.copy()
 
-    for page_num in range(len(doc)):
+    for page_num in low_quality_pages:
+
+        if page_num >= len(doc):
+            continue
 
         page = doc[page_num]
 
         page_text = page.get_text().strip()
 
-        if not page_text or len(page_text) < 50:
-            low_quality_pages.add(page_num)
-
-        else:
+        if page_text and len(page_text) >= 50:
             full_text_parts.append(page_text)
 
     full_text = "\n\n=== PAGE BREAK ===\n\n".join(full_text_parts)
@@ -171,7 +171,6 @@ def extract_structure_fixed(state: State) -> State:
 
     doc.close()
 
-    # FIX: convert set to list
     low_quality_pages = list(low_quality_pages)
 
     return {
@@ -184,6 +183,7 @@ def extract_structure_fixed(state: State) -> State:
         "needs_ocr": needs_ocr,
         "status": "extracted"
     }
+
 
 # TABLE → TEXT
 
@@ -248,14 +248,11 @@ def clean_text_fixed(state: State) -> State:
     }
 
 
-# ============================================================
 # CHUNKING
-# ============================================================
 
 def semantic_chunking_production(state: State) -> State:
 
     global embeddings
-    init_worker()
 
     doc_id = state["metadata"]["doc_id"]
     version = state["version"]
@@ -263,33 +260,38 @@ def semantic_chunking_production(state: State) -> State:
     final_chunks = []
     chunk_idx = 0
 
-    # TABLE CHUNKS 
-    for table in state.get("structured_tables", []):
+    # TABLE CHUNKS
+    if state.get("structured_tables"):
 
-        chunk = {
-            "chunk_id": f"{doc_id}_{version}_t{chunk_idx:03d}",
-            "chunk_index": chunk_idx,
-            "chunk_type": "table",
-            "text": table["text_summary"],
-            "raw_content": json.dumps(table),
-            "text_hash": hashlib.md5(
-                table["text_summary"].encode()
-            ).hexdigest(),
-            "quality_score": 0.95,
-            "metadata": {
-                **state["metadata"],
+        for table in state["structured_tables"]:
+
+            if not table.get("text_summary"):
+                continue
+
+            chunk = {
+                "chunk_id": f"{doc_id}_{version}_t{chunk_idx:03d}",
+                "chunk_index": chunk_idx,
                 "chunk_type": "table",
-                "page_number": table["page"],
-                "table_shape": table["shape"],
-                "chunk_index": chunk_idx
+                "text": table["text_summary"],
+                "raw_content": json.dumps(table),
+                "text_hash": hashlib.md5(
+                    table["text_summary"].encode()
+                ).hexdigest(),
+                "quality_score": 0.95,
+                "metadata": {
+                    **state["metadata"],
+                    "chunk_type": "table",
+                    "page_number": table["page"],
+                    "table_shape": table["shape"],
+                    "chunk_index": chunk_idx
+                }
             }
-        }
 
-        final_chunks.append(chunk)
+            final_chunks.append(chunk)
 
-        chunk_idx += 1
+            chunk_idx += 1
 
-    #TEXT CHUNKS
+    # TEXT CHUNKS
     raw_text = state["raw_text"]
 
     pages = raw_text.split("=== PAGE BREAK ===")
@@ -355,13 +357,15 @@ def semantic_chunking_production(state: State) -> State:
 
             chunk_idx += 1
 
-    # ---------- EMBEDDINGS ----------
-    chunk_text = [c["text"] for c in final_chunks]
+    # EMBEDDINGS
+    if embeddings is not None and final_chunks:
 
-    embed_vectors = embeddings.embed_documents(chunk_text)
+        chunk_text = [c["text"] for c in final_chunks]
 
-    for i, chunk in enumerate(final_chunks):
-        chunk["metadata"]["embedding"] = embed_vectors[i].tolist()
+        embed_vectors = embeddings.embed_documents(chunk_text)
+
+        for i, chunk in enumerate(final_chunks):
+            chunk["metadata"]["embedding"] = embed_vectors[i].tolist()
 
     return {
         **state,
@@ -422,7 +426,6 @@ def ocr_fallback_fixed(state: State) -> State:
 
             if ocr_text.strip():
 
-                # FIX: add page break
                 ocr_parts.append(
                     f"\n\n=== PAGE BREAK ===\n"
                     f"=== OCR PAGE {page_num + 1} ===\n"
@@ -453,9 +456,7 @@ def quality_gate_fixed(state: State) -> str:
     return "clean"
 
 
-# ============================================================
 # WORKFLOW
-# ============================================================
 
 def parser_graph():
 
