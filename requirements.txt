@@ -23,3 +23,4 @@ pytesseract
 pytest
 pip
 psycopg2
+pdfplumber
