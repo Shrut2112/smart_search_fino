@@ -16,6 +16,7 @@ import io
 from utils.schema import State
 from dotenv import load_dotenv
 import pdfplumber
+import camelot
 
 load_dotenv()
 
@@ -58,6 +59,197 @@ def init_worker():
         )
 
         print("Embedding model initialized")
+
+
+def extract_tables_camelot(pdf_path: Path, page_num: int):
+    dfs = []
+
+    try:
+        tables = camelot.read_pdf(
+            str(pdf_path),
+            pages=str(page_num + 1),
+            flavor="lattice"
+        )
+
+        for t in tables:
+            if not t.df.empty:
+                dfs.append(t.df)
+
+    except:
+        pass
+
+    if not dfs:
+        try:
+            tables = camelot.read_pdf(
+                str(pdf_path),
+                pages=str(page_num + 1),
+                flavor="stream"
+            )
+
+            for t in tables:
+                if not t.df.empty:
+                    dfs.append(t.df)
+
+        except:
+            pass
+
+    return dfs
+
+
+def is_bad_table_strict(df: pd.DataFrame) -> bool:
+
+    # ---------- 0. Basic sanity ----------
+    if df is None or df.empty:
+        return True
+
+    rows, cols = df.shape
+
+    if rows < 2 or cols < 2:
+        return True
+
+
+    # ---------- 1. Column collapse ----------
+    # Too few columns = usually flattened
+    if cols <= 2:
+        return True
+
+
+    # ---------- 2. Header quality ----------
+    headers = [str(c).strip() for c in df.columns]
+
+    long_headers = 0
+    weird_headers = 0
+
+    for h in headers:
+
+        if len(h.split()) > 5:
+            long_headers += 1
+
+        if len(h) > 40:
+            weird_headers += 1
+
+        if re.search(r"[|<>={}]", h):
+            weird_headers += 1
+
+    if long_headers >= cols * 0.4:
+        return True
+
+    if weird_headers >= cols * 0.3:
+        return True
+
+
+    # ---------- 3. Empty cell ratio ----------
+    empty_count = 0
+    total = rows * cols
+
+    for r in range(rows):
+        for c in range(cols):
+            v = str(df.iat[r, c]).strip()
+            if v == "" or v.lower() == "nan":
+                empty_count += 1
+
+    empty_ratio = empty_count / (total + 1)
+
+    if empty_ratio > 0.35:
+        return True
+
+    # ---------- 4. Repeated header rows ----------
+    header_row = [str(x).strip() for x in headers]
+
+    repeated = 0
+
+    for r in range(rows):
+
+        row = [str(df.iat[r, c]).strip() for c in range(cols)]
+
+        if row == header_row:
+            repeated += 1
+
+    if repeated >= 2:
+        return True
+
+
+    # ---------- 5. garbage check ----------
+    bad_chars = 0
+    total_chars = 0
+
+    for r in range(rows):
+        for c in range(cols):
+
+            v = str(df.iat[r, c])
+
+            total_chars += len(v)
+
+            bad_chars += len(re.findall(r"[^\w\s\.,₹%-]", v))
+
+    if total_chars > 0 and bad_chars / total_chars > 0.15:
+        return True
+
+
+    # ---------- 6. Vertical flow detection ----------
+    # Flattened text flows vertically
+    first_col = [str(df.iat[r, 0]).strip() for r in range(rows)]
+
+    avg_len = sum(len(x) for x in first_col) / (len(first_col) + 1)
+
+    if avg_len > 60:
+        return True
+
+    # ---------- 7. Semantic density ----------
+    # Too much paragraph-like text = not table
+    long_cells = 0
+
+    for r in range(rows):
+        for c in range(cols):
+
+            if len(str(df.iat[r, c]).split()) > 12:
+                long_cells += 1
+
+    if long_cells > total * 0.2:
+        return True
+
+    # Passed all checks → probably good
+    return False
+
+def looks_like_multi_header(df: pd.DataFrame) -> bool:
+
+    if df.shape[0] < 2:
+        return False
+
+    row0 = [str(x).strip() for x in df.iloc[0]]
+    row1 = [str(x).strip() for x in df.iloc[1]]
+
+    score = 0
+
+    for a, b in zip(row0, row1):
+
+        # Both look like labels (not numbers)
+        if not re.search(r"\d", a) and not re.search(r"\d", b):
+            score += 1
+
+    return score >= len(row0) * 0.6
+
+
+def normalize_headers(df: pd.DataFrame) -> pd.DataFrame:
+
+    if df.shape[0] < 2:
+        return df
+
+    first = [str(x).strip() for x in df.iloc[0]]
+    second = [str(x).strip() for x in df.iloc[1]]
+
+    merged = []
+
+    for a, b in zip(first, second):
+        if a and b:
+            merged.append(a + " " + b)
+        elif a:
+            merged.append(a)
+        else:
+            merged.append(b)
+
+    df.columns = merged
+    return df.iloc[2:].reset_index(drop=True)
 
 
 # EXTRACTION
@@ -115,6 +307,8 @@ def extract_structure_fixed(state: State) -> State:
             # Tables
             tables = pdf_page.extract_tables()
 
+            page_has_good_table = False
+
             for table_idx, table in enumerate(tables or []):
 
                 if table and len(table) > 1:
@@ -124,21 +318,55 @@ def extract_structure_fixed(state: State) -> State:
                         columns=table[0] if table[0] else None
                     )
 
-                    if not df.empty:
+                    # STRICT QUALITY CHECK
+                    if is_bad_table_strict(df):
+                        continue   # reject bad table
 
-                        table_json = {
-                            "type": "table",
-                            "page": page_num + 1,
-                            "table_id": f"t_{page_num}_{table_idx}",
-                            "columns": df.columns.tolist(),
-                            "rows": df.to_dict("records"),
-                            "shape": df.shape,
-                            "text_summary": table_to_sentences(df)
-                        }
+                    page_has_good_table = True
 
-                        structured_tables.append(table_json)
+                    table_json = {
+                        "type": "table",
+                        "page": page_num + 1,
+                        "table_id": f"t_{page_num}_{table_idx}",
+                        "columns": df.columns.tolist(),
+                        "rows": df.to_dict("records"),
+                        "shape": df.shape,
+                        "text_summary": table_to_sentences(df)
+                    }
 
-                        extraction_stats["table_blocks"] += 1
+                    structured_tables.append(table_json)
+                    extraction_stats["table_blocks"] += 1
+
+# ---------- If pdfplumber failed → use Camelot ----------
+            if not page_has_good_table:
+            
+                low_quality_pages.add(page_num)
+                
+                camelot_dfs = extract_tables_camelot(original_filename, page_num)
+
+                for c_idx, cdf in enumerate(camelot_dfs):
+                
+                    # Clean Camelot header
+                    if looks_like_multi_header(cdf):
+                        cdf = normalize_headers(cdf)
+
+
+                    if is_bad_table_strict(cdf):
+                        continue
+                    
+                    table_json = {
+                        "type": "table",
+                        "page": page_num + 1,
+                        "table_id": f"c_{page_num}_{c_idx}",
+                        "columns": cdf.columns.tolist(),
+                        "rows": cdf.to_dict("records"),
+                        "shape": cdf.shape,
+                        "text_summary": table_to_sentences(cdf)
+                    }
+
+                    structured_tables.append(table_json)
+
+                    extraction_stats["table_blocks"] += 1
 
             # Text
             page_text = pdf_page.extract_text()
