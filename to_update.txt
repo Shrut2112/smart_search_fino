@@ -1,3 +1,0 @@
-revision tag present but same filename not
-issue - chunk id should be unique else it will simply overwrite. m1 remove chunk id as pk. m2 create a unique chunk id always
-remove the chunks that has index data that is name...........................

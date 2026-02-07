@@ -20,6 +20,7 @@ import camelot
 
 load_dotenv()
 
+
 # Optional OCR
 try:
     import pytesseract
@@ -33,17 +34,19 @@ embeddings = None
 
 
 def init_worker():
+
     global embeddings
 
     if embeddings is None:
+
         E5_MODEL_PATH = os.getenv(
             "EMBEDDING_MODEL_PATH",
             r"D:\models\e5-large"
         )
 
         model_kwargs = {
-            'device': 'cpu',
-            'prompts': {
+            "device": "cpu",
+            "prompts": {
                 "query": "query: ",
                 "passage": "passage: "
             }
@@ -53,18 +56,34 @@ def init_worker():
             model_name=E5_MODEL_PATH,
             model_kwargs=model_kwargs,
             encode_kwargs={
-                'batch_size': 64,
-                'normalize_embeddings': True
+                "batch_size": 64,
+                "normalize_embeddings": True
             }
         )
 
         print("Embedding model initialized")
 
+def sanitize_text(text: Any) -> str:
+    """Helper to remove NUL characters from any input."""
+    if text is None:
+        return ""
+    return str(text).replace("\x00", "\x00")
+
+def sanitize_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    """Deep cleans a dataframe of NUL characters in headers and cells."""
+    if df is None or df.empty:
+        return df
+    # Clean column names
+    df.columns = [sanitize_text(c) for c in df.columns]
+    # Clean all cell values
+    return df.applymap(lambda x: sanitize_text(x) if isinstance(x, str) else x)
 
 def extract_tables_camelot(pdf_path: Path, page_num: int):
+
     dfs = []
 
     try:
+
         tables = camelot.read_pdf(
             str(pdf_path),
             pages=str(page_num + 1),
@@ -73,13 +92,16 @@ def extract_tables_camelot(pdf_path: Path, page_num: int):
 
         for t in tables:
             if not t.df.empty:
-                dfs.append(t.df)
+                dfs.append(sanitize_dataframe(t.df))
 
     except:
         pass
 
+
     if not dfs:
+
         try:
+
             tables = camelot.read_pdf(
                 str(pdf_path),
                 pages=str(page_num + 1),
@@ -88,17 +110,17 @@ def extract_tables_camelot(pdf_path: Path, page_num: int):
 
             for t in tables:
                 if not t.df.empty:
-                    dfs.append(t.df)
+                    dfs.append(sanitize_dataframe(t.df))
 
         except:
             pass
+
 
     return dfs
 
 
 def is_bad_table_strict(df: pd.DataFrame) -> bool:
 
-    # ---------- 0. Basic sanity ----------
     if df is None or df.empty:
         return True
 
@@ -107,14 +129,10 @@ def is_bad_table_strict(df: pd.DataFrame) -> bool:
     if rows < 2 or cols < 2:
         return True
 
-
-    # ---------- 1. Column collapse ----------
-    # Too few columns = usually flattened
     if cols <= 2:
         return True
 
 
-    # ---------- 2. Header quality ----------
     headers = [str(c).strip() for c in df.columns]
 
     long_headers = 0
@@ -131,6 +149,7 @@ def is_bad_table_strict(df: pd.DataFrame) -> bool:
         if re.search(r"[|<>={}]", h):
             weird_headers += 1
 
+
     if long_headers >= cols * 0.4:
         return True
 
@@ -138,22 +157,22 @@ def is_bad_table_strict(df: pd.DataFrame) -> bool:
         return True
 
 
-    # ---------- 3. Empty cell ratio ----------
     empty_count = 0
     total = rows * cols
 
     for r in range(rows):
         for c in range(cols):
+
             v = str(df.iat[r, c]).strip()
+
             if v == "" or v.lower() == "nan":
                 empty_count += 1
 
-    empty_ratio = empty_count / (total + 1)
 
-    if empty_ratio > 0.35:
+    if empty_count / (total + 1) > 0.35:
         return True
 
-    # ---------- 4. Repeated header rows ----------
+
     header_row = [str(x).strip() for x in headers]
 
     repeated = 0
@@ -165,11 +184,11 @@ def is_bad_table_strict(df: pd.DataFrame) -> bool:
         if row == header_row:
             repeated += 1
 
+
     if repeated >= 2:
         return True
 
 
-    # ---------- 5. garbage check ----------
     bad_chars = 0
     total_chars = 0
 
@@ -180,23 +199,26 @@ def is_bad_table_strict(df: pd.DataFrame) -> bool:
 
             total_chars += len(v)
 
-            bad_chars += len(re.findall(r"[^\w\s\.,₹%-]", v))
+            bad_chars += len(
+                re.findall(r"[^\w\s\.,₹%-]", v)
+            )
+
 
     if total_chars > 0 and bad_chars / total_chars > 0.15:
         return True
 
 
-    # ---------- 6. Vertical flow detection ----------
-    # Flattened text flows vertically
-    first_col = [str(df.iat[r, 0]).strip() for r in range(rows)]
+    first_col = [
+        str(df.iat[r, 0]).strip()
+        for r in range(rows)
+    ]
 
     avg_len = sum(len(x) for x in first_col) / (len(first_col) + 1)
 
     if avg_len > 60:
         return True
 
-    # ---------- 7. Semantic density ----------
-    # Too much paragraph-like text = not table
+
     long_cells = 0
 
     for r in range(rows):
@@ -205,11 +227,13 @@ def is_bad_table_strict(df: pd.DataFrame) -> bool:
             if len(str(df.iat[r, c]).split()) > 12:
                 long_cells += 1
 
+
     if long_cells > total * 0.2:
         return True
 
-    # Passed all checks → probably good
+
     return False
+
 
 def looks_like_multi_header(df: pd.DataFrame) -> bool:
 
@@ -223,9 +247,9 @@ def looks_like_multi_header(df: pd.DataFrame) -> bool:
 
     for a, b in zip(row0, row1):
 
-        # Both look like labels (not numbers)
         if not re.search(r"\d", a) and not re.search(r"\d", b):
             score += 1
+
 
     return score >= len(row0) * 0.6
 
@@ -235,30 +259,38 @@ def normalize_headers(df: pd.DataFrame) -> pd.DataFrame:
     if df.shape[0] < 2:
         return df
 
+
     first = [str(x).strip() for x in df.iloc[0]]
     second = [str(x).strip() for x in df.iloc[1]]
 
     merged = []
 
+
     for a, b in zip(first, second):
+
         if a and b:
             merged.append(a + " " + b)
+
         elif a:
             merged.append(a)
+
         else:
             merged.append(b)
 
+
     df.columns = merged
+
     return df.iloc[2:].reset_index(drop=True)
 
 
-# EXTRACTION
 
 def extract_structure_fixed(state: State) -> State:
 
-    original_filename = Path(state['original_filename'])
+    original_filename = Path(state["original_filename"])
+
 
     if not original_filename.exists():
+
         return {
             **state,
             "status": "failed",
@@ -266,7 +298,9 @@ def extract_structure_fixed(state: State) -> State:
             "chunks": []
         }
 
-    if original_filename.suffix.lower() != '.pdf':
+
+    if original_filename.suffix.lower() != ".pdf":
+
         return {
             **state,
             "status": "unsupported",
@@ -274,10 +308,12 @@ def extract_structure_fixed(state: State) -> State:
             "chunks": []
         }
 
+
     try:
         doc = fitz.open(original_filename)
 
     except Exception as e:
+
         return {
             **state,
             "status": "failed",
@@ -285,10 +321,12 @@ def extract_structure_fixed(state: State) -> State:
             "chunks": []
         }
 
+
     text_blocks = []
     structured_tables = []
 
     low_quality_pages = set()
+
 
     extraction_stats = {
         "total_pages": len(doc),
@@ -299,15 +337,18 @@ def extract_structure_fixed(state: State) -> State:
         "extraction_timestamp": datetime.utcnow().isoformat()
     }
 
-    # PDFPLUMBER
+
     with pdfplumber.open(original_filename) as pdf_plumber:
 
-        for page_num, pdf_page in enumerate(pdf_plumber.pages[:len(doc)]):
+        for page_num, pdf_page in enumerate(
+            pdf_plumber.pages[:len(doc)]
+        ):
 
-            # Tables
+
             tables = pdf_page.extract_tables()
 
             page_has_good_table = False
+
 
             for table_idx, table in enumerate(tables or []):
 
@@ -317,12 +358,14 @@ def extract_structure_fixed(state: State) -> State:
                         table[1:],
                         columns=table[0] if table[0] else None
                     )
+                    df = sanitize_dataframe(df)
 
-                    # STRICT QUALITY CHECK
                     if is_bad_table_strict(df):
-                        continue   # reject bad table
+                        continue
+
 
                     page_has_good_table = True
+
 
                     table_json = {
                         "type": "table",
@@ -334,26 +377,33 @@ def extract_structure_fixed(state: State) -> State:
                         "text_summary": table_to_sentences(df)
                     }
 
+
                     structured_tables.append(table_json)
+
                     extraction_stats["table_blocks"] += 1
 
-# ---------- If pdfplumber failed → use Camelot ----------
+
             if not page_has_good_table:
-            
+
                 low_quality_pages.add(page_num)
-                
-                camelot_dfs = extract_tables_camelot(original_filename, page_num)
+
+                camelot_dfs = extract_tables_camelot(
+                    original_filename,
+                    page_num
+                )
+
 
                 for c_idx, cdf in enumerate(camelot_dfs):
-                
-                    # Clean Camelot header
+
                     if looks_like_multi_header(cdf):
                         cdf = normalize_headers(cdf)
 
-
+                    cdf = sanitize_dataframe(cdf)
+                    
                     if is_bad_table_strict(cdf):
                         continue
-                    
+
+
                     table_json = {
                         "type": "table",
                         "page": page_num + 1,
@@ -364,107 +414,191 @@ def extract_structure_fixed(state: State) -> State:
                         "text_summary": table_to_sentences(cdf)
                     }
 
+
                     structured_tables.append(table_json)
 
                     extraction_stats["table_blocks"] += 1
 
-            # Text
+
             page_text = pdf_page.extract_text()
+            page_text = sanitize_text(page_text)
+            # --------- REMOVE FLATTENED TABLE TEXT ---------
+            if page_has_good_table and page_text:
+            
+                page_text = re.sub(
+                    r"\n\s*\d+(\s+\d+)+.*",
+                    "",
+                    page_text
+                )
+            
+
 
             if page_text:
+
                 text_blocks.append(page_text.strip())
+
                 extraction_stats["text_blocks"] += 1
 
             else:
                 low_quality_pages.add(page_num)
 
-    # ---------- PYMUPDF FALLBACK (ONLY LOW QUALITY) ----------
-    full_text_parts = text_blocks.copy()
+
+    # FIX: no .copy() (prevents duplication)
+    full_text_parts = []
+
+
+    for txt in text_blocks:
+        full_text_parts.append(txt)
+
 
     for page_num in low_quality_pages:
 
         if page_num >= len(doc):
             continue
 
+
         page = doc[page_num]
 
-        page_text = page.get_text().strip()
+        page_text = sanitize_text(doc[page_num].get_text().strip())
+
 
         if page_text and len(page_text) >= 50:
             full_text_parts.append(page_text)
 
+
     full_text = "\n\n=== PAGE BREAK ===\n\n".join(full_text_parts)
 
-    needs_ocr = len(low_quality_pages) / len(doc) > 0.2
+    # --------- DEDUPLICATION FIX ---------
+    seen = set()
+    clean_blocks = []
+
+    for t in full_text.split("=== PAGE BREAK ==="):
+
+        key = re.sub(r"\s+", " ", t.strip())[:200]
+   # fingerprint (first 200 chars)
+
+        if key not in seen:
+            seen.add(key)
+            clean_blocks.append(t.strip())
+
+    full_text = "\n\n=== PAGE BREAK ===\n\n".join(clean_blocks)
+
+
+
+    needs_ocr = len(low_quality_pages) / max(len(doc), 1) > 0.2
+
 
     doc.close()
 
+
     low_quality_pages = list(low_quality_pages)
+    text = full_text.replace('\x00', 'ti')
 
     return {
         **state,
         "text_blocks": text_blocks,
         "structured_tables": structured_tables,
-        "raw_text": full_text,
+        "raw_text": text,
         "extraction_stats": extraction_stats,
         "low_quality_pages": low_quality_pages,
         "needs_ocr": needs_ocr,
         "status": "extracted"
     }
 
-
-# TABLE → TEXT
-
 def table_to_sentences(df: pd.DataFrame) -> str:
 
     sentences = []
 
+
     for _, row in df.iterrows():
 
-        parts = [f"{col}: {row[col]}" for col in df.columns]
+        parts = [
+            f"{col}: {row[col]}"
+            for col in df.columns
+        ]
 
         sentences.append(" | ".join(parts) + ".")
+
 
     return " ".join(sentences)
 
 
-# CLEANING
 
 def clean_text_fixed(state: State) -> State:
 
-    text = state["raw_text"]
+    text = sanitize_text(state["raw_text"])
+
 
     text = re.sub(
-        r'Classification: Internal.*?(?=\n{2,}|\Z)',
-        '',
+        r"Classification: Internal.*?(?=\n{2,}|\Z)",
+        "",
+        text,
+        flags=re.IGNORECASE | re.DOTALL
+    )
+
+
+    text = re.sub(
+        r"FINO Payments Bank Limited\s*\n?",
+        "",
+        text,
+        flags=re.IGNORECASE
+    )
+
+
+    text = re.sub(r"\n{5,}", "\n\n\n", text)
+    text = re.sub(r"\s{4,}", " ", text)
+
+    # --------- REMOVE FIRM HEADER / FOOTER ---------
+    text = re.sub(
+        r"DM\s*&\s*ASSOCIATES.*?LLP.*?Email:.*?\n",
+        "",
         text,
         flags=re.IGNORECASE | re.DOTALL
     )
 
     text = re.sub(
-        r'FINO Payments Bank Limited\s*\n?',
-        '',
+        r"REGD\.?\s*OFFICE.*?\n",
+        "",
         text,
-        flags=re.IGNORECASE
+        flags=re.IGNORECASE | re.DOTALL
     )
 
-    text = re.sub(r'\n{5,}', '\n\n\n', text)
-    text = re.sub(r'\s{4,}', ' ', text)
+
+
     footer_start = "Registered Office: Mindspace Juinagar"
     footer_end = "website: www.finobank.com"
 
-    # 2. Create a pattern that handles multi-line breaks and extra spaces
-    # \s+ matches one or more whitespace characters (space, tab, or newline)
-    flexible_pattern = re.escape(footer_start) + r".*?" + re.escape(footer_end)
 
-    # 3. Use re.DOTALL so the '.' matches newlines as well
-    text = re.sub(flexible_pattern, '', text, flags=re.DOTALL | re.IGNORECASE)
+    flexible_pattern = (
+        re.escape(footer_start)
+        + r".*?"
+        + re.escape(footer_end)
+    )
+
+
+    text = re.sub(
+        flexible_pattern,
+        "",
+        text,
+        flags=re.DOTALL | re.IGNORECASE
+    )
+    # RE-SANITIZE STRUCTURED TABLES BEFORE CHUNKING
+    if state.get("structured_tables"):
+        for table in state["structured_tables"]:
+            table["columns"] = [sanitize_text(c) for c in table["columns"]]
+            table["text_summary"] = sanitize_text(table["text_summary"])
+            for row in table.get("rows", []):
+                for k, v in row.items():
+                    if isinstance(v, str): row[k] = sanitize_text(v)
 
     state["extraction_stats"]["total_chars_post_clean"] = len(text)
 
+
     doc_id = state["base_doc_name"]
 
+
     content_hash = hashlib.sha256(text.encode()).hexdigest()
+
 
     metadata = {
         "doc_id": doc_id,
@@ -476,6 +610,7 @@ def clean_text_fixed(state: State) -> State:
         "cleaned_timestamp": datetime.utcnow().isoformat()
     }
 
+
     return {
         **state,
         "content_hash": content_hash,
@@ -484,20 +619,19 @@ def clean_text_fixed(state: State) -> State:
         "status": "cleaned"
     }
 
-
-# CHUNKING
-
 def semantic_chunking_production(state: State) -> State:
 
     global embeddings
 
+
     doc_id = state["metadata"]["doc_id"]
     version = state["version"]
+
 
     final_chunks = []
     chunk_idx = 0
 
-    # TABLE CHUNKS
+
     if state.get("structured_tables"):
 
         for table in state["structured_tables"]:
@@ -505,12 +639,13 @@ def semantic_chunking_production(state: State) -> State:
             if not table.get("text_summary"):
                 continue
 
+
             chunk = {
                 "chunk_id": f"{doc_id}_{version}_t{chunk_idx:03d}",
                 "chunk_index": chunk_idx,
                 "chunk_type": "table",
                 "text": table["text_summary"],
-                "raw_content": json.dumps(table),
+                "raw_content": json.dumps(table).replace("\x00", ""),
                 "text_hash": hashlib.md5(
                     table["text_summary"].encode()
                 ).hexdigest(),
@@ -524,24 +659,29 @@ def semantic_chunking_production(state: State) -> State:
                 }
             }
 
+
             final_chunks.append(chunk)
 
             chunk_idx += 1
 
-    # TEXT CHUNKS
+
     raw_text = state["raw_text"]
+
 
     pages = raw_text.split("=== PAGE BREAK ===")
 
+
     fallback_splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,
-        chunk_overlap=200,
+        chunk_overlap=100,   # FIX (was 200)
         separators=["\n\n", "\n", "."]
     )
+
 
     for pg_num, page_content in enumerate(pages):
 
         page_content = page_content.strip()
+
 
         if len(page_content) <= 1200:
             page_parts = [page_content]
@@ -549,40 +689,40 @@ def semantic_chunking_production(state: State) -> State:
         else:
             page_parts = fallback_splitter.split_text(page_content)
 
+
         for part in page_parts:
 
             clean_part = part.replace(
                 "=== PAGE BREAK ===", ""
             ).strip()
 
+
             if len(clean_part) < 100:
                 continue
 
+
             is_table = "[TABLE" in clean_part
+
 
             chunk_hash = hashlib.md5(
                 clean_part.encode()
             ).hexdigest()
+
 
             quality = calculate_chunk_quality(
                 clean_part,
                 is_table
             )
 
+
             final_chunks.append({
 
                 "chunk_id": f"{doc_id}_{version}_c{chunk_idx:03d}",
-
                 "chunk_index": chunk_idx,
-
                 "chunk_type": "text",
-
                 "text": clean_part,
-
                 "text_hash": chunk_hash,
-
                 "quality_score": quality,
-
                 "metadata": {
                     **state["metadata"],
                     "chunk_type": "text",
@@ -592,18 +732,27 @@ def semantic_chunking_production(state: State) -> State:
                 }
             })
 
+
             chunk_idx += 1
 
-    # EMBEDDINGS
+
     if embeddings is not None and final_chunks:
 
         chunk_text = [c["text"] for c in final_chunks]
 
         embed_vectors = embeddings.embed_documents(chunk_text)
 
+
         for i, chunk in enumerate(final_chunks):
-            vector = embed_vectors[i]   
-            chunk["embedding"] = vector.tolist() if hasattr(vector, 'tolist') else vector
+
+            vector = embed_vectors[i]
+
+            chunk["embedding"] = (
+                vector.tolist()
+                if hasattr(vector, "tolist")
+                else vector
+            )
+
 
     return {
         **state,
@@ -615,52 +764,68 @@ def semantic_chunking_production(state: State) -> State:
     }
 
 
+
 def calculate_chunk_quality(text: str, is_table: bool = False) -> float:
 
     score = 0.0
 
+
     length_score = 1.0 - abs(len(text) - 500) / 500
+
     score += max(0, length_score) * 0.4
+
 
     if is_table:
         score += 0.3
 
-    sentences = len(re.split(r'[.!?]+', text))
+
+    sentences = len(re.split(r"[.!?]+", text))
+
     score += min(1.0, sentences / 5.0) * 0.3
+
 
     return min(1.0, score)
 
 
-# OCR
 
 def ocr_fallback_fixed(state: State) -> State:
 
     if not state.get("needs_ocr", False) or not HAS_OCR:
         return state
 
-    pdf_path = Path(state['original_filename'])
+
+    pdf_path = Path(state["original_filename"])
+
 
     doc = fitz.open(pdf_path)
 
+
     ocr_parts = []
+
 
     for page_num in state.get("low_quality_pages", []):
 
         if page_num >= len(doc):
             continue
 
+
         page = doc[page_num]
+
 
         pix = page.get_pixmap(
             matrix=fitz.Matrix(2, 2)
         )
 
+
         try:
+
             image = Image.open(
                 io.BytesIO(pix.tobytes("png"))
             )
 
-            ocr_text = pytesseract.image_to_string(image)
+
+            ocr_text = sanitize_text(pytesseract.image_to_string(image))
+
 
             if ocr_text.strip():
 
@@ -670,20 +835,27 @@ def ocr_fallback_fixed(state: State) -> State:
                     f"{ocr_text}"
                 )
 
+
                 state["extraction_stats"]["ocr_pages"] += 1
+
 
         except:
             pass
 
+
     doc.close()
 
+
     if ocr_parts:
+
         state["raw_text"] += (
-            "\n\n=== OCR SUPPLEMENT ===\n\n" +
-            "\n\n".join(ocr_parts)
+            "\n\n=== OCR SUPPLEMENT ===\n\n"
+            + "\n\n".join(ocr_parts)
         )
 
+
     return {**state, "status": "ocr_completed"}
+
 
 
 def quality_gate_fixed(state: State) -> str:
@@ -694,18 +866,20 @@ def quality_gate_fixed(state: State) -> str:
     return "clean"
 
 
-# WORKFLOW
 
-def parser_graph(state:State):
+def parser_graph(state: State):
 
     workflow = StateGraph(State)
+
 
     workflow.add_node("extract", extract_structure_fixed)
     workflow.add_node("ocr", ocr_fallback_fixed)
     workflow.add_node("clean", clean_text_fixed)
     workflow.add_node("chunk", semantic_chunking_production)
 
+
     workflow.set_entry_point("extract")
+
 
     workflow.add_conditional_edges(
         "extract",
@@ -716,11 +890,10 @@ def parser_graph(state:State):
         }
     )
 
+
     workflow.add_edge("ocr", "clean")
     workflow.add_edge("clean", "chunk")
     workflow.add_edge("chunk", END)
 
+
     return workflow.compile()
-
-
-# parser_agent = parser_graph()
