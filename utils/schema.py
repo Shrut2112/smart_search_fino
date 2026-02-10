@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import List, TypedDict, Dict, Optional, Any, Set
 
+# Data Ingestion State
 class State(TypedDict):
     original_filename: str
     normalized_filename: str
@@ -31,3 +32,10 @@ class State(TypedDict):
     status_comp: str #complete, chunk_compare, fuzzy_next, db_ready, pending
     matched_old_ids: Set[str]
     to_archive: List[str]  #all_old_ids - matched_old_ids
+
+# RAG States
+class RefinedQuery(BaseModel):
+    keyword_query: str
+    semantic_query: str
+class Answer(BaseModel):
+    final_answer: str

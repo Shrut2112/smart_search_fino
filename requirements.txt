@@ -25,3 +25,4 @@ pip
 psycopg2
 pdfplumber
 camelot-py
+tiktoken

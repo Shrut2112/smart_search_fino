@@ -6,7 +6,16 @@ load_dotenv()
 def get_llm():
     os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
     try:
-        llm = ChatGroq(model="openai/gpt-oss-120b")
+        llm = ChatGroq(model="qwen/qwen3-32b",temperature=0)
+    except:
+        print("Error Loading Model")
+        return
+    return llm
+
+def get_gpt():
+    os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
+    try:
+        llm = ChatGroq(model="openai/gpt-oss-120b",temperature=0)
     except:
         print("Error Loading Model")
         return

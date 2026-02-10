@@ -1,0 +1,159 @@
+Query 1:
+KEYWORD: reset password mobile banking forgot login
+SEMANTIC: Steps to recover or reset forgotten password for mobile banking application
+
+Query 2:
+KEYWORD: NEFT charges fees transaction cost
+SEMANTIC: What are the fee structure and charges applicable for National Electronic Funds Transfer
+
+Query 3:
+KEYWORD: card declined ATM failed transaction troubleshoot
+SEMANTIC: Reasons for card rejection at ATM and immediate steps to resolve the issue
+
+Query 4:
+KEYWORD: fino wallet balance check inquiry view
+SEMANTIC: Method to check current balance in Fino digital wallet account
+
+Query 5:
+KEYWORD: savings account interest rate percentage return
+SEMANTIC: Current interest rate offered on savings account deposits at Fino Payments Bank
+
+Query 6:
+KEYWORD: Aadhaar linking procedure KYC update
+SEMANTIC: Process to link Aadhaar card number with existing bank account
+
+Query 7:
+KEYWORD: OTP not received SMS delayed transaction verification
+SEMANTIC: Troubleshooting steps when one-time password is not delivered for transaction authentication
+
+Query 8:
+KEYWORD: current account opening documents requirements KYC
+SEMANTIC: List of mandatory documents and eligibility criteria to open a current account
+
+Query 9:
+KEYWORD: transaction limit increase daily maximum raise
+SEMANTIC: Procedure to request higher daily transaction limits for account operations
+
+Query 10:
+KEYWORD: cheque clearing time duration period processing
+SEMANTIC: Standard timeframe for cheque clearance and fund availability in account
+
+Query 11:
+KEYWORD: account closure process terminate close procedure
+SEMANTIC: Step-by-step process to permanently close a bank account
+
+Query 12:
+KEYWORD: debit card application apply new request
+SEMANTIC: How to request and obtain a new debit card for my account
+
+Query 13:
+KEYWORD: wrong balance incorrect amount display error
+SEMANTIC: Steps to report and resolve discrepancy in account balance displayed
+
+Query 14:
+KEYWORD: Fino payment bank benefits advantages features services
+SEMANTIC: Unique features and customer benefits of banking with Fino Payments Bank
+
+Query 15:
+KEYWORD: complaint register grievance customer service issue
+SEMANTIC: Process to file a formal complaint regarding customer service quality
+
+Query 16:
+KEYWORD: account opening online digital without branch visit
+SEMANTIC: Can I complete account opening process remotely without physical branch visit
+
+Query 17:
+KEYWORD: IMPS NEFT difference comparison instant transfer
+SEMANTIC: Explanation of IMPS service and how it differs from NEFT payment method
+
+Query 18:
+KEYWORD: mini statement check recent transactions view
+SEMANTIC: How to access mini statement showing recent account transactions
+
+Query 19:
+KEYWORD: lost debit card block report stolen immediate action
+SEMANTIC: Urgent steps to take when debit card is lost or stolen to prevent misuse
+
+Query 20:
+KEYWORD: ATM cash withdrawal charges other bank fees
+SEMANTIC: Fee structure for withdrawing cash from ATMs of other banks
+
+Query 21:
+KEYWORD: mobile number update change registered contact
+SEMANTIC: Procedure to modify mobile number linked to bank account records
+
+Query 22:
+KEYWORD: minimum balance requirement amount maintain compulsory
+SEMANTIC: What is the mandatory minimum balance to be maintained in the account
+
+Query 23:
+KEYWORD: interbank transfer NEFT IMPS other bank payment
+SEMANTIC: Can I send money to accounts held in different banks
+
+Query 24:
+KEYWORD: debit card activation online digital enable
+SEMANTIC: Process to activate new debit card through online channels
+
+Query 25:
+KEYWORD: RTGS timings hours operating window schedule
+SEMANTIC: What are the operational hours for Real Time Gross Settlement transactions
+
+Query 26:
+KEYWORD: bank statement download 6 months historical transaction
+SEMANTIC: How to obtain account statement for the past six months period
+
+Query 27:
+KEYWORD: UPI failed money deducted refund transaction error
+SEMANTIC: Resolution process when UPI payment fails but amount is debited from account
+
+Query 28:
+KEYWORD: nominee addition add beneficiary designation process
+SEMANTIC: Steps to add or register a nominee for the bank account
+
+Query 29:
+KEYWORD: KYC status check complete verification compliance
+SEMANTIC: How to verify if Know Your Customer documentation is fully completed
+
+Query 30:
+KEYWORD: savings account types variants options different categories
+SEMANTIC: What are the various savings account products offered by the bank
+
+Query 31:
+KEYWORD: international transaction enable card foreign abroad
+SEMANTIC: How to activate international usage capability on debit card
+
+Query 32:
+KEYWORD: cash deposit after hours non-banking CDM timing
+SEMANTIC: Availability of cash deposit facility outside regular banking hours
+
+Query 33:
+KEYWORD: customer care number helpline toll-free emergency contact
+SEMANTIC: Contact number for customer support to resolve urgent banking issues
+
+Query 34:
+KEYWORD: account type conversion savings current change upgrade
+SEMANTIC: Process to convert existing savings account to current account
+
+Query 35:
+KEYWORD: address change documents proof requirements update
+SEMANTIC: What documents are needed to update residential address in bank records
+
+Query 36:
+KEYWORD: debit card delivery time duration new issue period
+SEMANTIC: Expected timeframe to receive new debit card after request
+
+Query 37:
+KEYWORD: multiple accounts single mobile number link register
+SEMANTIC: Can I register more than one bank account with the same mobile number
+
+Query 38:
+KEYWORD: UPI maximum limit amount transaction ceiling daily
+SEMANTIC: What is the maximum transaction amount allowed per UPI payment
+
+Query 39:
+KEYWORD: cheque stop payment cancel issued block
+SEMANTIC: Procedure to stop or cancel a cheque that has already been issued
+
+Query 40:
+KEYWORD: zero balance account charges fees maintenance cost
+SEMANTIC: Are there any fees for maintaining an account with zero balance
