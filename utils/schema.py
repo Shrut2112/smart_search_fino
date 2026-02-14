@@ -39,3 +39,8 @@ class RefinedQuery(BaseModel):
     semantic_query: str
 class Answer(BaseModel):
     final_answer: str
+
+class AnswerState(BaseModel):
+    query: str
+    answer: str
+    
