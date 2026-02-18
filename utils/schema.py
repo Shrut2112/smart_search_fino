@@ -1,5 +1,6 @@
 from pydantic import BaseModel
-from typing import List, TypedDict, Dict, Optional, Any, Set
+from typing import List, TypedDict, Dict, Optional, Any, Set,Annotated
+from operator import add
 
 # Data Ingestion State
 class State(TypedDict):
@@ -40,7 +41,17 @@ class RefinedQuery(BaseModel):
 class Answer(BaseModel):
     final_answer: str
 
-class AnswerState(BaseModel):
-    query: str
-    answer: str
+class AnswerState(TypedDict,total=False):
+    query: str 
     
+    keyword_query: Optional[str]
+    semantic_query: Optional[str]
+    retrived_sem_doc: Annotated[list, add] 
+    retrived_key_doc: Annotated[list, add]
+
+    reranked_docs: Optional[List[tuple]]
+    final_doc: Optional[List[dict]]
+    answer: Optional[str]
+    
+    # Set a default in your first node or make it NotRequired
+    attempt_count: Optional[int]
