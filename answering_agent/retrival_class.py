@@ -4,6 +4,9 @@ import tiktoken
 import json
 from utils.prompts.retrival_prompts import refine_query_prompt, answering_prompt
 from langchain_core.prompts import ChatPromptTemplate
+from utils.logger import get_logger
+
+log = get_logger("answering.retrieval")
 
 class RetrievalPipeline:
     def __init__(self, embedding_model, llm,ans_llm, reranker, top_k=10):
@@ -97,7 +100,7 @@ class RetrievalPipeline:
                 chunk_type = c.get('chunk_type',"")
                 scoren = c.get('rerank_score',"")
                 if scoren > 0:
-                    print(f"{scoren}\n")
+                    log.debug(f"Rerank score: {scoren}")
                     entry = f"\n# Source: {src} PAGE NO: {pageno} TABLE CONTENT: {chunk_type} TEXT: {text} RERANK SCORE: {scoren}\n"
                     clean_entry.append(entry)
                     
@@ -136,7 +139,7 @@ class RetrievalPipeline:
             chunk_token_count = len(self.encoding.encode(c))
             
             if current_token + chunk_token_count > available_tokens:
-                print(f"Token limit reached. Skipping remaining {len(chunks) - len(final_chunks)} chunks.")
+                log.info(f"Token limit reached. Skipping remaining {len(chunks) - len(final_chunks)} chunks.")
                 break
             final_chunks.append(c)
             current_token += chunk_token_count

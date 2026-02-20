@@ -1,0 +1,41 @@
+2026-02-20 22:52:47 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-20 22:52:49 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-02-20 22:52:49 [INFO] [agent.parser] Embedding model initialized
+2026-02-20 22:52:51 [INFO] [db.hooks] Connection Pool Initialized
+2026-02-20 22:52:51 [INFO] [watcher] Watcher running
+2026-02-20 22:52:51 [INFO] [watcher] Watching -> C:\Users\risha\python\smart_search_fino\data\pdfs
+2026-02-20 22:53:57 [INFO] [watcher] Processing -> customer_grievance_policy.pdf
+2026-02-20 22:53:57 [INFO] [agent.naming] Naming: 'customer_grievance_policy.pdf' -> base='customer_grievance_policy', version=v1, revision=None, collision=False, final='customer_grievance_policy_v1.pdf'
+2026-02-20 22:53:59 [INFO] [camelot] Processing page-1
+2026-02-20 22:53:59 [INFO] [camelot] Processing page-1
+2026-02-20 22:53:59 [INFO] [camelot] Processing page-2
+2026-02-20 22:54:00 [INFO] [camelot] Processing page-2
+2026-02-20 22:54:01 [INFO] [camelot] Processing page-3
+2026-02-20 22:54:01 [INFO] [camelot] Processing page-3
+2026-02-20 22:54:01 [INFO] [camelot] Processing page-4
+2026-02-20 22:54:02 [INFO] [camelot] Processing page-4
+2026-02-20 22:54:02 [INFO] [camelot] Processing page-5
+2026-02-20 22:54:03 [INFO] [camelot] Processing page-5
+2026-02-20 22:54:03 [INFO] [camelot] Processing page-6
+2026-02-20 22:54:03 [INFO] [camelot] Processing page-6
+2026-02-20 22:54:04 [INFO] [camelot] Processing page-7
+2026-02-20 22:54:04 [INFO] [camelot] Processing page-7
+2026-02-20 22:54:05 [INFO] [camelot] Processing page-8
+2026-02-20 22:54:05 [INFO] [camelot] Processing page-8
+2026-02-20 22:54:06 [INFO] [camelot] Processing page-9
+2026-02-20 22:54:06 [INFO] [camelot] Processing page-9
+2026-02-20 22:54:07 [INFO] [camelot] Processing page-10
+2026-02-20 22:54:07 [INFO] [camelot] Processing page-10
+2026-02-20 22:54:08 [INFO] [camelot] Processing page-11
+2026-02-20 22:54:08 [INFO] [camelot] Processing page-11
+2026-02-20 22:54:09 [INFO] [camelot] Processing page-12
+2026-02-20 22:54:09 [INFO] [camelot] Processing page-12
+2026-02-20 22:54:10 [INFO] [camelot] Processing page-13
+2026-02-20 22:54:10 [INFO] [camelot] Processing page-13
+2026-02-20 22:54:10 [INFO] [agent.parser] Extraction done -> pages=13, text_blocks=13, tables=0, needs_ocr=True
+2026-02-20 22:54:10 [INFO] [agent.parser] Text cleaned -> content_hash=785b00f9107f2c85..., chars_post_clean=30053
+2026-02-20 22:54:29 [INFO] [agent.parser] Chunking done -> total=38, text=38, table=0, avg_quality=0.37
+2026-02-20 22:54:30 [INFO] [graph.routing_after_parsing] Duplicate content detected for customer_grievance_policy. Routing -> end
+2026-02-20 22:54:30 [INFO] [graph.main] Pipeline skipped -> reason=duplicate_or_collision
+2026-02-20 22:54:30 [INFO] [watcher] Skipped (unknown) -> customer_grievance_policy.pdf
+2026-02-20 22:54:30 [INFO] [watcher] Moved to processed (skipped) -> customer_grievance_policy.pdf

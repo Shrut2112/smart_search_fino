@@ -7,6 +7,9 @@ from psycopg2.extras import execute_values
 import json
 from psycopg2 import pool
 import os
+from utils.logger import get_logger
+
+log = get_logger("db.hooks")
 
 # Create the pool ONCE at the top level of the module
 # minconn=1, maxconn=10 (adjust maxconn based on your max_workers)
@@ -25,7 +28,7 @@ def init_db_pool():
             port=6543,
             sslmode="require"
         )
-        print("🚀 Connection Pool Initialized")
+        log.info("Connection Pool Initialized")
 
 @contextmanager
 def get_db_connection():
@@ -87,7 +90,7 @@ def query_doc_exists(doc_hash: str) -> bool:
             result = cur.fetchone()
             # If result exists, it returns the filename (doc_id)
             # If not, it returns None
-            print(f"\n\n\nQuery for doc_hash {doc_hash} returned: {result if result else 'None'}\n\n\n")
+            log.debug(f"Query for doc_hash {doc_hash[:16]}... returned: {result[0] if result else 'None'}")
             return result[0] if result else None
 
 def load_latest_chunks(doc_prefix: str) -> List[Dict[str, Any]]:
@@ -258,7 +261,7 @@ def _execute_upsert_doc(conn, doc_id, version, stats_json, content_hash, commit=
         """, (doc_id, version, stats_json, "active", content_hash))
         if commit:
             conn.commit()
-        print(f"Document {doc_id} registered successfully.")
+        log.info(f"Document {doc_id} registered successfully.")
 
 def upsert_chunks(chunks: List[Dict[str, Any]], conn=None):
     """Batch upserts chunks. If conn is provided, caller handles commit/rollback."""
@@ -312,4 +315,4 @@ def _execute_upsert_chunks(conn, chunks, sample_doc_id, commit=False):
         
         if commit:
             conn.commit()
-        print(f"Successfully upserted {len(chunks)} chunks for {sample_doc_id}")
+        log.info(f"Successfully upserted {len(chunks)} chunks for {sample_doc_id}")

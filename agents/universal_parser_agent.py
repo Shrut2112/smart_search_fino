@@ -20,6 +20,9 @@ import camelot
 
 load_dotenv()
 
+from utils.logger import get_logger
+log = get_logger("agent.parser")
+
 
 # Optional OCR
 try:
@@ -61,13 +64,13 @@ def init_worker():
             }
         )
 
-        print("Embedding model initialized")
+        log.info("Embedding model initialized")
 
 def sanitize_text(text: Any) -> str:
     """Helper to remove NUL characters from any input."""
     if text is None:
         return ""
-    return str(text).replace("\x00", "\x00")
+    return str(text).replace("\x00", "")
 
 def sanitize_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """Deep cleans a dataframe of NUL characters in headers and cells."""
@@ -76,7 +79,7 @@ def sanitize_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     # Clean column names
     df.columns = [sanitize_text(c) for c in df.columns]
     # Clean all cell values
-    return df.applymap(lambda x: sanitize_text(x) if isinstance(x, str) else x)
+    return df.map(lambda x: sanitize_text(x) if isinstance(x, str) else x)
 
 def extract_tables_camelot(pdf_path: Path, page_num: int):
 
@@ -290,6 +293,7 @@ def extract_structure_fixed(state: State) -> State:
 
 
     if not original_filename.exists():
+        log.info(f"Parsing started -> {original_filename.name}")
 
         return {
             **state,
@@ -494,6 +498,8 @@ def extract_structure_fixed(state: State) -> State:
     low_quality_pages = list(low_quality_pages)
     text = full_text.replace('\x00', 'ti')
 
+    log.info(f"Extraction done -> pages={extraction_stats['total_pages']}, text_blocks={extraction_stats['text_blocks']}, tables={extraction_stats['table_blocks']}, needs_ocr={needs_ocr}")
+
     return {
         **state,
         "text_blocks": text_blocks,
@@ -525,9 +531,16 @@ def table_to_sentences(df: pd.DataFrame) -> str:
 
 
 def clean_text_fixed(state: State) -> State:
+    raw = state.get("raw_text")
+    if not raw:
+        return {
+            **state,
+            "status": "failed",
+            "raw_text": "",
+            "parsing_errors": state.get("parsing_errors", []) + ["raw_text missing before clean_text_fixed"]
+        }
 
-    text = sanitize_text(state["raw_text"])
-
+    text = sanitize_text(raw)
 
     text = re.sub(
         r"Classification: Internal.*?(?=\n{2,}|\Z)",
@@ -535,7 +548,6 @@ def clean_text_fixed(state: State) -> State:
         text,
         flags=re.IGNORECASE | re.DOTALL
     )
-
 
     text = re.sub(
         r"FINO Payments Bank Limited\s*\n?",
@@ -591,7 +603,7 @@ def clean_text_fixed(state: State) -> State:
                 for k, v in row.items():
                     if isinstance(v, str): row[k] = sanitize_text(v)
 
-    state["extraction_stats"]["total_chars_post_clean"] = len(text)
+    extraction_stats = {**state["extraction_stats"], "total_chars_post_clean": len(text)}
 
 
     doc_id = state["base_doc_name"]
@@ -610,6 +622,7 @@ def clean_text_fixed(state: State) -> State:
         "cleaned_timestamp": datetime.utcnow().isoformat()
     }
 
+    log.info(f"Text cleaned -> content_hash={content_hash[:16]}..., chars_post_clean={len(text.strip())}")
 
     return {
         **state,
@@ -624,7 +637,17 @@ def semantic_chunking_production(state: State) -> State:
     global embeddings
 
 
-    doc_id = state["metadata"]["doc_id"]
+    metadata = state.get("metadata")
+    if not metadata or not metadata.get("doc_id"):
+        return {
+            **state,
+            "status": "failed",
+            "chunks": [],
+            "parsing_errors": state.get("parsing_errors", []) + ["metadata/doc_id missing before semantic_chunking"]
+        }
+    doc_id = metadata["doc_id"]
+    
+    
     version = state["version"]
 
 
@@ -753,6 +776,9 @@ def semantic_chunking_production(state: State) -> State:
                 else vector
             )
 
+    table_count = len([c for c in final_chunks if c.get("chunk_type") == "table"])
+    text_count = len(final_chunks) - table_count
+    log.info(f"Chunking done -> total={len(final_chunks)}, text={text_count}, table={table_count}, avg_quality={sum(c['quality_score'] for c in final_chunks) / max(len(final_chunks), 1):.2f}")
 
     return {
         **state,
@@ -848,52 +874,57 @@ def ocr_fallback_fixed(state: State) -> State:
 
     if ocr_parts:
 
-        state["raw_text"] += (
-            "\n\n=== OCR SUPPLEMENT ===\n\n"
-            + "\n\n".join(ocr_parts)
-        )
+        updated_stats = {**state["extraction_stats"], "ocr_pages": state["extraction_stats"]["ocr_pages"] + 1}
+        updated_text = state["raw_text"] + "\n\n=== OCR SUPPLEMENT ===\n\n" + "\n\n".join(ocr_parts)
+        return {**state, "raw_text": updated_text, "extraction_stats": updated_stats, "status": "ocr_completed"}
 
 
     return {**state, "status": "ocr_completed"}
 
-
+def route_after_clean(state: State) -> str:
+    if state.get("status") in ("failed", "unsupported"):
+        return "failed"
+    return "chunk"
 
 def quality_gate_fixed(state: State) -> str:
-
+    if state.get("status") in ("failed", "unsupported"):
+        return "failed"
     if state.get("needs_ocr", False) and HAS_OCR:
         return "ocr"
-
     return "clean"
 
 
-
-def parser_graph(state: State):
-
+def parser_graph():
     workflow = StateGraph(State)
-
 
     workflow.add_node("extract", extract_structure_fixed)
     workflow.add_node("ocr", ocr_fallback_fixed)
     workflow.add_node("clean", clean_text_fixed)
     workflow.add_node("chunk", semantic_chunking_production)
 
-
     workflow.set_entry_point("extract")
-
 
     workflow.add_conditional_edges(
         "extract",
         quality_gate_fixed,
         {
             "ocr": "ocr",
-            "clean": "clean"
+            "clean": "clean",
+            "failed": END
         }
     )
 
-
     workflow.add_edge("ocr", "clean")
-    workflow.add_edge("clean", "chunk")
-    workflow.add_edge("chunk", END)
 
+    workflow.add_conditional_edges(
+        "clean",
+        route_after_clean,
+        {
+            "chunk": "chunk",
+            "failed": END
+        }
+    )
+
+    workflow.add_edge("chunk", END)
 
     return workflow.compile()

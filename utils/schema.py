@@ -14,6 +14,10 @@ class State(TypedDict):
     
     base_doc_name: str
     content_hash: str
+    
+    file_hash: Optional[str]
+    is_raw_duplicate: Optional[bool]
+
     # from naming  
     raw_text: str
     chunks: List[Dict[str, Any]]    

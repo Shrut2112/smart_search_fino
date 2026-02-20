@@ -1,6 +1,9 @@
 from langchain_groq import ChatGroq
 import os
 from dotenv import load_dotenv
+from utils.logger import get_logger
+
+log = get_logger("utils.llm")
 
 load_dotenv()
 def get_llm():
@@ -8,7 +11,7 @@ def get_llm():
     try:
         llm = ChatGroq(model="qwen/qwen3-32b",temperature=0)
     except:
-        print("Error Loading Model")
+        log.error("Error loading LLM model")
         return
     return llm
 
@@ -17,6 +20,6 @@ def get_gpt():
     try:
         llm = ChatGroq(model="openai/gpt-oss-120b",temperature=0)
     except:
-        print("Error Loading Model")
+        log.error("Error loading GPT model")
         return
     return llm
