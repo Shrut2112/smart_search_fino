@@ -9,6 +9,7 @@ dependencies = [
     "dotenv>=0.9.9",
     "hf-xet>=1.2.0",
     "huggingface-hub>=0.36.0",
+    "ipython>=8.38.0",
     "langchain>=1.2.4",
     "langchain-community>=0.4.1",
     "langchain-experimental>=0.4.1",

@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, TypedDict, Dict, Optional, Any, Set,Annotated
 from operator import add
 
@@ -55,3 +55,7 @@ class AnswerState(TypedDict,total=False):
     
     # Set a default in your first node or make it NotRequired
     attempt_count: Optional[int]
+    cache_hit: bool = Field(default=False)
+    
+    query_hash: Optional[str]
+    query_embedding: Optional[List[float]]

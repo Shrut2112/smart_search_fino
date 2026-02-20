@@ -8,8 +8,11 @@ from utils.prompts.retrival_prompts import refine_query_prompt,answering_prompt
 from utils.get_llm import get_llm, get_gpt
 from utils.get_cross_encoder import get_crossencoder
 from langchain_core.prompts import ChatPromptTemplate
+from answering_agent.caching_logic import cache_check_node, push_cache
 import tiktoken
 import json
+from IPython.display import Image, display
+from langchain_core.runnables.graph import MermaidDrawMethod
 
 def get_models():
     llm = get_llm()
@@ -23,6 +26,7 @@ retriever = RetrievalPipeline(emb_model, llm, ans_llm, reranker)
 encoding = tiktoken.get_encoding("cl100k_base")
 top_k = 10
 
+    
 def limit_context_by_tokens(chunks,prompt,query,max_limit=6000):
         if not chunks: return ""
         try:
@@ -48,25 +52,25 @@ def limit_context_by_tokens(chunks,prompt,query,max_limit=6000):
             return "".join(chunks[:2]) # Aggressive fallback
         
 def refiner_agent_node(state: AnswerState) -> AnswerState:
-    print(f"\n--- [1] REFINER NODE ---")
+    #print(f"\n--- [1] REFINER NODE ---")
     user_query = state['query']
     current_attempts = state.get("attempt_count", 0) + 1
-    print(f"User Query: {user_query}")
-    print(f"Attempt: {current_attempts}/3")
+    #print(f"User Query: {user_query}")
+    #print(f"Attempt: {current_attempts}/3")
     
     prompt = refine_query_prompt.substitute(user_query=user_query)
     
     try:    
         refined = llm.with_structured_output(RefinedQuery).invoke(prompt)
-        print(f"Refined - Semantic: {refined.semantic_query}")
-        print(f"Refined - Keyword: {refined.keyword_query}")
+        #print(f"Refined - Semantic: {refined.semantic_query}")
+        #print(f"Refined - Keyword: {refined.keyword_query}")
         return {
             "keyword_query": refined.keyword_query,
             "semantic_query": refined.semantic_query,
             "attempt_count": current_attempts
         }
     except Exception as e:
-        print(f"Refiner Error: {e}. Using raw query as fallback.")
+        #print(f"Refiner Error: {e}. Using raw query as fallback.")
         return {
             "keyword_query": user_query,
             "semantic_query": user_query,
@@ -74,7 +78,7 @@ def refiner_agent_node(state: AnswerState) -> AnswerState:
         }
 
 def semantic_search_node(state: AnswerState):
-    print(f"--- [2A] SEMANTIC SEARCH START ---")
+    #print(f"--- [2A] SEMANTIC SEARCH START ---")
     query = state.get('semantic_query') or state['query']
     
     if not query: return {"retrived_sem_doc": []}
@@ -82,28 +86,28 @@ def semantic_search_node(state: AnswerState):
     try:
         query_embedding = emb_model.embed_query(query)
         docs = retrieve_similar_chunks(query_embedding, top_k)
-        print(f"Semantic Result: {len(docs)} chunks found.")
+        #print(f"Semantic Result: {len(docs)} chunks found.")
         return {"retrived_sem_doc": docs or []}
     except Exception as e:
         print(f"Semantic Search Error: {e}")
         return {"retrived_sem_doc": []}
 
 def keyword_search_node(state: AnswerState):
-    print(f"--- [2B] KEYWORD SEARCH START ---")
+    #print(f"--- [2B] KEYWORD SEARCH START ---")
     query = state.get('keyword_query') or state['query']
     try:
         clean_query = query.replace("(","").replace(")","").replace("|","")
         words = [w for w in clean_query.split()]
         lenient_query = " | ".join(words)
         docs = retrieve_similar_chunks_key(lenient_query, top_k) 
-        print(f"Keyword Result: {len(docs)} chunks found.")
+        #print(f"Keyword Result: {len(docs)} chunks found.")
         return {"retrived_key_doc": docs}
     except Exception as e:
-        print(f"Keyword Search Error: {e}")
+        #print(f"Keyword Search Error: {e}")
         return {"retrived_key_doc": []}
 
 def rerank_doc_node(state: AnswerState):
-    print(f"--- [3] RRF MERGING NODE ---")
+    #print(f"--- [3] RRF MERGING NODE ---")
     k = 60
     rrf_scores = {} 
     semantic_doc = state.get('retrived_sem_doc', [])
@@ -121,14 +125,14 @@ def rerank_doc_node(state: AnswerState):
     sorted_ids = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
     final_chunks = [all_chunks[chunk_id] for chunk_id, score in sorted_ids]
     
-    print(f"Merged {len(semantic_doc)} semantic and {len(keyword_doc)} keyword docs into {len(final_chunks)} unique chunks.")
+    #print(f"Merged {len(semantic_doc)} semantic and {len(keyword_doc)} keyword docs into {len(final_chunks)} unique chunks.")
     return {"reranked_docs": final_chunks}
 
 def get_final_context_node(state: AnswerState):
-    print(f"--- [4] CROSS-ENCODER RERANKING NODE ---")
+    #print(f"--- [4] CROSS-ENCODER RERANKING NODE ---")
     docs = state.get('reranked_docs', [])
     if not docs:
-        print("No documents found to rerank.")
+        # print("No documents found to rerank.")
         return {"final_doc": []}
 
     unique_docs = {doc[0]: doc for doc in docs}
@@ -151,15 +155,15 @@ def get_final_context_node(state: AnswerState):
     
     reranked_list.sort(key=lambda x: x['rerank_score'], reverse=True)
     top_docs = reranked_list[:5]
-    print(f"Top Score: {top_docs[0]['rerank_score'] if top_docs else 'N/A'}")
+    #print(f"Top Score: {top_docs[0]['rerank_score'] if top_docs else 'N/A'}")
     return {"final_doc": top_docs}
 
 def answer_agent_node(state: AnswerState):
-    print(f"--- [5] GENERATING ANSWER ---")
+    #print(f"--- [5] GENERATING ANSWER ---")
     try:
         # Check if we failed the 3-try limit
         if not state.get('final_doc') and state.get('attempt_count', 0) >= 3:
-            print("FAILED: No docs found after 3 attempts.")
+            #print("FAILED: No docs found after 3 attempts.")
             return {"answer": "I couldn't find specific info to answer that question."}
         
         context_text = state.get('final_doc', [])
@@ -171,12 +175,12 @@ def answer_agent_node(state: AnswerState):
                 chunk_type = c.get('chunk_type',"")
                 scoren = c.get('rerank_score',"")
                 if scoren > 0:
-                    print(f"{scoren}\n")
+                    # print(f"{scoren}\n")
                     entry = f"\n# Source: {src} PAGE NO: {pageno} TABLE CONTENT: {chunk_type} TEXT: {text} RERANK SCORE: {scoren}\n"
                     clean_entry.append(entry)
                     
         if not clean_entry:
-            print("No high-confidence docs available.")
+            #print("No high-confidence docs available.")
             return {"answer": "I couldn't find specific info to answer that question."}
 
         prompt = ChatPromptTemplate.from_messages([
@@ -189,7 +193,7 @@ def answer_agent_node(state: AnswerState):
         final_chunk = limit_context_by_tokens(clean_entry, prompt, user_query)
         final_prompt = prompt.invoke({"clean_entry": final_chunk, "user_query": user_query})
         
-        print("Sending to LLM...")
+        #print("Sending to LLM...")
         raw_response = ans_llm.bind(response_format={"type":"json_object"}).invoke(final_prompt)
         
         try:
@@ -198,42 +202,59 @@ def answer_agent_node(state: AnswerState):
             answer = parsed_json.get("final_answer")
             if not answer:
                  return {"answer": "I'm sorry, I ran into an error while drafting your answer."}
-            print("Answer generation complete.")
+            #print("Answer generation complete.")
             return {"answer": answer}
         except (json.JSONDecodeError, ValueError) as e:
-            print(f"JSON Parsing Error: {e}. Falling back to raw content.")
+            #print(f"JSON Parsing Error: {e}. Falling back to raw content.")
             return {"answer": "I'm sorry, I ran into an error while drafting your answer."}
         
     except Exception as e:
-        print(f"Answering Error: {e}")
+        #print(f"Answering Error: {e}")
         return {"answer": "I'm sorry, I ran into an error while drafting your answer."}
 
 def route_after_retrieval(state: AnswerState):
     doc_count = len(state.get("final_doc", []))
     attempt = state.get("attempt_count", 0)
     
-    if doc_count > 0:
-        print(f"Routing: PROCEED (Found {doc_count} docs)")
-        return "generate"
-    
     if attempt >= 3:
-        print(f"Routing: TERMINATE (Failed after {attempt} attempts)")
+        #print(f"Routing: TERMINATE (Failed after {attempt} attempts)")
         return "fail"
+    
+    if doc_count > 0:
+        #print(f"Routing: PROCEED (Found {doc_count} docs)")
+        return "generate"
     
     print(f"Routing: RETRY (Attempt {attempt} yielded no results)")
     return "retry"
 
+def route_cached(state:AnswerState):
+    cache_hit = state['cache_hit']
+    #print(cache_hit)
+    if cache_hit == True:
+        return "done"
+    return "process_graph"
+
 def create_graph():
     builder = StateGraph(AnswerState)
 
+    builder.add_node("cache_check", cache_check_node)
     builder.add_node("refiner", refiner_agent_node)
     builder.add_node("semantic_search", semantic_search_node)
     builder.add_node("keyword_search", keyword_search_node)
     builder.add_node("rerank_rrf", rerank_doc_node)
     builder.add_node("cross_encode", get_final_context_node)
     builder.add_node("answer_node", answer_agent_node)
+    builder.add_node("push_cache_node", push_cache)
 
-    builder.add_edge(START, "refiner")
+    builder.add_edge(START, "cache_check")
+    builder.add_conditional_edges(
+        "cache_check",
+        route_cached,
+        {
+            "done": END,
+            "process_graph": "refiner"
+        }
+    )
     
     # Parallelize the searches
     builder.add_edge("refiner", "semantic_search")
@@ -254,6 +275,11 @@ def create_graph():
         }
     )
     
-    builder.add_edge("answer_node", END)
+    builder.add_edge("answer_node", "push_cache_node")
+    builder.add_edge("push_cache_node", END)
 
-    return builder.compile()
+    graph = builder.compile()
+    img_path = "langgraph_diagram.png"
+    graph.get_graph().draw_mermaid_png(output_file_path=img_path, draw_method=MermaidDrawMethod.API)
+
+    return graph 
