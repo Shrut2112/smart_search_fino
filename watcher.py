@@ -110,7 +110,7 @@ class WorkerPool:
         t = threading.Thread(target=self._loop, daemon=True)
         t.start()
 
-    def submit(self, path: Path):
+    def submit(self, path: Path): #put file in queue
         path = path.resolve()  # FIX: always normalize to absolute path
         with self.lock:
             if path in self.enqueued_paths:
@@ -120,7 +120,7 @@ class WorkerPool:
 
         self.q.put(path)
 
-    def _loop(self):
+    def _loop(self): #get file path from queue
         while True:
             try:
                 path = self.q.get(timeout=1)
@@ -130,7 +130,7 @@ class WorkerPool:
             self.executor.submit(self._process, path)
             self.q.task_done()
 
-    def _process(self, path: Path):
+    def _process(self, path: Path): #process file
         file_hash = None
         start_time = time.time()
 

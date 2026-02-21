@@ -39,3 +39,48 @@
 2026-02-20 22:54:30 [INFO] [graph.main] Pipeline skipped -> reason=duplicate_or_collision
 2026-02-20 22:54:30 [INFO] [watcher] Skipped (unknown) -> customer_grievance_policy.pdf
 2026-02-20 22:54:30 [INFO] [watcher] Moved to processed (skipped) -> customer_grievance_policy.pdf
+2026-02-21 13:01:45 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-21 13:01:47 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-02-21 13:01:47 [INFO] [utils.embedding] Embedding model initialized
+2026-02-21 13:01:50 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-21 13:01:52 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-02-21 13:01:52 [INFO] [utils.embedding] Embedding model initialized
+2026-02-21 13:01:55 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-02-21 13:04:43 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-21 13:04:45 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-02-21 13:04:45 [INFO] [utils.embedding] Embedding model initialized
+2026-02-21 13:04:46 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-21 13:04:48 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-02-21 13:04:48 [INFO] [utils.embedding] Embedding model initialized
+2026-02-21 13:04:51 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-02-21 13:05:12 [INFO] [db.hooks] Connection Pool Initialized
+2026-02-21 13:05:17 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:05:35 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:06:34 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:06:49 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:10:22 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:10:36 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:13:48 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:14:04 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:14:51 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:15:04 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:15:23 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:15:34 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:20:22 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-21 13:20:22 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-21 13:20:26 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-02-21 13:20:26 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-02-21 13:20:26 [INFO] [utils.embedding] Embedding model initialized
+2026-02-21 13:20:26 [INFO] [utils.embedding] Embedding model initialized
+2026-02-21 13:20:26 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-21 13:20:26 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-21 13:21:24 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-21 13:21:27 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-02-21 13:21:27 [INFO] [utils.embedding] Embedding model initialized
+2026-02-21 13:21:27 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-02-21 13:21:29 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-02-21 13:21:29 [INFO] [utils.embedding] Embedding model initialized
+2026-02-21 13:21:32 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-02-21 13:21:58 [INFO] [db.hooks] Connection Pool Initialized
+2026-02-21 13:22:02 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-21 13:22:17 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
