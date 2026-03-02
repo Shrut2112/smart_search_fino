@@ -42,7 +42,7 @@ semantic_cache_query = f"""
   WHERE id = (
     SELECT id 
     FROM cache 
-    WHERE embedding_vector <=> %s::vector < 0.05
+    WHERE embedding_vector <=> %s::vector < 0.10
     ORDER BY embedding_vector <=> %s::vector ASC
     LIMIT 1
   )

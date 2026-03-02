@@ -1,6 +1,9 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 import os
 from dotenv import load_dotenv
+from utils.logger import get_logger
+
+log = get_logger("utils.embedding")
 def embedding_model():
     load_dotenv()
     E5_MODEL_PATH = os.getenv(
@@ -24,6 +27,6 @@ def embedding_model():
             "normalize_embeddings": True
         }
     )
-    print("Embedding model initialized")
+    log.info("Embedding model initialized")
     return embeddings
         

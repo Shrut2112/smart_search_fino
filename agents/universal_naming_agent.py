@@ -3,6 +3,9 @@ from typing import TypedDict, Callable
 from pathlib import Path
 import re
 from utils.schema import State
+from utils.logger import get_logger
+
+log = get_logger("agent.naming")
 
 def collision_exists(filename: str) -> bool:
     """
@@ -102,6 +105,8 @@ def universal_name_refiner_v4(state: State) -> State:
         confidence *= 0.98
     if is_collision:
         confidence *= 0.95
+
+    log.info(f"Naming: '{Path(state['original_filename']).name}' -> base='{clean_name}', version={version}, revision={revision_tag}, collision={is_collision}, final='{final_name}'")
 
     return {
         **state,

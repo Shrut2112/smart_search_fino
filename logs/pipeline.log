@@ -1,0 +1,11 @@
+2026-03-02 20:24:01 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-02 20:24:03 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-02 20:24:03 [INFO] [utils.embedding] Embedding model initialized
+2026-03-02 20:24:05 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-02 20:24:07 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-02 20:24:07 [INFO] [utils.embedding] Embedding model initialized
+2026-03-02 20:24:11 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-03-02 20:24:24 [INFO] [app] Invoking graph with user query: saving account details?
+2026-03-02 20:24:25 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-02 20:24:28 [INFO] [answering_agent.main] Cache hit detected. Routing directly to answer generation.
+2026-03-02 20:24:28 [INFO] [app] Completed execution

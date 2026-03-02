@@ -1,4 +1,4 @@
-# agents/comparison_agent.py - PRODUCTION READY v2.1
+# agents/comparison_agent.py
 
 from typing import TypedDict, List, Dict, Any, Set
 from langgraph.graph import StateGraph, END
@@ -8,6 +8,9 @@ from .db_hooks import (
 from sentence_transformers import SentenceTransformer, util
 import os
 from utils.schema import State
+from utils.logger import get_logger
+
+log = get_logger("agent.comparison")
 
 _MODEL_CACHE = None
 
@@ -20,13 +23,25 @@ def get_embedding_model():
     try:
         _MODEL_CACHE = SentenceTransformer(model_path)
     except Exception as e:
-        print(f"Fallback to all-MiniLM-L6-v2: {e}")
+        log.warning(f"Fallback to all-MiniLM-L6-v2: {e}")
         _MODEL_CACHE = SentenceTransformer('all-MiniLM-L6-v2')
     return _MODEL_CACHE
 
 def check_doc_exists(state: State) -> State:
-    #SHA256
-    if query_doc_exists(state["content_hash"]):
+    if state.get("status") in ("failed", "unsupported") or not state.get("content_hash"):
+        return {
+            **state,
+            "status_comp": "skipped",
+            "skip_reason": "parser_failed_no_content_hash",
+            "report": {},
+            "actions": [],
+            "matched_old_ids": set(),
+            "to_archive": []
+        }
+
+    content_hash = state["content_hash"]
+
+    if query_doc_exists(content_hash):
         return {
             **state,
             "status_comp": "complete",
@@ -35,10 +50,12 @@ def check_doc_exists(state: State) -> State:
             "matched_old_ids": set(),
             "to_archive": []
         }
-    
+
     doc_prefix = state["base_doc_name"]
     old_chunks = load_latest_chunks(doc_prefix)
-    
+
+    log.info(f"Comparison: old_chunks={len(old_chunks or [])}, mode={'chunk_compare' if old_chunks else 'store_all'}")
+
     return {
         **state,
         "old_chunks": old_chunks or [],
@@ -46,7 +63,6 @@ def check_doc_exists(state: State) -> State:
         "to_archive": [],
         "report": {"status": "new_version"},
         "actions": [],
-        ### if not duplicate 
         "status_comp": "chunk_compare" if old_chunks else "store_all"
     }
 
@@ -64,7 +80,7 @@ def exact_hash_matching(state: State) -> State:
     return {
         **state,
         "matched_old_ids": matched_old,
-        "report": {"exact_unchanged": len(matched_old)},
+        "report": {**state.get("report", {}), "exact_unchanged": len(matched_old)},
         "status_comp": "fuzzy_match"
     }
 
@@ -141,7 +157,7 @@ def generate_report(state: State) -> State:
         "total_new": new_total,
         "unchanged": unchanged,
         "new_added": new_only,
-        "old_archived": state["report"]["to_archive"],
+        "old_archived": len(state["to_archive"]),
         **state["report"],
         "storage_savings": f"{savings_pct}%",
         "action": "sync_complete"
@@ -168,14 +184,14 @@ def execute_db_actions(state: State) -> State:
     # 3. Call upsert_chunks ONCE with the full list
     if chunks_to_save:
         upsert_chunks(chunks_to_save)
-        print(f"STORED {len(chunks_to_save)} chunks successfully.")
+        log.info(f"Stored {len(chunks_to_save)} chunks successfully.")
     
-    return {**state, "status_comp": "completed"}
+    return {**state, "status_comp": "completed", "pipeline_status": "success"}
 
 
 # WORKFLOW
 
-def get_comparison_agent(state:State):
+def get_comparison_agent():
     workflow = StateGraph(State)
     workflow.add_node("check_doc", check_doc_exists)
     workflow.add_node("hash_match", exact_hash_matching)
@@ -192,18 +208,3 @@ def get_comparison_agent(state:State):
 
     comparison_agent = workflow.compile()
     return comparison_agent
-
-# def run_comparison(new_doc_id: str, chunks: List[Dict], content_hash: str) -> State:
-#     result = comparison_agent.invoke({
-#         "base_doc_name": new_doc_id,
-#         "content_hash": content_hash,
-#         "chunks": chunks,
-#         "old_chunks": [],
-#         "report": {},
-#         "actions": [],
-#         "status_comp": "pending",
-#         "matched_old_ids": set(),
-#         "to_archive": []
-#     })
-#     print(f"RESULT: {result['report']}")
-#     return result

@@ -169,4 +169,3 @@ class RetrievalPipeline:
             return self.answer_agent(reranked_data, sem_q)
         except:
             return "Something went wrong while processing your request. Please try a different query."
-        

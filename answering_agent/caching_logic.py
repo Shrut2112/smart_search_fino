@@ -6,6 +6,7 @@ from datetime import datetime, timezone, timedelta
 
 embed = embedding_model()
 
+
 def isFreah(create_at):
     now_utc = datetime.now(timezone.utc)
     
@@ -44,5 +45,3 @@ def push_cache(state:AnswerState):
         print(f"Error While pushing {e}")
     
     return {}
-    
-    
