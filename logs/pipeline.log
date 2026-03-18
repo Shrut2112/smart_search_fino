@@ -1,321 +1,411 @@
-2026-03-29 13:19:50 [INFO] [backend] Shutting down FastAPI application...
-2026-03-29 13:20:12 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-29 13:20:16 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-29 13:20:16 [INFO] [utils.embedding] Embedding model initialized
-2026-03-29 13:20:17 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-29 13:20:21 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-29 13:20:21 [INFO] [utils.embedding] Embedding model initialized
-2026-03-29 13:20:21 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:21 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:21 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
-2026-03-29 13:20:22 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:22 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:22 [WARNING] [huggingface_hub.utils._http] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-2026-03-29 13:20:22 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
-2026-03-29 13:20:22 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:23 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:23 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
-2026-03-29 13:20:23 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:23 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
-2026-03-29 13:20:23 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:24 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-2026-03-29 13:20:24 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:24 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:24 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
-2026-03-29 13:20:24 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
-2026-03-29 13:20:24 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:20:25 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
-2026-03-29 13:20:25 [INFO] [backend] Starting up FastAPI application...
-2026-03-29 13:20:25 [INFO] [backend] Loading LangGraph agent...
-2026-03-29 13:20:25 [INFO] [backend] LangGraph agent loaded successfully.
-2026-03-29 13:20:55 [INFO] [backend] Received query: director of the bank?
-2026-03-29 13:20:56 [INFO] [db.hooks] Connection Pool Initialized
-2026-03-29 13:20:57 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
-2026-03-29 13:20:57 [INFO] [answering_agent.main] Refiner Agent Invoked - Attempt 1 for query: director of the bank?
-2026-03-29 13:20:58 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 13:21:01 [INFO] [answering_agent.main] Refiner Output - Attempt 1: Success.
-2026-03-29 13:21:01 [INFO] [answering_agent.main] Keyword Search Invoked.
-2026-03-29 13:21:01 [INFO] [answering_agent.main] Semantic Search Invoked
-2026-03-29 13:21:02 [INFO] [answering_agent.main] Keyword Search found 30 chunks.
-2026-03-29 13:21:03 [INFO] [answering_agent.main] Semantic Search found 30 chunks.
-2026-03-29 13:21:03 [INFO] [answering_agent.main] RRF Merging Invoked.
-2026-03-29 13:21:03 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks after merging: 59
-2026-03-29 13:21:03 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked.
-2026-03-29 13:21:10 [INFO] [answering_agent.main] Cross-Encoder reranking completed. Top doc score: 6.359798431396484
-2026-03-29 13:21:10 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 5 documents.
-2026-03-29 13:21:10 [INFO] [answering_agent.main] Answer Generation Invoked.
-2026-03-29 13:21:11 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 13:21:11 [INFO] [answering_agent.main] Answer Generation Successful. Answer length: 188 characters.
-2026-03-29 13:21:11 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
-2026-03-29 13:21:11 [INFO] [backend] Successfully processed query.
-2026-03-29 13:25:17 [INFO] [backend] Shutting down FastAPI application...
-2026-03-29 13:25:41 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-29 13:25:45 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-29 13:25:45 [INFO] [utils.embedding] Embedding model initialized
-2026-03-29 13:25:46 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-29 13:25:49 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-29 13:25:49 [INFO] [utils.embedding] Embedding model initialized
-2026-03-29 13:25:50 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:50 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:50 [WARNING] [huggingface_hub.utils._http] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-2026-03-29 13:25:50 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
-2026-03-29 13:25:51 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:51 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:51 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
-2026-03-29 13:25:51 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:51 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:52 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
-2026-03-29 13:25:52 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:52 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
-2026-03-29 13:25:52 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:53 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-2026-03-29 13:25:53 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:53 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:53 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
-2026-03-29 13:25:53 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
-2026-03-29 13:25:54 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:25:54 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
-2026-03-29 13:25:54 [INFO] [backend] Starting up FastAPI application...
-2026-03-29 13:25:54 [INFO] [backend] Loading LangGraph agent...
-2026-03-29 13:25:54 [INFO] [backend] LangGraph agent loaded successfully.
-2026-03-29 13:25:54 [INFO] [backend] Shutting down FastAPI application...
-2026-03-29 13:26:11 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-29 13:26:15 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-29 13:26:15 [INFO] [utils.embedding] Embedding model initialized
-2026-03-29 13:26:15 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-29 13:26:20 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-29 13:26:20 [INFO] [utils.embedding] Embedding model initialized
-2026-03-29 13:26:20 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:20 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:20 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
-2026-03-29 13:26:21 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:21 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:21 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
-2026-03-29 13:26:21 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:21 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:21 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
-2026-03-29 13:26:22 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:22 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
-2026-03-29 13:26:22 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:22 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-2026-03-29 13:26:23 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:23 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:23 [WARNING] [huggingface_hub.utils._http] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-2026-03-29 13:26:23 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
-2026-03-29 13:26:23 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
-2026-03-29 13:26:24 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 13:26:24 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
-2026-03-29 13:26:24 [INFO] [backend] Starting up FastAPI application...
-2026-03-29 13:26:24 [INFO] [backend] Loading LangGraph agent...
-2026-03-29 13:26:24 [INFO] [backend] LangGraph agent loaded successfully.
-2026-03-29 13:26:24 [INFO] [backend] Received query: saving accounts details
-2026-03-29 13:26:25 [INFO] [db.hooks] Connection Pool Initialized
-2026-03-29 13:26:28 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
-2026-03-29 13:26:28 [INFO] [answering_agent.main] Refiner Agent Invoked - Attempt 1 for query: saving accounts details
-2026-03-29 13:26:28 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 13:26:34 [INFO] [answering_agent.main] Refiner Output - Attempt 1: Success.
-2026-03-29 13:26:34 [INFO] [answering_agent.main] Keyword Search Invoked.
-2026-03-29 13:26:34 [INFO] [answering_agent.main] Semantic Search Invoked
-2026-03-29 13:26:38 [INFO] [answering_agent.main] Semantic Search found 30 chunks.
-2026-03-29 13:26:41 [INFO] [answering_agent.main] Keyword Search found 30 chunks.
-2026-03-29 13:26:41 [INFO] [answering_agent.main] RRF Merging Invoked.
-2026-03-29 13:26:41 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks after merging: 60
-2026-03-29 13:26:41 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked.
-2026-03-29 13:26:47 [INFO] [answering_agent.main] Cross-Encoder reranking completed. Top doc score: 4.6679792404174805
-2026-03-29 13:26:47 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 5 documents.
-2026-03-29 13:26:47 [INFO] [answering_agent.main] Answer Generation Invoked.
-2026-03-29 13:26:47 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 13:26:48 [INFO] [answering_agent.main] Answer Generation Successful. Answer length: 1019 characters.
-2026-03-29 13:26:48 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
-2026-03-29 13:26:49 [INFO] [backend] Successfully processed query.
-2026-03-29 13:31:41 [INFO] [backend] Received query: saving account details
-2026-03-29 13:31:43 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 13:31:43 [INFO] [backend] Successfully processed query.
-2026-03-29 17:28:14 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-29 17:28:19 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-29 17:28:19 [INFO] [utils.embedding] Embedding model initialized
-2026-03-29 17:28:20 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-29 17:28:26 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-29 17:28:26 [INFO] [utils.embedding] Embedding model initialized
-2026-03-29 17:28:26 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:26 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:26 [WARNING] [huggingface_hub.utils._http] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-2026-03-29 17:28:26 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
-2026-03-29 17:28:27 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:27 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:27 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
-2026-03-29 17:28:27 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:28 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:28 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
-2026-03-29 17:28:28 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:28 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
-2026-03-29 17:28:28 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:29 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-2026-03-29 17:28:29 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:29 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:29 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
-2026-03-29 17:28:29 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
-2026-03-29 17:28:29 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 17:28:30 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
-2026-03-29 17:28:30 [INFO] [backend] Starting up FastAPI application...
-2026-03-29 17:28:30 [INFO] [backend] Loading LangGraph agent...
-2026-03-29 17:28:30 [INFO] [backend] LangGraph agent loaded successfully.
-2026-03-29 17:29:10 [INFO] [backend] Received query: savings account details
-2026-03-29 17:29:11 [INFO] [db.hooks] Connection Pool Initialized
-2026-03-29 17:29:13 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 17:29:13 [INFO] [backend] Successfully processed query.
-2026-03-29 17:29:46 [INFO] [backend] Received query: bacht khata jankari
-2026-03-29 17:29:47 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
-2026-03-29 17:29:47 [INFO] [answering_agent.main] Refiner Agent Invoked - Attempt 1 for query: bacht khata jankari
-2026-03-29 17:29:47 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 17:29:53 [INFO] [answering_agent.main] Keyword Search Invoked.
-2026-03-29 17:29:53 [INFO] [answering_agent.main] Semantic Search Invoked
-2026-03-29 17:29:57 [INFO] [answering_agent.main] Keyword Search found 0 chunks.
-2026-03-29 17:29:58 [INFO] [answering_agent.main] Semantic Search found 30 chunks.
-2026-03-29 17:29:58 [INFO] [answering_agent.main] RRF Merging Invoked.
-2026-03-29 17:29:58 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks after merging: 30
-2026-03-29 17:29:58 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked.
-2026-03-29 17:30:01 [INFO] [answering_agent.main] Cross-Encoder reranking completed. Top doc score: -9.259188652038574
-2026-03-29 17:30:01 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 5 documents.
-2026-03-29 17:30:01 [INFO] [answering_agent.main] Answer Generation Invoked.
-2026-03-29 17:30:02 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 17:30:02 [INFO] [answering_agent.main] Answer Generation Successful. Answer length: 90 characters.
-2026-03-29 17:30:02 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
-2026-03-29 17:30:03 [INFO] [backend] Successfully processed query.
-2026-03-29 17:30:52 [INFO] [backend] Received query: saving account details
-2026-03-29 17:30:53 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 17:30:53 [INFO] [backend] Successfully processed query.
-2026-03-29 17:34:39 [INFO] [backend] Received query: saving account details
-2026-03-29 17:34:41 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 17:34:41 [INFO] [backend] Successfully processed query.
-2026-03-29 17:42:04 [INFO] [backend] Received query: savings account details
-2026-03-29 17:42:06 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 17:42:06 [INFO] [backend] Successfully processed query.
-2026-03-29 17:46:09 [INFO] [backend] Received query: savings account details
-2026-03-29 17:46:10 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 17:46:10 [INFO] [backend] Successfully processed query.
-2026-03-29 17:49:10 [INFO] [backend] Received query: savings account details
-2026-03-29 17:49:13 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 17:49:13 [INFO] [backend] Successfully processed query.
-2026-03-29 17:49:49 [INFO] [backend] Received query: savings account details
-2026-03-29 17:49:51 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 17:49:51 [INFO] [backend] Successfully processed query.
-2026-03-29 17:52:35 [INFO] [backend] Received query: savings account details
-2026-03-29 17:52:36 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 17:52:36 [INFO] [backend] Successfully processed query.
-2026-03-29 17:55:52 [INFO] [backend] Received query: savings account details
-2026-03-29 17:55:54 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 17:55:54 [INFO] [backend] Successfully processed query.
-2026-03-29 17:57:47 [INFO] [backend] Received query: frontend\src\assets\fino_assistant_logo.png
-2026-03-29 17:57:49 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
-2026-03-29 17:57:49 [INFO] [answering_agent.main] Refiner Agent Invoked - Attempt 1 for query: frontend\src\assets\fino_assistant_logo.png
-2026-03-29 17:57:49 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 17:57:53 [INFO] [answering_agent.main] Refiner Output - Attempt 1: Success.
-2026-03-29 17:57:53 [INFO] [answering_agent.main] Keyword Search Invoked.
-2026-03-29 17:57:53 [INFO] [answering_agent.main] Semantic Search Invoked
-2026-03-29 17:57:58 [INFO] [answering_agent.main] Semantic Search found 30 chunks.
-2026-03-29 17:57:58 [INFO] [answering_agent.main] Keyword Search found 30 chunks.
-2026-03-29 17:57:58 [INFO] [answering_agent.main] RRF Merging Invoked.
-2026-03-29 17:57:58 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks after merging: 60
-2026-03-29 17:57:58 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked.
-2026-03-29 17:58:05 [INFO] [answering_agent.main] Cross-Encoder reranking completed. Top doc score: -0.4890393018722534
-2026-03-29 17:58:05 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 5 documents.
-2026-03-29 17:58:05 [INFO] [answering_agent.main] Answer Generation Invoked.
-2026-03-29 17:58:05 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 17:58:05 [INFO] [answering_agent.main] Answer Generation Successful. Answer length: 65 characters.
-2026-03-29 17:58:05 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
-2026-03-29 17:58:06 [INFO] [backend] Successfully processed query.
-2026-03-29 18:00:10 [INFO] [backend] Received query: frontend\src\assets\fino_assistant_logo.png
-2026-03-29 18:00:11 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 18:00:11 [INFO] [backend] Successfully processed query.
-2026-03-29 18:02:44 [INFO] [backend] Received query: savings account details
-2026-03-29 18:02:45 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
-2026-03-29 18:02:45 [INFO] [backend] Successfully processed query.
-2026-03-29 18:03:58 [INFO] [backend] Received query: Summarize loan structure
-2026-03-29 18:03:59 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
-2026-03-29 18:03:59 [INFO] [answering_agent.main] Refiner Agent Invoked - Attempt 1 for query: Summarize loan structure
-2026-03-29 18:04:00 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 18:04:05 [INFO] [answering_agent.main] Refiner Output - Attempt 1: Success.
-2026-03-29 18:04:05 [INFO] [answering_agent.main] Keyword Search Invoked.
-2026-03-29 18:04:05 [INFO] [answering_agent.main] Semantic Search Invoked
-2026-03-29 18:04:10 [INFO] [answering_agent.main] Semantic Search found 30 chunks.
-2026-03-29 18:04:10 [INFO] [answering_agent.main] Keyword Search found 30 chunks.
-2026-03-29 18:04:10 [INFO] [answering_agent.main] RRF Merging Invoked.
-2026-03-29 18:04:10 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks after merging: 60
-2026-03-29 18:04:10 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked.
-2026-03-29 18:04:16 [INFO] [answering_agent.main] Cross-Encoder reranking completed. Top doc score: -7.202488422393799
-2026-03-29 18:04:16 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 5 documents.
-2026-03-29 18:04:16 [INFO] [answering_agent.main] Answer Generation Invoked.
-2026-03-29 18:04:17 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 18:04:18 [INFO] [answering_agent.main] Answer Generation Successful. Answer length: 1035 characters.
-2026-03-29 18:04:18 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
-2026-03-29 18:04:18 [INFO] [backend] Successfully processed query.
-2026-03-29 18:07:30 [INFO] [backend] Received query: Show Q3 revenue data
-2026-03-29 18:07:32 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
-2026-03-29 18:07:32 [INFO] [answering_agent.main] Refiner Agent Invoked - Attempt 1 for query: Show Q3 revenue data
-2026-03-29 18:07:32 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 18:07:37 [INFO] [answering_agent.main] Refiner Output - Attempt 1: Success.
-2026-03-29 18:07:37 [INFO] [answering_agent.main] Keyword Search Invoked.
-2026-03-29 18:07:37 [INFO] [answering_agent.main] Semantic Search Invoked
-2026-03-29 18:07:41 [INFO] [answering_agent.main] Semantic Search found 30 chunks.
-2026-03-29 18:07:41 [INFO] [answering_agent.main] Keyword Search found 30 chunks.
-2026-03-29 18:07:41 [INFO] [answering_agent.main] RRF Merging Invoked.
-2026-03-29 18:07:41 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks after merging: 60
-2026-03-29 18:07:41 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked.
-2026-03-29 18:07:48 [INFO] [answering_agent.main] Cross-Encoder reranking completed. Top doc score: 2.6659810543060303
-2026-03-29 18:07:48 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 5 documents.
-2026-03-29 18:07:48 [INFO] [answering_agent.main] Answer Generation Invoked.
-2026-03-29 18:07:48 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 18:07:48 [WARNING] [answering_agent.main] JSON failed but content is substantial. Using raw content.
-2026-03-29 18:07:48 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
-2026-03-29 18:07:49 [INFO] [backend] Successfully processed query.
-2026-03-29 20:05:44 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-29 20:05:47 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-29 20:05:47 [INFO] [utils.embedding] Embedding model initialized
-2026-03-29 20:05:48 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-29 20:05:51 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-29 20:05:51 [INFO] [utils.embedding] Embedding model initialized
-2026-03-29 20:05:52 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:52 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:52 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
-2026-03-29 20:05:53 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:53 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:53 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
-2026-03-29 20:05:53 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:53 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:53 [WARNING] [huggingface_hub.utils._http] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-2026-03-29 20:05:53 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
-2026-03-29 20:05:54 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:54 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
-2026-03-29 20:05:54 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:55 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-2026-03-29 20:05:55 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:55 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:55 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
-2026-03-29 20:05:55 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
-2026-03-29 20:05:56 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
-2026-03-29 20:05:56 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
-2026-03-29 20:05:57 [INFO] [backend] Starting up FastAPI application...
-2026-03-29 20:05:57 [INFO] [backend] Loading LangGraph agent...
-2026-03-29 20:05:57 [INFO] [backend] LangGraph agent loaded successfully.
-2026-03-29 20:06:44 [INFO] [backend] Received query: चालू खाते तपशील
-2026-03-29 20:06:46 [INFO] [db.hooks] Connection Pool Initialized
-2026-03-29 20:06:48 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
-2026-03-29 20:06:48 [INFO] [answering_agent.main] Refiner Agent Invoked - Attempt 1 for query: चालू खाते तपशील
-2026-03-29 20:06:49 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 20:06:52 [INFO] [answering_agent.main] Refiner Output - Attempt 1: Success. Language: English
-2026-03-29 20:06:52 [INFO] [answering_agent.main] Keyword Search Invoked.
-2026-03-29 20:06:52 [INFO] [answering_agent.main] Semantic Search Invoked
-2026-03-29 20:06:59 [INFO] [answering_agent.main] Semantic Search found 30 chunks.
-2026-03-29 20:07:23 [INFO] [answering_agent.main] Keyword Search found 30 chunks.
-2026-03-29 20:07:23 [INFO] [answering_agent.main] RRF Merging Invoked.
-2026-03-29 20:07:23 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks after merging: 60
-2026-03-29 20:07:23 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked.
-2026-03-29 20:07:30 [INFO] [answering_agent.main] Cross-Encoder reranking completed. Top doc score: -0.9710926413536072
-2026-03-29 20:07:30 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 5 documents.
-2026-03-29 20:07:30 [INFO] [answering_agent.main] Answer Generation Invoked.
-2026-03-29 20:07:30 [ERROR] [answering_agent.main] Error during tokenization: 'detected_language'
-2026-03-29 20:07:31 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
-2026-03-29 20:07:38 [WARNING] [answering_agent.main] JSON failed but content is substantial. Using raw content.
-2026-03-29 20:07:38 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
-2026-03-29 20:07:39 [INFO] [backend] Successfully processed query.
+ 
+2026-03-08 12:36:04 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-03-08 12:36:06 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-08 12:36:06 [INFO] [agent.parser] Embedding model initialized
+2026-03-08 12:36:07 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-08 12:36:07 [INFO] [web.crawler] Loaded 1 web snapshots
+2026-03-08 12:36:07 [INFO] [web_watcher] Single crawl mode
+2026-03-08 12:36:07 [INFO] [web.crawler] Starting full crawl of https://www.fino.bank.in (limit=50)
+2026-03-08 12:37:03 [INFO] [web.crawler] Crawl returned 2 raw results, credits_used=2
+2026-03-08 12:37:03 [INFO] [web.crawler] Crawl complete: 2 pages with content
+2026-03-08 12:37:04 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/ways-to-bank/finopay -> doc_id=web_ways_to_bank_finopay
+2026-03-08 12:37:04 [INFO] [agent.parser] Text cleaned -> content_hash=ed6e26cb4e60f649..., chars_post_clean=4481
+2026-03-08 12:37:07 [INFO] [agent.parser] Chunking done -> total=7, text=7, table=0, avg_quality=0.41
+2026-03-08 12:37:07 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/ways-to-bank/finopay -> 7 chunks
+2026-03-08 12:37:07 [INFO] [db.hooks] Document web_ways_to_bank_finopay registered successfully.
+2026-03-08 12:37:08 [INFO] [db.hooks] Successfully upserted 7 chunks for web_ways_to_bank_finopay
+2026-03-08 12:37:09 [INFO] [web_watcher]    DB committed: web_ways_to_bank_finopay (7 chunks)
+2026-03-08 12:37:09 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/company/about-us -> doc_id=web_company_about_us
+2026-03-08 12:37:09 [INFO] [agent.parser] Text cleaned -> content_hash=50e7b48a0913348a..., chars_post_clean=6094
+2026-03-08 12:37:14 [INFO] [agent.parser] Chunking done -> total=7, text=7, table=0, avg_quality=0.36
+2026-03-08 12:37:14 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/company/about-us -> 7 chunks
+2026-03-08 12:37:14 [INFO] [db.hooks] Document web_company_about_us registered successfully.
+2026-03-08 12:37:15 [INFO] [db.hooks] Successfully upserted 7 chunks for web_company_about_us
+2026-03-08 12:37:15 [INFO] [web_watcher]    DB committed: web_company_about_us (7 chunks)
+2026-03-08 12:37:15 [INFO] [web_watcher] Crawl cycle done: 2 processed, 0 skipped, 2 total
+2026-03-08 14:31:47 [INFO] [web.crawler] Loaded 3 web snapshots
+2026-03-08 14:31:47 [INFO] [web.crawler] Mapping https://www.fino.bank.in (limit=200)
+2026-03-08 14:31:52 [INFO] [web.crawler] Map discovered 28 URLs
+2026-03-08 14:32:12 [INFO] [web.crawler] Loaded 3 web snapshots
+2026-03-08 14:32:12 [INFO] [web.crawler] Mapping https://www.fino.bank.in (limit=200)
+2026-03-08 14:32:16 [INFO] [web.crawler] Map discovered 28 URLs
+2026-03-08 14:33:07 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-03-08 14:33:09 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-08 14:33:09 [INFO] [agent.parser] Embedding model initialized
+2026-03-08 14:33:10 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-08 14:33:10 [INFO] [web.crawler] Loaded 3 web snapshots
+2026-03-08 14:33:10 [INFO] [web_watcher] Single crawl mode
+2026-03-08 14:33:10 [INFO] [web.crawler] Starting full crawl of https://www.fino.bank.in (limit=50)
+2026-03-08 14:33:11 [ERROR] [web.crawler] Crawl failed: Bad Request: Failed to start crawl. Invalid regular expression: /*.pdf/: Nothing to repeat - No additional error details provided.
+2026-03-08 14:33:11 [WARNING] [web_watcher] No pages returned from crawl
+2026-03-08 14:36:45 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-03-08 14:36:47 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-08 14:36:47 [INFO] [agent.parser] Embedding model initialized
+2026-03-08 14:36:48 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-08 14:36:48 [INFO] [web.crawler] Loaded 3 web snapshots
+2026-03-08 14:36:48 [INFO] [web_watcher] Single crawl mode
+2026-03-08 14:36:48 [INFO] [web.crawler] Starting full crawl of https://www.fino.bank.in (limit=50)
+2026-03-08 14:38:54 [INFO] [web.crawler] Crawl returned 2 raw results, credits_used=2
+2026-03-08 14:38:55 [INFO] [web.crawler] Crawl complete: 2 pages with content
+2026-03-08 14:38:55 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/ways-to-bank/finopay
+2026-03-08 14:38:55 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/company/about-us
+2026-03-08 14:38:55 [INFO] [web_watcher] Crawl cycle done: 0 processed, 2 skipped, 2 total
+2026-03-08 14:41:27 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-03-08 14:41:29 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-08 14:41:29 [INFO] [agent.parser] Embedding model initialized
+2026-03-08 14:41:31 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-08 14:41:31 [INFO] [web.crawler] Loaded 3 web snapshots
+2026-03-08 14:41:31 [INFO] [web_watcher] Single crawl mode (map → scrape → process)
+2026-03-08 14:41:31 [INFO] [web.crawler] Mapping https://www.fino.bank.in (limit=200)
+2026-03-08 14:41:35 [INFO] [web.crawler] Map discovered 28 URLs
+2026-03-08 14:41:35 [INFO] [web_watcher] Map: 28 total, 26 after filtering
+2026-03-08 14:41:35 [INFO] [web_watcher] [1/26] Scraping: https://www.fino.bank.in/company/about-us
+2026-03-08 14:42:08 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/company/about-us
+2026-03-08 14:42:08 [INFO] [web_watcher] [2/26] Scraping: https://www.fino.bank.in/ways-to-bank/finopay
+2026-03-08 14:43:16 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/ways-to-bank/finopay
+2026-03-08 14:43:16 [INFO] [web_watcher] [3/26] Scraping: https://www.fino.bank.in
+2026-03-08 14:43:51 [INFO] [web_watcher] ⏭️  Content hash already in DB: https://www.fino.bank.in -> web_home
+2026-03-08 14:43:51 [INFO] [web_watcher] [4/26] Scraping: https://www.fino.bank.in/merchant
+2026-03-08 14:44:25 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/merchant -> doc_id=web_merchant
+2026-03-08 14:44:25 [INFO] [agent.parser] Text cleaned -> content_hash=dd894270d50aef02..., chars_post_clean=6762
+2026-03-08 14:44:31 [INFO] [agent.parser] Chunking done -> total=9, text=9, table=0, avg_quality=0.39
+2026-03-08 14:44:31 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/merchant -> 9 chunks
+2026-03-08 14:44:32 [INFO] [db.hooks] Document web_merchant registered successfully.
+2026-03-08 14:44:34 [INFO] [db.hooks] Successfully upserted 9 chunks for web_merchant
+2026-03-08 14:44:34 [INFO] [web_watcher]    DB committed: web_merchant (9 chunks)
+2026-03-08 14:44:34 [INFO] [web_watcher] [5/26] Scraping: https://www.fino.bank.in/health-insurance
+2026-03-08 14:45:08 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/health-insurance -> doc_id=web_health_insurance
+2026-03-08 14:45:08 [INFO] [agent.parser] Text cleaned -> content_hash=d0f15ea1d35b6a83..., chars_post_clean=1404
+2026-03-08 14:45:09 [INFO] [agent.parser] Chunking done -> total=2, text=2, table=0, avg_quality=0.51
+2026-03-08 14:45:09 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/health-insurance -> 2 chunks
+2026-03-08 14:45:09 [INFO] [db.hooks] Document web_health_insurance registered successfully.
+2026-03-08 14:45:10 [INFO] [db.hooks] Successfully upserted 2 chunks for web_health_insurance
+2026-03-08 14:45:10 [INFO] [web_watcher]    DB committed: web_health_insurance (2 chunks)
+2026-03-08 14:45:10 [INFO] [web_watcher] [6/26] Scraping: https://www.fino.bank.in/merchant/services
+2026-03-08 14:45:44 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/merchant/services -> doc_id=web_merchant_services
+2026-03-08 14:45:44 [INFO] [agent.parser] Text cleaned -> content_hash=cab13c856774f4b0..., chars_post_clean=6740
+2026-03-08 14:45:49 [INFO] [agent.parser] Chunking done -> total=9, text=9, table=0, avg_quality=0.39
+2026-03-08 14:45:49 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/merchant/services -> 9 chunks
+2026-03-08 14:45:50 [INFO] [db.hooks] Document web_merchant_services registered successfully.
+2026-03-08 14:45:50 [INFO] [db.hooks] Successfully upserted 9 chunks for web_merchant_services
+2026-03-08 14:45:50 [INFO] [web_watcher]    DB committed: web_merchant_services (9 chunks)
+2026-03-08 14:45:50 [INFO] [web_watcher] [7/26] Scraping: https://www.fino.bank.in/payment/aeps
+2026-03-08 14:47:00 [ERROR] [web.crawler] Scrape failed for https://www.fino.bank.in/payment/aeps: Internal Server Error: Failed to scrape. All scraping engines failed to retrieve content from this URL. Engines tried: [fire-engine;chrome-cdp, fire-engine(retry);chrome-cdp]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation. - No additional error details provided.
+2026-03-08 14:47:00 [WARNING] [web_watcher] [7/26] ⚠️  Empty result: https://www.fino.bank.in/payment/aeps
+2026-03-08 14:47:00 [INFO] [web_watcher] [8/26] Scraping: https://www.fino.bank.in/regulatory/privacy-policy
+2026-03-08 14:47:35 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/regulatory/privacy-policy -> doc_id=web_regulatory_privacy_policy
+2026-03-08 14:47:35 [INFO] [agent.parser] Text cleaned -> content_hash=0b877f2ac78d7598..., chars_post_clean=6243
+2026-03-08 14:47:39 [INFO] [agent.parser] Chunking done -> total=9, text=9, table=0, avg_quality=0.37
+2026-03-08 14:47:39 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/regulatory/privacy-policy -> 9 chunks
+2026-03-08 14:47:40 [INFO] [db.hooks] Document web_regulatory_privacy_policy registered successfully.
+2026-03-08 14:47:40 [INFO] [db.hooks] Successfully upserted 9 chunks for web_regulatory_privacy_policy
+2026-03-08 14:47:40 [INFO] [web_watcher]    DB committed: web_regulatory_privacy_policy (9 chunks)
+2026-03-08 14:47:40 [INFO] [web_watcher] [9/26] Scraping: https://www.fino.bank.in/insurance
+2026-03-08 14:48:14 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/insurance -> doc_id=web_insurance
+2026-03-08 14:48:14 [INFO] [agent.parser] Text cleaned -> content_hash=379dca85c7e20461..., chars_post_clean=2318
+2026-03-08 14:48:16 [INFO] [agent.parser] Chunking done -> total=3, text=3, table=0, avg_quality=0.45
+2026-03-08 14:48:16 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/insurance -> 3 chunks
+2026-03-08 14:48:16 [INFO] [db.hooks] Document web_insurance registered successfully.
+2026-03-08 14:48:16 [INFO] [db.hooks] Successfully upserted 3 chunks for web_insurance
+2026-03-08 14:48:17 [INFO] [web_watcher]    DB committed: web_insurance (3 chunks)
+2026-03-08 14:48:17 [INFO] [web_watcher] [10/26] Scraping: https://www.fino.bank.in/upi
+2026-03-08 14:48:51 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/upi -> doc_id=web_upi
+2026-03-08 14:48:51 [INFO] [agent.parser] Text cleaned -> content_hash=2aca015d06d6ae8c..., chars_post_clean=8176
+2026-03-08 14:48:57 [INFO] [agent.parser] Chunking done -> total=10, text=10, table=0, avg_quality=0.39
+2026-03-08 14:48:57 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/upi -> 10 chunks
+2026-03-08 14:48:57 [INFO] [db.hooks] Document web_upi registered successfully.
+2026-03-08 14:48:58 [INFO] [db.hooks] Successfully upserted 10 chunks for web_upi
+2026-03-08 14:48:58 [INFO] [web_watcher]    DB committed: web_upi (10 chunks)
+2026-03-08 14:48:58 [INFO] [web_watcher] [11/26] Scraping: https://www.fino.bank.in/regulatory/term-and-conditions
+2026-03-08 14:49:33 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/regulatory/term-and-conditions -> doc_id=web_regulatory_term_and_conditions
+2026-03-08 14:49:33 [INFO] [agent.parser] Text cleaned -> content_hash=61bd8e04875d1afc..., chars_post_clean=106779
+2026-03-08 14:50:29 [INFO] [agent.parser] Chunking done -> total=145, text=145, table=0, avg_quality=0.41
+2026-03-08 14:50:29 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/regulatory/term-and-conditions -> 145 chunks
+2026-03-08 14:50:29 [INFO] [db.hooks] Document web_regulatory_term_and_conditions registered successfully.
+2026-03-08 14:50:31 [INFO] [db.hooks] Successfully upserted 145 chunks for web_regulatory_term_and_conditions
+2026-03-08 14:50:31 [INFO] [web_watcher]    DB committed: web_regulatory_term_and_conditions (145 chunks)
+2026-03-08 14:50:31 [INFO] [web_watcher] [12/26] Scraping: https://www.fino.bank.in/saving-accounts/fixed-deposit
+2026-03-08 14:50:59 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-03-08 14:51:02 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-08 14:51:02 [INFO] [agent.parser] Embedding model initialized
+2026-03-08 14:51:03 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-08 14:51:03 [INFO] [web.crawler] Loaded 11 web snapshots
+2026-03-08 14:51:03 [INFO] [web_watcher] Map-only mode
+2026-03-08 14:51:03 [INFO] [web.crawler] Mapping https://www.fino.bank.in (limit=200)
+2026-03-08 14:51:06 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/saving-accounts/fixed-deposit -> doc_id=web_saving_accounts_fixed_deposit
+2026-03-08 14:51:06 [INFO] [agent.parser] Text cleaned -> content_hash=e6de9bc25c2d5f39..., chars_post_clean=11136
+2026-03-08 14:51:08 [INFO] [web.crawler] Map discovered 28 URLs
+2026-03-08 14:51:08 [INFO] [web_watcher] Discovered 28 URLs, 26 scrapeable:
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/company/about-us (cached: 7 chunks)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/ways-to-bank/finopay (cached: 7 chunks)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in (cached: 0 chunks)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/merchant (cached: 9 chunks)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/health-insurance (cached: 2 chunks)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/merchant/services (cached: 9 chunks)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/payment/aeps (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/regulatory/privacy-policy (cached: 9 chunks)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/insurance (cached: 3 chunks)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/upi (cached: 10 chunks)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/regulatory/term-and-conditions (cached: 145 chunks)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/saving-accounts/fixed-deposit (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/contact-us (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/life-insurance (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/payments/recharge (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/personal/products/insurance (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/cards/prepaid-card (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/more/aadhaar-seeding (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/more/m-atm (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/company/awards-recognition (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/payments/bill-payment (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/more/sweep-account (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/cards/platinum-debit-card (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/product-list/loan-referrals (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/personal/products/cards/classic-debit-card (new)
+2026-03-08 14:51:08 [INFO] [web_watcher]   https://www.fino.bank.in/general-insurance/go-digit-my-business-policy (new)
+2026-03-08 14:51:15 [INFO] [agent.parser] Chunking done -> total=13, text=13, table=0, avg_quality=0.36
+2026-03-08 14:51:15 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/saving-accounts/fixed-deposit -> 13 chunks
+2026-03-08 14:51:15 [INFO] [db.hooks] Document web_saving_accounts_fixed_deposit registered successfully.
+2026-03-08 14:51:16 [INFO] [db.hooks] Successfully upserted 13 chunks for web_saving_accounts_fixed_deposit
+2026-03-08 14:51:16 [INFO] [web_watcher]    DB committed: web_saving_accounts_fixed_deposit (13 chunks)
+2026-03-08 14:51:16 [INFO] [web_watcher] [13/26] Scraping: https://www.fino.bank.in/contact-us
+2026-03-08 14:51:50 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/contact-us -> doc_id=web_contact_us
+2026-03-08 14:51:50 [INFO] [agent.parser] Text cleaned -> content_hash=a7ab1ca36b8c9e42..., chars_post_clean=163
+2026-03-08 14:51:50 [INFO] [agent.parser] Chunking done -> total=1, text=1, table=0, avg_quality=0.43
+2026-03-08 14:51:50 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/contact-us -> 1 chunks
+2026-03-08 14:51:50 [INFO] [db.hooks] Document web_contact_us registered successfully.
+2026-03-08 14:51:51 [INFO] [db.hooks] Successfully upserted 1 chunks for web_contact_us
+2026-03-08 14:51:51 [INFO] [web_watcher]    DB committed: web_contact_us (1 chunks)
+2026-03-08 14:51:51 [INFO] [web_watcher] [14/26] Scraping: https://www.fino.bank.in/life-insurance
+2026-03-08 14:52:25 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/life-insurance -> doc_id=web_life_insurance
+2026-03-08 14:52:25 [INFO] [agent.parser] Text cleaned -> content_hash=231761f3c9ba16dc..., chars_post_clean=1016
+2026-03-08 14:52:28 [INFO] [agent.parser] Chunking done -> total=1, text=1, table=0, avg_quality=0.30
+2026-03-08 14:52:28 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/life-insurance -> 1 chunks
+2026-03-08 14:52:28 [INFO] [db.hooks] Document web_life_insurance registered successfully.
+2026-03-08 14:52:28 [INFO] [db.hooks] Successfully upserted 1 chunks for web_life_insurance
+2026-03-08 14:52:29 [INFO] [web_watcher]    DB committed: web_life_insurance (1 chunks)
+2026-03-08 14:52:29 [INFO] [web_watcher] [15/26] Scraping: https://www.fino.bank.in/payments/recharge
+2026-03-08 14:53:03 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/payments/recharge -> doc_id=web_payments_recharge
+2026-03-08 14:53:03 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-03-08 14:53:03 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-03-08 14:53:03 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/payments/recharge
+2026-03-08 14:53:03 [INFO] [web_watcher] [16/26] Scraping: https://www.fino.bank.in/personal/products/insurance
+2026-03-08 14:53:37 [INFO] [web_watcher] ⏭️  Content hash already in DB: https://www.fino.bank.in/personal/products/insurance -> web_insurance
+2026-03-08 14:53:37 [INFO] [web_watcher] [17/26] Scraping: https://www.fino.bank.in/cards/prepaid-card
+2026-03-08 14:53:40 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-03-08 14:53:42 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-08 14:53:42 [INFO] [agent.parser] Embedding model initialized
+2026-03-08 14:53:43 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-08 14:53:43 [INFO] [web.crawler] Loaded 15 web snapshots
+2026-03-08 14:53:43 [INFO] [web_watcher] Single URL mode: https://www.fino.bank.in/contact-us
+2026-03-08 14:53:43 [INFO] [web_watcher] Scraping single URL: https://www.fino.bank.in/contact-us
+2026-03-08 14:54:06 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/contact-us -> doc_id=web_contact_us
+2026-03-08 14:54:06 [INFO] [agent.parser] Text cleaned -> content_hash=c5232117dd1586b0..., chars_post_clean=365
+2026-03-08 14:54:08 [INFO] [agent.parser] Chunking done -> total=1, text=1, table=0, avg_quality=0.59
+2026-03-08 14:54:08 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/contact-us -> 1 chunks
+2026-03-08 14:54:11 [INFO] [web_watcher]    Archived old chunks for web_contact_us
+2026-03-08 14:54:11 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/cards/prepaid-card -> doc_id=web_cards_prepaid_card
+2026-03-08 14:54:11 [INFO] [agent.parser] Text cleaned -> content_hash=7ddcfb2ddcd3d818..., chars_post_clean=3633
+2026-03-08 14:54:12 [INFO] [db.hooks] Document web_contact_us registered successfully.
+2026-03-08 14:54:12 [INFO] [db.hooks] Successfully upserted 1 chunks for web_contact_us
+2026-03-08 14:54:13 [INFO] [web_watcher]    DB committed: web_contact_us (1 chunks)
+2026-03-08 14:54:14 [INFO] [agent.parser] Chunking done -> total=4, text=4, table=0, avg_quality=0.34
+2026-03-08 14:54:14 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/cards/prepaid-card -> 4 chunks
+2026-03-08 14:54:14 [INFO] [db.hooks] Document web_cards_prepaid_card registered successfully.
+2026-03-08 14:54:15 [INFO] [db.hooks] Successfully upserted 4 chunks for web_cards_prepaid_card
+2026-03-08 14:54:15 [INFO] [web_watcher]    DB committed: web_cards_prepaid_card (4 chunks)
+2026-03-08 14:54:15 [INFO] [web_watcher] [18/26] Scraping: https://www.fino.bank.in/more/aadhaar-seeding
+2026-03-08 14:54:49 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/more/aadhaar-seeding -> doc_id=web_more_aadhaar_seeding
+2026-03-08 14:54:49 [INFO] [agent.parser] Text cleaned -> content_hash=3e9991e356a22bf4..., chars_post_clean=3938
+2026-03-08 14:54:52 [INFO] [agent.parser] Chunking done -> total=5, text=5, table=0, avg_quality=0.36
+2026-03-08 14:54:52 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/more/aadhaar-seeding -> 5 chunks
+2026-03-08 14:54:52 [INFO] [db.hooks] Document web_more_aadhaar_seeding registered successfully.
+2026-03-08 14:54:53 [INFO] [db.hooks] Successfully upserted 5 chunks for web_more_aadhaar_seeding
+2026-03-08 14:54:53 [INFO] [web_watcher]    DB committed: web_more_aadhaar_seeding (5 chunks)
+2026-03-08 14:54:53 [INFO] [web_watcher] [19/26] Scraping: https://www.fino.bank.in/more/m-atm
+2026-03-08 14:55:27 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/more/m-atm -> doc_id=web_more_m_atm
+2026-03-08 14:55:27 [INFO] [agent.parser] Text cleaned -> content_hash=66e9afc4a839c104..., chars_post_clean=2625
+2026-03-08 14:55:29 [INFO] [agent.parser] Chunking done -> total=3, text=3, table=0, avg_quality=0.36
+2026-03-08 14:55:29 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/more/m-atm -> 3 chunks
+2026-03-08 14:55:29 [INFO] [db.hooks] Document web_more_m_atm registered successfully.
+2026-03-08 14:55:30 [INFO] [db.hooks] Successfully upserted 3 chunks for web_more_m_atm
+2026-03-08 14:55:30 [INFO] [web_watcher]    DB committed: web_more_m_atm (3 chunks)
+2026-03-08 14:55:30 [INFO] [web_watcher] [20/26] Scraping: https://www.fino.bank.in/company/awards-recognition
+2026-03-08 14:56:05 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/company/awards-recognition -> doc_id=web_company_awards_recognition
+2026-03-08 14:56:05 [INFO] [agent.parser] Text cleaned -> content_hash=69fab2d71180b755..., chars_post_clean=11558
+2026-03-08 14:56:11 [INFO] [agent.parser] Chunking done -> total=13, text=13, table=0, avg_quality=0.36
+2026-03-08 14:56:11 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/company/awards-recognition -> 13 chunks
+2026-03-08 14:56:12 [INFO] [db.hooks] Document web_company_awards_recognition registered successfully.
+2026-03-08 14:56:12 [INFO] [db.hooks] Successfully upserted 13 chunks for web_company_awards_recognition
+2026-03-08 14:56:12 [INFO] [web_watcher]    DB committed: web_company_awards_recognition (13 chunks)
+2026-03-08 14:56:12 [INFO] [web_watcher] [21/26] Scraping: https://www.fino.bank.in/payments/bill-payment
+2026-03-08 14:56:18 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-03-08 14:56:20 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-08 14:56:20 [INFO] [agent.parser] Embedding model initialized
+2026-03-08 14:56:21 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-08 14:56:21 [INFO] [web.crawler] Loaded 19 web snapshots
+2026-03-08 14:56:21 [INFO] [web_watcher] Single crawl mode (map → scrape → process)
+2026-03-08 14:56:21 [INFO] [web.crawler] Mapping https://www.fino.bank.in (limit=200)
+2026-03-08 14:56:25 [INFO] [web.crawler] Map discovered 28 URLs
+2026-03-08 14:56:25 [INFO] [web_watcher] Map: 28 total, 26 after filtering
+2026-03-08 14:56:25 [INFO] [web_watcher] [1/26] Scraping: https://www.fino.bank.in/company/about-us
+2026-03-08 14:56:26 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/company/about-us
+2026-03-08 14:56:26 [INFO] [web_watcher] [2/26] Scraping: https://www.fino.bank.in/contact-us
+2026-03-08 14:56:27 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/contact-us
+2026-03-08 14:56:27 [INFO] [web_watcher] [3/26] Scraping: https://www.fino.bank.in/ways-to-bank/finopay
+2026-03-08 14:56:29 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/ways-to-bank/finopay
+2026-03-08 14:56:29 [INFO] [web_watcher] [4/26] Scraping: https://www.fino.bank.in
+2026-03-08 14:56:30 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in
+2026-03-08 14:56:30 [INFO] [web_watcher] [5/26] Scraping: https://www.fino.bank.in/merchant
+2026-03-08 14:56:46 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/payments/bill-payment -> doc_id=web_payments_bill_payment
+2026-03-08 14:56:46 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-03-08 14:56:46 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-03-08 14:56:46 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/payments/bill-payment
+2026-03-08 14:56:46 [INFO] [web_watcher] [22/26] Scraping: https://www.fino.bank.in/more/sweep-account
+2026-03-08 14:56:53 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/merchant
+2026-03-08 14:56:53 [INFO] [web_watcher] [6/26] Scraping: https://www.fino.bank.in/health-insurance
+2026-03-08 14:57:15 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/health-insurance
+2026-03-08 14:57:15 [INFO] [web_watcher] [7/26] Scraping: https://www.fino.bank.in/merchant/services
+2026-03-08 14:57:20 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/more/sweep-account -> doc_id=web_more_sweep_account
+2026-03-08 14:57:20 [INFO] [agent.parser] Text cleaned -> content_hash=894a822c225404b9..., chars_post_clean=6253
+2026-03-08 14:57:25 [INFO] [agent.parser] Chunking done -> total=8, text=8, table=0, avg_quality=0.40
+2026-03-08 14:57:25 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/more/sweep-account -> 8 chunks
+2026-03-08 14:57:26 [INFO] [db.hooks] Document web_more_sweep_account registered successfully.
+2026-03-08 14:57:26 [INFO] [db.hooks] Successfully upserted 8 chunks for web_more_sweep_account
+2026-03-08 14:57:26 [INFO] [web_watcher]    DB committed: web_more_sweep_account (8 chunks)
+2026-03-08 14:57:26 [INFO] [web_watcher] [23/26] Scraping: https://www.fino.bank.in/cards/platinum-debit-card
+2026-03-08 14:58:01 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/merchant/services -> doc_id=web_merchant_services
+2026-03-08 14:58:01 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-03-08 14:58:01 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-03-08 14:58:01 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/merchant/services
+2026-03-08 14:58:01 [INFO] [web_watcher] [8/26] Scraping: https://www.fino.bank.in/payment/aeps
+2026-03-08 14:58:35 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/cards/platinum-debit-card -> doc_id=web_cards_platinum_debit_card
+2026-03-08 14:58:35 [INFO] [agent.parser] Text cleaned -> content_hash=53ceeb5f5ecc3f6a..., chars_post_clean=6992
+2026-03-08 14:58:39 [INFO] [agent.parser] Chunking done -> total=8, text=8, table=0, avg_quality=0.36
+2026-03-08 14:58:39 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/cards/platinum-debit-card -> 8 chunks
+2026-03-08 14:58:39 [INFO] [db.hooks] Document web_cards_platinum_debit_card registered successfully.
+2026-03-08 14:58:40 [INFO] [db.hooks] Successfully upserted 8 chunks for web_cards_platinum_debit_card
+2026-03-08 14:58:40 [INFO] [web_watcher]    DB committed: web_cards_platinum_debit_card (8 chunks)
+2026-03-08 14:58:40 [INFO] [web_watcher] [24/26] Scraping: https://www.fino.bank.in/product-list/loan-referrals
+2026-03-08 14:58:48 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/payment/aeps -> doc_id=web_payment_aeps
+2026-03-08 14:58:48 [INFO] [agent.parser] Text cleaned -> content_hash=3d7cd7fe83de4391..., chars_post_clean=8110
+2026-03-08 14:58:54 [INFO] [agent.parser] Chunking done -> total=10, text=10, table=0, avg_quality=0.39
+2026-03-08 14:58:54 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/payment/aeps -> 10 chunks
+2026-03-08 14:58:54 [INFO] [db.hooks] Document web_payment_aeps registered successfully.
+2026-03-08 14:58:56 [INFO] [db.hooks] Successfully upserted 10 chunks for web_payment_aeps
+2026-03-08 14:58:56 [INFO] [web_watcher]    DB committed: web_payment_aeps (10 chunks)
+2026-03-08 14:58:56 [INFO] [web_watcher] [9/26] Scraping: https://www.fino.bank.in/regulatory/privacy-policy
+2026-03-08 14:59:14 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/product-list/loan-referrals -> doc_id=web_product_list_loan_referrals
+2026-03-08 14:59:14 [INFO] [agent.parser] Text cleaned -> content_hash=09673017f70ec369..., chars_post_clean=2524
+2026-03-08 14:59:15 [INFO] [agent.parser] Chunking done -> total=3, text=3, table=0, avg_quality=0.39
+2026-03-08 14:59:15 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/product-list/loan-referrals -> 3 chunks
+2026-03-08 14:59:16 [INFO] [db.hooks] Document web_product_list_loan_referrals registered successfully.
+2026-03-08 14:59:16 [INFO] [db.hooks] Successfully upserted 3 chunks for web_product_list_loan_referrals
+2026-03-08 14:59:16 [INFO] [web_watcher]    DB committed: web_product_list_loan_referrals (3 chunks)
+2026-03-08 14:59:16 [INFO] [web_watcher] [25/26] Scraping: https://www.fino.bank.in/personal/products/cards/classic-debit-card
+2026-03-08 14:59:19 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/regulatory/privacy-policy
+2026-03-08 14:59:19 [INFO] [web_watcher] [10/26] Scraping: https://www.fino.bank.in/insurance
+2026-03-08 14:59:51 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/personal/products/cards/classic-debit-card -> doc_id=web_personal_products_cards_classic_debit_card
+2026-03-08 14:59:51 [INFO] [agent.parser] Text cleaned -> content_hash=550377e0afb1edb8..., chars_post_clean=5418
+2026-03-08 14:59:56 [INFO] [agent.parser] Chunking done -> total=6, text=6, table=0, avg_quality=0.36
+2026-03-08 14:59:56 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/personal/products/cards/classic-debit-card -> 6 chunks
+2026-03-08 14:59:56 [INFO] [db.hooks] Document web_personal_products_cards_classic_debit_card registered successfully.
+2026-03-08 14:59:57 [INFO] [db.hooks] Successfully upserted 6 chunks for web_personal_products_cards_classic_debit_card
+2026-03-08 14:59:57 [INFO] [web_watcher]    DB committed: web_personal_products_cards_classic_debit_card (6 chunks)
+2026-03-08 14:59:57 [INFO] [web_watcher] [26/26] Scraping: https://www.fino.bank.in/general-insurance/go-digit-my-business-policy
+2026-03-08 15:00:04 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/insurance
+2026-03-08 15:00:04 [INFO] [web_watcher] [11/26] Scraping: https://www.fino.bank.in/upi
+2026-03-08 15:00:28 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/upi -> doc_id=web_upi
+2026-03-08 15:00:28 [INFO] [agent.parser] Text cleaned -> content_hash=c1a1ab5db40d383e..., chars_post_clean=324
+2026-03-08 15:00:28 [INFO] [agent.parser] Chunking done -> total=1, text=1, table=0, avg_quality=0.56
+2026-03-08 15:00:28 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/upi -> 1 chunks
+2026-03-08 15:00:30 [INFO] [web_watcher]    Archived old chunks for web_upi
+2026-03-08 15:00:31 [INFO] [db.hooks] Document web_upi registered successfully.
+2026-03-08 15:00:31 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/general-insurance/go-digit-my-business-policy -> doc_id=web_general_insurance_go_digit_my_business_policy
+2026-03-08 15:00:31 [INFO] [agent.parser] Text cleaned -> content_hash=ac65d9f91bdd493b..., chars_post_clean=1115
+2026-03-08 15:00:31 [INFO] [db.hooks] Successfully upserted 1 chunks for web_upi
+2026-03-08 15:00:31 [INFO] [web_watcher]    DB committed: web_upi (1 chunks)
+2026-03-08 15:00:31 [INFO] [web_watcher] [12/26] Scraping: https://www.fino.bank.in/regulatory/term-and-conditions
+2026-03-08 15:00:32 [INFO] [agent.parser] Chunking done -> total=1, text=1, table=0, avg_quality=0.30
+2026-03-08 15:00:32 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/general-insurance/go-digit-my-business-policy -> 1 chunks
+2026-03-08 15:00:32 [INFO] [db.hooks] Document web_general_insurance_go_digit_my_business_policy registered successfully.
+2026-03-08 15:00:32 [INFO] [db.hooks] Successfully upserted 1 chunks for web_general_insurance_go_digit_my_business_policy
+2026-03-08 15:00:33 [INFO] [web_watcher]    DB committed: web_general_insurance_go_digit_my_business_policy (1 chunks)
+2026-03-08 15:00:33 [INFO] [web_watcher] Crawl cycle done: 19 processed, 6 skipped, 1 failed, 26 total
+2026-03-08 15:01:19 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/regulatory/term-and-conditions
+2026-03-08 15:01:19 [INFO] [web_watcher] [13/26] Scraping: https://www.fino.bank.in/saving-accounts/fixed-deposit
+2026-03-08 15:01:22 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-08 15:01:42 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/saving-accounts/fixed-deposit -> doc_id=web_saving_accounts_fixed_deposit
+2026-03-08 15:01:42 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-03-08 15:01:42 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-03-08 15:01:42 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/saving-accounts/fixed-deposit
+2026-03-08 15:01:42 [INFO] [web_watcher] [14/26] Scraping: https://www.fino.bank.in/life-insurance
+2026-03-08 15:02:05 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/life-insurance
+2026-03-08 15:02:05 [INFO] [web_watcher] [15/26] Scraping: https://www.fino.bank.in/payments/recharge
+2026-03-08 15:02:28 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/payments/recharge -> doc_id=web_payments_recharge
+2026-03-08 15:02:28 [INFO] [agent.parser] Text cleaned -> content_hash=3cdc8f6ed45839ff..., chars_post_clean=5760
+2026-03-08 15:02:32 [INFO] [agent.parser] Chunking done -> total=7, text=7, table=0, avg_quality=0.38
+2026-03-08 15:02:32 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/payments/recharge -> 7 chunks
+2026-03-08 15:02:32 [INFO] [db.hooks] Document web_payments_recharge registered successfully.
+2026-03-08 15:02:33 [INFO] [db.hooks] Successfully upserted 7 chunks for web_payments_recharge
+2026-03-08 15:02:34 [INFO] [web_watcher]    DB committed: web_payments_recharge (7 chunks)
+2026-03-08 15:02:34 [INFO] [web_watcher] [16/26] Scraping: https://www.fino.bank.in/personal/products/insurance
+2026-03-08 15:02:57 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/personal/products/insurance
+2026-03-08 15:02:57 [INFO] [web_watcher] [17/26] Scraping: https://www.fino.bank.in/cards/prepaid-card
+2026-03-08 15:03:20 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/cards/prepaid-card
+2026-03-08 15:03:20 [INFO] [web_watcher] [18/26] Scraping: https://www.fino.bank.in/more/aadhaar-seeding
+2026-03-08 15:03:43 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/more/aadhaar-seeding -> doc_id=web_more_aadhaar_seeding
+2026-03-08 15:03:43 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-03-08 15:03:43 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-03-08 15:03:43 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/more/aadhaar-seeding
+2026-03-08 15:03:43 [INFO] [web_watcher] [19/26] Scraping: https://www.fino.bank.in/more/m-atm
+2026-03-08 15:04:29 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/more/m-atm
+2026-03-08 15:04:29 [INFO] [web_watcher] [20/26] Scraping: https://www.fino.bank.in/company/awards-recognition
+2026-03-08 15:05:15 [INFO] [web_watcher] ⏭️  Unchanged: https://www.fino.bank.in/company/awards-recognition
+2026-03-08 15:05:15 [INFO] [web_watcher] [21/26] Scraping: https://www.fino.bank.in/payments/bill-payment
+2026-03-08 15:05:39 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/payments/bill-payment -> doc_id=web_payments_bill_payment
+2026-03-08 15:05:39 [INFO] [agent.parser] Text cleaned -> content_hash=71ec9054fa09aa5d..., chars_post_clean=4224
+2026-03-08 15:05:42 [INFO] [agent.parser] Chunking done -> total=5, text=5, table=0, avg_quality=0.41
+2026-03-08 15:05:42 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/payments/bill-payment -> 5 chunks
+2026-03-08 15:05:43 [INFO] [db.hooks] Document web_payments_bill_payment registered successfully.
+2026-03-08 15:05:43 [INFO] [db.hooks] Successfully upserted 5 chunks for web_payments_bill_payment
+2026-03-08 15:05:44 [INFO] [web_watcher]    DB committed: web_payments_bill_payment (5 chunks)
+2026-03-08 15:05:44 [INFO] [web_watcher] [22/26] Scraping: https://www.fino.bank.in/more/sweep-account
+2026-03-08 15:06:30 [INFO] [web_watcher] ⏭️  Content hash already in DB: https://www.fino.bank.in/more/sweep-account -> web_more_sweep_account
+2026-03-08 15:06:30 [INFO] [web_watcher] [23/26] Scraping: https://www.fino.bank.in/cards/platinum-debit-card
+2026-03-08 15:06:53 [INFO] [web_watcher] ⏭️  Content hash already in DB: https://www.fino.bank.in/cards/platinum-debit-card -> web_cards_platinum_debit_card
+2026-03-08 15:06:53 [INFO] [web_watcher] [24/26] Scraping: https://www.fino.bank.in/product-list/loan-referrals
+2026-03-08 15:07:17 [INFO] [web_watcher] ⏭️  Content hash already in DB: https://www.fino.bank.in/product-list/loan-referrals -> web_product_list_loan_referrals
+2026-03-08 15:07:17 [INFO] [web_watcher] [25/26] Scraping: https://www.fino.bank.in/personal/products/cards/classic-debit-card
+2026-03-08 15:07:40 [INFO] [web_watcher] ⏭️  Content hash already in DB: https://www.fino.bank.in/personal/products/cards/classic-debit-card -> web_personal_products_cards_classic_debit_card
+2026-03-08 15:07:40 [INFO] [web_watcher] [26/26] Scraping: https://www.fino.bank.in/general-insurance/go-digit-my-business-policy
+2026-03-08 15:08:03 [INFO] [web_watcher] ⏭️  Content hash already in DB: https://www.fino.bank.in/general-insurance/go-digit-my-business-policy -> web_general_insurance_go_digit_my_business_policy
+2026-03-08 15:08:03 [INFO] [web_watcher] Crawl cycle done: 4 processed, 22 skipped, 0 failed, 26 total
+2026-03-08 15:14:09 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-08 15:16:24 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-17 16:29:29 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-03-17 16:29:32 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-17 16:29:32 [INFO] [utils.embedding] Embedding model initialized
+2026-03-17 16:29:34 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base
+2026-03-17 16:29:35 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-17 16:29:35 [INFO] [utils.embedding] Embedding model initialized
+2026-03-17 16:29:51 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-03-17 16:31:46 [INFO] [app] Invoking graph with user query: who is the director of fino payments bank?
+2026-03-17 16:31:48 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-17 16:31:50 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
+2026-03-17 16:31:50 [INFO] [answering_agent.main] Refiner Agent Invoked - Attempt 1 for query: who is the director of fino payments bank?
+2026-03-17 16:31:53 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-17 16:31:53 [INFO] [answering_agent.main] Refiner Output - Attempt 1: Keyword Query: Directors Fino Payments Bank, Semantic Query: Directors of Fino Payments Bank
+2026-03-17 16:31:53 [INFO] [answering_agent.main] Keyword Search Invoked.
+2026-03-17 16:31:53 [INFO] [answering_agent.main] Semantic Search Invoked
+2026-03-17 16:32:00 [INFO] [answering_agent.main] Semantic Search found 30 chunks.
+2026-03-17 16:32:00 [INFO] [answering_agent.main] Keyword Search found 30 chunks.
+2026-03-17 16:32:00 [INFO] [answering_agent.main] RRF Merging Invoked.
+2026-03-17 16:32:00 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks after merging: 59
+2026-03-17 16:32:00 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked.
+2026-03-17 16:32:07 [INFO] [answering_agent.main] Cross-Encoder reranking completed. Top doc score: 8.107845306396484
+2026-03-17 16:32:07 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 5 documents.
+2026-03-17 16:32:07 [INFO] [answering_agent.main] Answer Generation Invoked.
+2026-03-17 16:32:08 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-17 16:32:08 [INFO] [answering_agent.main] Answer Generation Successful. Answer length: 103 characters.
+2026-03-17 16:32:08 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
+2026-03-17 16:32:09 [INFO] [app] Completed execution

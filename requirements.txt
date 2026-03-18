@@ -2,7 +2,7 @@ langchain
 langchain-community
 langchain-experimental
 langchain-huggingface
-huggingface_hub 
+huggingface_hub
 hf_xet
 pinecone
 sentence-transformers
@@ -31,3 +31,4 @@ ragas
 streamlit
 fastapi
 langchain_openai
+firecrawl-py
