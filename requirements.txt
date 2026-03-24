@@ -27,3 +27,6 @@ pdfplumber
 camelot-py
 tiktoken
 watchdog
+ragas
+streamlit
+fastapi

@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: .
+      dockerfile_inline: |
+        FROM python:3.12-slim
+        WORKDIR /app
+        COPY requirements.txt .
+        COPY backend/requirements.txt ./backend_requirements.txt
+        RUN pip install --no-cache-dir -r requirements.txt -r backend_requirements.txt
+        COPY . .
+        EXPOSE 8000
+        ENV PYTHONPATH=/app
+        CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - .:/app  # Optional: for hot-reloading during dev
+
+  frontend:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM python:3.12-slim
+        WORKDIR /app
+        COPY requirements.txt .
+        COPY frontend/requirements.txt ./frontend_requirements.txt
+        RUN pip install --no-cache-dir -r requirements.txt -r frontend_requirements.txt
+        COPY . .
+        EXPOSE 8501
+        ENV PYTHONPATH=/app
+        CMD ["streamlit", "run", "frontend/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+      - PYTHONPATH=/app
+    depends_on:
+      - backend
+    volumes:
+      - .:/app  # Optional: for hot-reloading during dev

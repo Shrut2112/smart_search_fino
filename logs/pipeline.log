@@ -1,11 +1,181 @@
-2026-03-02 20:24:01 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-02 20:24:03 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-02 20:24:03 [INFO] [utils.embedding] Embedding model initialized
-2026-03-02 20:24:05 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
-2026-03-02 20:24:07 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
-2026-03-02 20:24:07 [INFO] [utils.embedding] Embedding model initialized
-2026-03-02 20:24:11 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
-2026-03-02 20:24:24 [INFO] [app] Invoking graph with user query: saving account details?
-2026-03-02 20:24:25 [INFO] [db.hooks] Connection Pool Initialized
-2026-03-02 20:24:28 [INFO] [answering_agent.main] Cache hit detected. Routing directly to answer generation.
-2026-03-02 20:24:28 [INFO] [app] Completed execution
+2026-03-24 22:52:31 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-24 22:52:34 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-24 22:52:34 [INFO] [utils.embedding] Embedding model initialized
+2026-03-24 22:52:34 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-24 22:52:38 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-24 22:52:38 [INFO] [utils.embedding] Embedding model initialized
+2026-03-24 22:52:38 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:38 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:38 [WARNING] [huggingface_hub.utils._http] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-24 22:52:38 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-03-24 22:52:39 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:39 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:39 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-03-24 22:52:39 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:40 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:40 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-24 22:52:40 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:40 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-24 22:52:40 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:41 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-24 22:52:41 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:41 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:41 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
+2026-03-24 22:52:41 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-03-24 22:52:42 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 22:52:42 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-03-24 22:52:42 [INFO] [backend] Starting up FastAPI application...
+2026-03-24 22:52:42 [INFO] [backend] Loading LangGraph agent...
+2026-03-24 22:52:42 [INFO] [backend] LangGraph agent loaded successfully.
+2026-03-24 23:01:57 [INFO] [backend] Shutting down FastAPI application...
+2026-03-24 23:02:34 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-24 23:02:37 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-24 23:02:37 [INFO] [utils.embedding] Embedding model initialized
+2026-03-24 23:02:37 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-24 23:02:42 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-24 23:02:42 [INFO] [utils.embedding] Embedding model initialized
+2026-03-24 23:02:43 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:43 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:43 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-03-24 23:02:44 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:44 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:44 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-03-24 23:02:44 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:44 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:44 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-24 23:02:45 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:45 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-24 23:02:45 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:46 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-24 23:02:46 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:46 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:46 [WARNING] [huggingface_hub.utils._http] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-24 23:02:46 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
+2026-03-24 23:02:46 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-03-24 23:02:46 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:02:47 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-03-24 23:02:47 [INFO] [backend] Starting up FastAPI application...
+2026-03-24 23:02:47 [INFO] [backend] Loading LangGraph agent...
+2026-03-24 23:02:47 [INFO] [backend] LangGraph agent loaded successfully.
+2026-03-24 23:02:47 [INFO] [backend] Shutting down FastAPI application...
+2026-03-24 23:03:03 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-24 23:03:07 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-24 23:03:07 [INFO] [utils.embedding] Embedding model initialized
+2026-03-24 23:03:07 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-24 23:03:11 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-24 23:03:11 [INFO] [utils.embedding] Embedding model initialized
+2026-03-24 23:03:12 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:12 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:12 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-03-24 23:03:13 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:13 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:13 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-03-24 23:03:13 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:13 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:13 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-24 23:03:14 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:14 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-24 23:03:14 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:14 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-24 23:03:15 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:15 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:15 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
+2026-03-24 23:03:15 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-03-24 23:03:15 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:15 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-03-24 23:03:16 [INFO] [backend] Starting up FastAPI application...
+2026-03-24 23:03:16 [INFO] [backend] Loading LangGraph agent...
+2026-03-24 23:03:16 [INFO] [backend] LangGraph agent loaded successfully.
+2026-03-24 23:03:16 [INFO] [backend] Shutting down FastAPI application...
+2026-03-24 23:03:34 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-24 23:03:37 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-24 23:03:37 [INFO] [utils.embedding] Embedding model initialized
+2026-03-24 23:03:37 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-24 23:03:40 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-24 23:03:40 [INFO] [utils.embedding] Embedding model initialized
+2026-03-24 23:03:41 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:41 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:41 [WARNING] [huggingface_hub.utils._http] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-24 23:03:41 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-03-24 23:03:41 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:42 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:42 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-03-24 23:03:42 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:42 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:42 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-24 23:03:43 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:43 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-24 23:03:43 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:43 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-24 23:03:44 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:44 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:44 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
+2026-03-24 23:03:44 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-03-24 23:03:44 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:03:45 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-03-24 23:03:45 [INFO] [backend] Starting up FastAPI application...
+2026-03-24 23:03:45 [INFO] [backend] Loading LangGraph agent...
+2026-03-24 23:03:45 [INFO] [backend] LangGraph agent loaded successfully.
+2026-03-24 23:03:45 [INFO] [backend] Shutting down FastAPI application...
+2026-03-24 23:03:55 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-24 23:03:58 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-24 23:03:58 [INFO] [utils.embedding] Embedding model initialized
+2026-03-24 23:03:58 [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: D:\hf_cache\models--intfloat--multilingual-e5-base\snapshots\835193815a3936a24a0ee7dc9e3d48c1fbb19c55
+2026-03-24 23:04:02 [INFO] [sentence_transformers.SentenceTransformer] 2 prompts are loaded, with the keys: ['query', 'passage']
+2026-03-24 23:04:02 [INFO] [utils.embedding] Embedding model initialized
+2026-03-24 23:04:02 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:02 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:03 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-03-24 23:04:03 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:03 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:03 [WARNING] [huggingface_hub.utils._http] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-24 23:04:03 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-03-24 23:04:03 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:04 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:04 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-24 23:04:04 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:04 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-24 23:04:05 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:05 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-24 23:04:05 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:06 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:06 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
+2026-03-24 23:04:06 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-03-24 23:04:06 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
+2026-03-24 23:04:06 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-03-24 23:04:07 [INFO] [backend] Starting up FastAPI application...
+2026-03-24 23:04:07 [INFO] [backend] Loading LangGraph agent...
+2026-03-24 23:04:07 [INFO] [backend] LangGraph agent loaded successfully.
+2026-03-24 23:04:39 [INFO] [backend] Received query: saving account details?
+2026-03-24 23:04:40 [INFO] [db.hooks] Connection Pool Initialized
+2026-03-24 23:04:43 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
+2026-03-24 23:04:43 [INFO] [answering_agent.main] Refiner Agent Invoked - Attempt 1 for query: saving account details?
+2026-03-24 23:04:45 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-24 23:04:45 [INFO] [answering_agent.main] Refiner Output - Attempt 1: Keyword Query: saving (account | accounts) details information features services requirements, Semantic Query: Overview of features, services, and requirements for Fino Payments Bank savings accounts.
+2026-03-24 23:04:45 [INFO] [answering_agent.main] Keyword Search Invoked.
+2026-03-24 23:04:45 [INFO] [answering_agent.main] Semantic Search Invoked
+2026-03-24 23:04:50 [INFO] [answering_agent.main] Semantic Search found 30 chunks.
+2026-03-24 23:04:58 [INFO] [answering_agent.main] Keyword Search found 30 chunks.
+2026-03-24 23:04:58 [INFO] [answering_agent.main] RRF Merging Invoked.
+2026-03-24 23:04:58 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks after merging: 60
+2026-03-24 23:04:58 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked.
+2026-03-24 23:05:04 [INFO] [answering_agent.main] Cross-Encoder reranking completed. Top doc score: -2.7245993614196777
+2026-03-24 23:05:04 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 5 documents.
+2026-03-24 23:05:04 [INFO] [answering_agent.main] Answer Generation Invoked.
+2026-03-24 23:05:04 [INFO] [answering_agent.main] Token limit reached. Stopping context addition. Current tokens: 3940, Chunk tokens: 1890, Available: 4741
+2026-03-24 23:05:06 [INFO] [httpx] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-24 23:05:06 [INFO] [answering_agent.main] Answer Generation Successful. Answer length: 530 characters.
+2026-03-24 23:05:06 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
+2026-03-24 23:05:06 [INFO] [backend] Successfully processed query.
+2026-03-24 23:05:14 [INFO] [backend] Received query: saving account details?
+2026-03-24 23:05:14 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
+2026-03-24 23:05:14 [INFO] [backend] Successfully processed query.
+2026-03-24 23:07:39 [INFO] [backend] Received query: saving account details?
+2026-03-24 23:07:40 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
+2026-03-24 23:07:40 [INFO] [backend] Successfully processed query.
+2026-03-24 23:08:25 [INFO] [backend] Received query: saving account details
+2026-03-24 23:08:27 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
+2026-03-24 23:08:27 [INFO] [backend] Successfully processed query.
+2026-03-24 23:09:11 [INFO] [backend] Received query: saving account details
+2026-03-24 23:09:12 [INFO] [answering_agent.main] Cache hit detected. Directly Answering from Cache.
+2026-03-24 23:09:12 [INFO] [backend] Successfully processed query.

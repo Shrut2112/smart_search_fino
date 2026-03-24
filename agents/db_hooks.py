@@ -316,3 +316,21 @@ def _execute_upsert_chunks(conn, chunks, sample_doc_id, commit=False):
         if commit:
             conn.commit()
         log.info(f"Successfully upserted {len(chunks)} chunks for {sample_doc_id}")
+
+def get_chunks_to_generate():
+    with get_db_connection() as conn:
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
+            cur.execute("""
+                WITH RankedChunks AS (
+                    SELECT 
+                        text, 
+                        metadata,
+                        ROW_NUMBER() OVER(PARTITION BY (metadata->>'doc_id') ORDER BY RANDOM()) as chunk_index
+                    FROM chunks
+                )
+                SELECT text, metadata
+                FROM RankedChunks
+                WHERE chunk_index <= 5  -- Adjust this to get more/fewer chunks per file
+                LIMIT 200;              -- Total cap for your evaluation set
+            """)
+            return [dict(r) for r in cur.fetchall()]
