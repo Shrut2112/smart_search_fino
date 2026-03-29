@@ -229,7 +229,15 @@ def answer_agent_node(state: AnswerState):
 
         prompt = ChatPromptTemplate.from_messages([
             ("system", answering_prompt),
-            ("human", "### CONTEXT:\n{clean_entry}\n\n### USER QUESTION:\n{user_query}\n\n### LANGUAGE INSTRUCTION:\nThe user's query was written in **{detected_language}**. You MUST write your `final_answer` entirely in **{detected_language}**. Do not switch to English unless the user's language is English.")
+            ("human", """
+            ### CONTEXT:\n{clean_entry}\n\n
+            ### USER QUESTION:\n{user_query}\n\n
+            ### LANGUAGE INSTRUCTION:\n
+            1. The user's query was in **{detected_language}**. 
+            2. You MUST write the 'final_answer' entirely in **{detected_language}**.
+            3. Even though the CONTEXT is in English, do not use English sentences. 
+            4. Translate technical banking terms to the common **{detected_language}** equivalent used by Fino Bank customers.
+            """)
         ])
 
         final_chunk = limit_context_by_tokens(clean_entry, prompt, user_query)
@@ -249,7 +257,7 @@ def answer_agent_node(state: AnswerState):
 
             if len(content) > 50:
                 log.warning("JSON failed but content is substantial. Using raw content.")
-                return {"answer": content.strip(), "skip_cache": False}
+                return {"answer": content.strip(), "skip_cache": True}
             
             log.error(f"JSON failed and content is not substantial. Returning error message. {content}")
             return {"answer": f"I'm sorry, I ran into an error while drafting your answer.","skip_cache":True}

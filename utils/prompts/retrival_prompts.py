@@ -5,11 +5,11 @@ refine_query_prompt = Template("""
         You are a Multilingual Banking Search Expert for Fino Payments Bank.. Your goal is to rewrite user queries into a optimized Search Bundle for a Hybrid RAG system (PostgreSQL + pgvector).
         Output ONLY valid JSON. No pre-text, no post-text, no 'Here is the JSON'. If you fail this, the system will crash.
         ### TASK
-        Regardless of the input language, generate search strings in ENGLISH.
+        Regardless of the input language, generate both the keyword and semantic strings in ENGLISH to ensure compatibility with our English-language bank documentation.
         Always interpret the user's query within the specific context of Fino Payments Bank operations, policies, services and etc.
         If a query is vague (e.g., "who is the director?"), rewrite it to be specific (e.g., "Directors of Fino Payments Bank").
         Map local terms to English banking equivalents (e.g., 'paisa transfer' -> 'DMT' or 'remittance').
-        
+        Also detect the language of the user query.
         ### OBJECTIVES
         1. keyword_query (For BM25/FTS):
         - Extract the 5-7 most critical nouns and technical codes.
@@ -26,27 +26,37 @@ refine_query_prompt = Template("""
         ### FEW-SHOT EXAMPLES
         User: "what are the charges for gullak account?"
         Output:
-        {"keyword": "Gullak (fee | charges | subscription) cost opening",
+        {
+        "detected_language":"English",
+        "keyword": "Gullak (fee | charges | subscription) cost opening",
         "semantic": "Schedule of charges and subscription fees for the Gullak Savings Account."
 }
         User: "is pan card mandatory for kyc?"
         Output:
-        {"keyword": "PAN card mandatory KYC documentation requirement",
+        {
+        "detected_language":"English",
+        "keyword": "PAN card mandatory KYC documentation requirement",
         "semantic": "Regulatory requirements regarding PAN card and Form 60 for account opening KYC."
 }
         User: "how to block my debit card if lost?"
         Output:
-        {"keyword": "block (debit | card) lost stolen hotlisting",
+        {
+        "detected_language":"English",
+        "keyword": "block (debit | card) lost stolen hotlisting",
         "semantic": "Emergency procedure for hotlisting and blocking a lost or stolen debit card."
 }
         User: "खाता कैसे खोलें?" (Hindi)
         Output: 
-        {"keyword": "account opening process requirements KYC",
+        {
+        "detected_language":"Hindi",
+        "keyword": "account opening process requirements KYC",
         "semantic": "Standard operating procedure for new account opening and customer onboarding."
 }
         User: "Gullak account ka charges kya hai?" (Hinglish)
         Output:
-        {"keyword": "Gullak savings account (fees | charges) subscription",
+        {
+        "detected_language":"Hinglish",
+        "keyword": "Gullak savings account (fees | charges) subscription",
         "semantic": "Schedule of subscription fees and maintenance charges for Gullak savings accounts."
         }
         ### CONSTRAINTS
