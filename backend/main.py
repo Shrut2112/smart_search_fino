@@ -8,6 +8,8 @@ from fastapi.middleware.cors import CORSMiddleware
 origins = [
     "http://localhost:3000",  # Your React/Vue local dev port
     "http://localhost:8501",  # Default Streamlit port
+    "http://localhost:5173",  # Vite default port
+    "http://127.0.0.1:5173",  # Vite default IP
     "https://your-fino-app.com", # Your production domain
 ]
 

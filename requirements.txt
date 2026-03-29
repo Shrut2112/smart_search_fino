@@ -30,3 +30,4 @@ watchdog
 ragas
 streamlit
 fastapi
+langchain_openai

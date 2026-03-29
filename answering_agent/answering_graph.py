@@ -5,7 +5,7 @@ from answering_agent.retrival_class import RetrievalPipeline
 from utils.get_embedd_model import embedding_model
 from answering_agent.db_ret import retrieve_similar_chunks, retrieve_similar_chunks_key
 from utils.prompts.retrival_prompts import refine_query_prompt,answering_prompt
-from utils.get_llm import get_llm, get_gpt
+from utils.get_llm import get_llm
 from utils.get_cross_encoder import get_crossencoder
 from langchain_core.prompts import ChatPromptTemplate
 from answering_agent.caching_logic import cache_check_node, push_cache
@@ -21,7 +21,7 @@ log = get_logger("answering_agent.main")
 def get_models():
     llm = get_llm()
     emb_model = embedding_model()
-    ans_llm = get_gpt()
+    ans_llm = get_llm()
     reranker = get_crossencoder()
     return llm, emb_model, ans_llm, reranker
 
@@ -60,23 +60,37 @@ def refiner_agent_node(state: AnswerState) -> AnswerState:
     current_attempts = state.get("attempt_count", 0) + 1
     
     log.info(f"Refiner Agent Invoked - Attempt {current_attempts} for query: {user_query}")
-   
     
+    # Use the same prompt template
     prompt = refine_query_prompt.substitute(user_query=user_query)
-    
+    content = ""
     try:    
-        refined = llm.with_structured_output(RefinedQuery).invoke(prompt)
-        log.info(f"Refiner Output - Attempt {current_attempts}: Keyword Query: {refined.keyword_query}, Semantic Query: {refined.semantic_query}")
-        return {
-            "keyword_query": refined.keyword_query,
-            "semantic_query": refined.semantic_query,
-            "attempt_count": current_attempts
-        }
+        response = llm.invoke(prompt)
+        content = response.content
+        
+        refined_dict = extract_json_from_text(content)
+        
+        if refined_dict:
+            keyword = refined_dict.get("keyword_query") or refined_dict.get("keyword") or user_query
+            semantic = refined_dict.get("semantic_query") or refined_dict.get("semantic") or user_query
+            # The refiner prompt returns the detected input language — use it to
+            # make the final answer respond in the user's own language.
+            detected_lang = refined_dict.get("detected_language", "English")
+            
+            log.info(f"Refiner Output - Attempt {current_attempts}: Success. Language: {detected_lang}")
+            return {
+                "keyword_query": keyword,
+                "semantic_query": semantic,
+                "detected_language": detected_lang,
+                "attempt_count": current_attempts
+            }
+
     except Exception as e:
-        log.error(f"Refiner Error on Attempt {current_attempts}: {e}. Falling back to raw query.")
+        log.error(f"Refiner Error on Attempt {current_attempts}: {e} {content}. Falling back to raw query.")
         return {
             "keyword_query": user_query,
             "semantic_query": user_query,
+            "detected_language": "English",
             "attempt_count": current_attempts
         }
 
@@ -141,7 +155,10 @@ def get_final_context_node(state: AnswerState):
 
     unique_docs = {doc[0]: doc for doc in docs}
     deduplicated_docs = list(unique_docs.values())
-    query = state['query']
+    # Use the refined English semantic_query for cross-encoding.
+    # The raw query may be in Hindi/Hinglish, but docs are in English —
+    # using the translated semantic_query gives accurate reranking scores.
+    query = state.get('semantic_query') or state['query']
     
     pairs = [[query, doc[2]] for doc in deduplicated_docs]
     scores = reranker.predict(pairs)
@@ -161,6 +178,26 @@ def get_final_context_node(state: AnswerState):
     top_docs = reranked_list[:5]
     log.info(f"Cross-Encoder reranking completed. Top doc score: {top_docs[0]['rerank_score'] if top_docs else 'N/A'}")
     return {"final_doc": top_docs}
+
+import re
+
+def extract_json_from_text(text):
+    """
+    Finds and extracts the first valid JSON object from a string.
+    Handles cases where the LLM adds conversational text before/after.
+    """
+    try:
+        # Look for the first '{' and the last '}'
+        start_idx = text.find('{')
+        end_idx = text.rfind('}')
+        
+        if start_idx == -1 or end_idx == -1:
+            return None
+            
+        json_str = text[start_idx:end_idx + 1]
+        return json.loads(json_str)
+    except Exception:
+        return None
 
 def answer_agent_node(state: AnswerState):
     log.info(f"Answer Generation Invoked.")
@@ -187,28 +224,35 @@ def answer_agent_node(state: AnswerState):
             log.info("No high-confidence documents available for answer generation.")
             return {"answer": "I couldn't find specific info to answer that question.","skip_cache":True}
 
+        user_query = state.get('query', "")
+        detected_language = state.get('detected_language', 'English')
+
         prompt = ChatPromptTemplate.from_messages([
             ("system", answering_prompt),
-            ("human", "### CONTEXT:\n{clean_entry}\n ### USER QUESTION:\n{user_query}")
+            ("human", "### CONTEXT:\n{clean_entry}\n\n### USER QUESTION:\n{user_query}\n\n### LANGUAGE INSTRUCTION:\nThe user's query was written in **{detected_language}**. You MUST write your `final_answer` entirely in **{detected_language}**. Do not switch to English unless the user's language is English.")
         ])
 
-        user_query = state.get('query', "")
-        # Fixed the function call (passing clean_entry directly)
         final_chunk = limit_context_by_tokens(clean_entry, prompt, user_query)
-        final_prompt = prompt.invoke({"clean_entry": final_chunk, "user_query": user_query})
+        final_prompt = prompt.invoke({"clean_entry": final_chunk, "user_query": user_query, "detected_language": detected_language})
         
-        #print("Sending to LLM...")
         raw_response = ans_llm.bind(response_format={"type":"json_object"}).invoke(final_prompt)
         
         try:
             content = raw_response.content
-            parsed_json = json.loads(content)
-            answer = parsed_json.get("final_answer")
-            if not answer:
-                 return {"answer": "I'm sorry, I ran into an error while drafting your answer.","skip_cache":True}
-            log.info(f"Answer Generation Successful. Answer length: {len(answer)} characters.")
+            parsed_json = extract_json_from_text(content)
+
+            if parsed_json:
+                answer = parsed_json.get("final_answer")
+                if answer:
+                    log.info(f"Answer Generation Successful. Answer length: {len(answer)} characters.")
+                    return {"answer": answer, "skip_cache": False}
+
+            if len(content) > 50:
+                log.warning("JSON failed but content is substantial. Using raw content.")
+                return {"answer": content.strip(), "skip_cache": False}
             
-            return {"answer": answer,"skip_cache":False}
+            log.error(f"JSON failed and content is not substantial. Returning error message. {content}")
+            return {"answer": f"I'm sorry, I ran into an error while drafting your answer.","skip_cache":True}
         except (json.JSONDecodeError, ValueError) as e:
             log.error(f"Answer Generation JSON Parsing Error: {e}. Raw response: {raw_response.content}")
             return {"answer": "I'm sorry, I ran into an error while drafting your answer.","skip_cache":True}
