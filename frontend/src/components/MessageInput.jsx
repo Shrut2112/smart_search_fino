@@ -6,8 +6,6 @@ const MessageInput = ({
   onSend,
   onClear,
   isLoading,
-  language,
-  setLanguage
 }) => {
   const textareaRef = useRef(null);
 
