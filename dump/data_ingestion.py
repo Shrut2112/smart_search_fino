@@ -3,8 +3,8 @@ from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm import tqdm
 from multiprocessing import cpu_count
-from graph.graph import main_graph  
-from agents.universal_parser_agent import init_worker
+from data_ingestion.graph.graph import main_graph  
+from data_ingestion.universal_parser_agent import init_worker
 import fitz  # PyMuPDF
 from datetime import datetime   
 

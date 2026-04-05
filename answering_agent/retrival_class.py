@@ -1,4 +1,4 @@
-from answering_agent.db_ret import retrieve_similar_chunks, retrieve_similar_chunks_key
+from database.db_ret import retrieve_similar_chunks, retrieve_similar_chunks_key
 from utils.schema import Answer,RefinedQuery
 import tiktoken
 import json

@@ -29,6 +29,12 @@ tiktoken
 watchdog
 ragas
 streamlit
-fastapi
 langchain_openai
 firecrawl-py
+fastapi
+uvicorn
+gunicorn
+pydantic
+langchain-cohere
+langgraph
+langchain-core

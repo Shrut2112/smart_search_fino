@@ -33,5 +33,5 @@ dependencies = [
     "selenium>=4.39.0",
     "sentence-transformers>=5.2.0",
     "streamlit>=1.55.0",
-    "supabase>=2.28.0",
+    "supabase>=2.28.0",`n    "fastapi>=0.100.0",`n    "uvicorn>=0.23.0",`n    "gunicorn>=21.0.0",`n    "pydantic>=2.0.0",
 ]

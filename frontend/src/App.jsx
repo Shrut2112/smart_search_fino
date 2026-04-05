@@ -7,13 +7,31 @@ import MessageInput from './components/MessageInput';
 const API_BASE_URL = 'http://localhost:8000';
 
 function App() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    const saved = sessionStorage.getItem('fino_chat_history');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [inputValue, setInputValue] = useState('');
   const [language, setLanguage] = useState('English');
   const [isLoading, setIsLoading] = useState(false);
   const [healthStatus, setHealthStatus] = useState('offline');
   const [hasStarted, setHasStarted] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const [threadId] = useState(() => {
+    let id = sessionStorage.getItem('fino_thread_id');
+    if (!id) {
+      id = `thread_${Math.random().toString(36).substring(7)}`;
+      sessionStorage.setItem('fino_thread_id', id);
+    }
+    return id;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('fino_chat_history', JSON.stringify(messages));
+    if (messages.length > 0) setHasStarted(true);
+  }, [messages]);
+
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
@@ -44,7 +62,7 @@ function App() {
 
     const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     const userMsg = { id: Date.now(), role: 'user', content: query, timestamp };
-    
+
     setMessages(prev => [...prev, userMsg]);
     setInputValue('');
     setIsLoading(true);
@@ -53,18 +71,34 @@ function App() {
       const response = await fetch(`${API_BASE_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query })
+        body: JSON.stringify({
+          query,
+          thread_id: threadId
+        })
       });
 
       if (!response.ok) throw new Error('Backend error');
 
       const data = await response.json();
-      const aiMsg = { 
-        id: Date.now() + 1, 
-        role: 'ai', 
-        content: data.answer, 
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
+      let displayContent = data.answer;
+
+      // If the answer looks like JSON, try to extract the final_answer field
+      if (typeof displayContent === 'string' && displayContent.trim().startsWith('{')) {
+        try {
+          const parsed = JSON.parse(displayContent);
+          displayContent = parsed.final_answer || displayContent;
+        } catch (e) {
+          console.error("Failed to parse AI JSON response", e);
+        }
+      }
+
+      const aiMsg = {
+        id: Date.now() + 1,
+        role: 'ai',
+        content: displayContent, // Use the cleaned content
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
+
       setMessages(prev => [...prev, aiMsg]);
     } catch (error) {
       setMessages(prev => [...prev, {
@@ -86,10 +120,10 @@ function App() {
 
   return (
     <div className="app-container">
-      <Navbar 
-        healthStatus={healthStatus} 
-        isDarkMode={isDarkMode} 
-        toggleDarkMode={() => setIsDarkMode(!isDarkMode)} 
+      <Navbar
+        healthStatus={healthStatus}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={() => setIsDarkMode(!isDarkMode)}
       />
 
       <main className="main-content">
@@ -100,7 +134,7 @@ function App() {
         )}
       </main>
 
-      <MessageInput 
+      <MessageInput
         inputValue={inputValue}
         setInputValue={setInputValue}
         onSend={() => handleSend()}
