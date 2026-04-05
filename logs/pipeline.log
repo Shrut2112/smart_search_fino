@@ -11389,3 +11389,185 @@ DETAIL:  Key (chunk_id)=(q4_compliance_certificate_pursuant_to_regulation_73_of_
 2026-04-05 19:18:38 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/life-insurance (backoff=15s, wait_for=5000ms)
 2026-04-05 19:19:57 [WARNING] [web.crawler] Scrape attempt 2/3 failed for https://www.fino.bank.in/life-insurance: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
 2026-04-05 19:19:57 [INFO] [web.crawler]   ↻ Retry 2/2 for https://www.fino.bank.in/life-insurance (backoff=30s, wait_for=2000ms)
+2026-04-05 19:22:03 [WARNING] [web.crawler] Scrape attempt 3/3 failed for https://www.fino.bank.in/life-insurance: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:22:03 [ERROR] [web.crawler] ❌ All 3 scrape attempts failed for https://www.fino.bank.in/life-insurance
+2026-04-05 19:22:03 [WARNING] [web_watcher] [12/27] ⚠️  Empty result: https://www.fino.bank.in/life-insurance
+2026-04-05 19:22:03 [INFO] [web_watcher] [13/27] (ETA: 31.1m) Scraping: https://www.fino.bank.in/payments/recharge
+2026-04-05 19:22:25 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/payments/recharge -> doc_id=web_payments_recharge
+2026-04-05 19:22:25 [INFO] [agent.parser] Text cleaned -> content_hash=3cdc8f6ed45839ff..., chars_post_clean=5760
+2026-04-05 19:22:26 [INFO] [httpx] HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-04-05 19:22:26 [INFO] [agent.parser] Chunking done -> total=7, text=7, table=0, avg_quality=0.38
+2026-04-05 19:22:26 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/payments/recharge -> 7 chunks
+2026-04-05 19:22:26 [INFO] [db.hooks] Document web_payments_recharge registered successfully.
+2026-04-05 19:22:28 [INFO] [db.hooks] Successfully upserted 7 chunks for web_payments_recharge
+2026-04-05 19:22:28 [INFO] [web_watcher]    DB committed: web_payments_recharge (7 chunks)
+2026-04-05 19:22:28 [INFO] [web_watcher] [13/27] 📊 Running: 2 new | 7 unchanged | 4 failed
+2026-04-05 19:22:28 [INFO] [web_watcher] [14/27] (ETA: 27.3m) Scraping: https://www.fino.bank.in/personal/products/finopay
+2026-04-05 19:23:32 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/personal/products/finopay: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:23:32 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/personal/products/finopay (backoff=15s, wait_for=5000ms)
+2026-04-05 19:24:54 [WARNING] [web.crawler] Scrape attempt 2/3 failed for https://www.fino.bank.in/personal/products/finopay: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:24:54 [INFO] [web.crawler]   ↻ Retry 2/2 for https://www.fino.bank.in/personal/products/finopay (backoff=30s, wait_for=2000ms)
+2026-04-05 19:26:26 [INFO] [web.crawler]   ✅ Retry succeeded on attempt 3 for https://www.fino.bank.in/personal/products/finopay
+2026-04-05 19:26:27 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/personal/products/finopay -> doc_id=web_personal_products_finopay
+2026-04-05 19:26:27 [INFO] [agent.parser] Text cleaned -> content_hash=c5319cf58d658b87..., chars_post_clean=57
+2026-04-05 19:26:27 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:26:27 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/personal/products/finopay
+2026-04-05 19:26:27 [INFO] [web_watcher] [14/27] 📊 Running: 2 new | 8 unchanged | 4 failed
+2026-04-05 19:26:27 [INFO] [web_watcher] [15/27] (ETA: 27.2m) Scraping: https://www.fino.bank.in/personal/products/insurance
+2026-04-05 19:26:51 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/personal/products/insurance -> doc_id=web_personal_products_insurance
+2026-04-05 19:26:51 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 19:26:51 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:26:51 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/personal/products/insurance
+2026-04-05 19:26:51 [INFO] [web_watcher] [15/27] 📊 Running: 2 new | 9 unchanged | 4 failed
+2026-04-05 19:26:51 [INFO] [web_watcher] [16/27] (ETA: 23.7m) Scraping: https://www.fino.bank.in/cards/prepaid-card
+2026-04-05 19:28:55 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/cards/prepaid-card: Internal Server Error: Failed to scrape. All scraping engines failed to retrieve content from this URL. Engines tried: [index, fire-engine;chrome-cdp, fire-engine(retry);chrome-cdp, fire-engine;tlsclient, fetch]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation. - No additional error details provided.
+2026-04-05 19:28:55 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/cards/prepaid-card (backoff=15s, wait_for=5000ms)
+2026-04-05 19:30:13 [WARNING] [web.crawler] Scrape attempt 2/3 failed for https://www.fino.bank.in/cards/prepaid-card: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:30:13 [INFO] [web.crawler]   ↻ Retry 2/2 for https://www.fino.bank.in/cards/prepaid-card (backoff=30s, wait_for=2000ms)
+2026-04-05 19:31:12 [INFO] [web.crawler]   ✅ Retry succeeded on attempt 3 for https://www.fino.bank.in/cards/prepaid-card
+2026-04-05 19:31:12 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/cards/prepaid-card -> doc_id=web_cards_prepaid_card
+2026-04-05 19:31:12 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 19:31:12 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:31:12 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/cards/prepaid-card
+2026-04-05 19:31:12 [INFO] [web_watcher] [16/27] 📊 Running: 2 new | 10 unchanged | 4 failed
+2026-04-05 19:31:12 [INFO] [web_watcher] [17/27] (ETA: 23.4m) Scraping: https://www.fino.bank.in/more/aadhaar-seeding
+2026-04-05 19:32:10 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/more/aadhaar-seeding: Internal Server Error: Failed to scrape. All scraping engines failed to retrieve content from this URL. Engines tried: [index, fire-engine;chrome-cdp, fire-engine(retry);chrome-cdp, fire-engine;tlsclient, fetch]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation. - No additional error details provided.
+2026-04-05 19:32:10 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/more/aadhaar-seeding (backoff=15s, wait_for=5000ms)
+2026-04-05 19:33:29 [WARNING] [web.crawler] Scrape attempt 2/3 failed for https://www.fino.bank.in/more/aadhaar-seeding: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:33:29 [INFO] [web.crawler]   ↻ Retry 2/2 for https://www.fino.bank.in/more/aadhaar-seeding (backoff=30s, wait_for=2000ms)
+2026-04-05 19:35:02 [WARNING] [web.crawler] Scrape attempt 3/3 failed for https://www.fino.bank.in/more/aadhaar-seeding: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:35:02 [ERROR] [web.crawler] ❌ All 3 scrape attempts failed for https://www.fino.bank.in/more/aadhaar-seeding
+2026-04-05 19:35:02 [WARNING] [web_watcher] [17/27] ⚠️  Empty result: https://www.fino.bank.in/more/aadhaar-seeding
+2026-04-05 19:35:02 [INFO] [web_watcher] [18/27] (ETA: 22.3m) Scraping: https://www.fino.bank.in/more/m-atm
+2026-04-05 19:36:19 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/more/m-atm -> doc_id=web_more_m_atm
+2026-04-05 19:36:19 [INFO] [agent.parser] Text cleaned -> content_hash=66e9afc4a839c104..., chars_post_clean=2625
+2026-04-05 19:36:20 [INFO] [httpx] HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-04-05 19:36:20 [INFO] [agent.parser] Chunking done -> total=3, text=3, table=0, avg_quality=0.36
+2026-04-05 19:36:20 [INFO] [web_watcher] ✅ Chunked: https://www.fino.bank.in/more/m-atm -> 3 chunks
+2026-04-05 19:36:21 [INFO] [db.hooks] Document web_more_m_atm registered successfully.
+2026-04-05 19:36:22 [INFO] [db.hooks] Successfully upserted 3 chunks for web_more_m_atm
+2026-04-05 19:36:22 [INFO] [web_watcher]    DB committed: web_more_m_atm (3 chunks)
+2026-04-05 19:36:22 [INFO] [web_watcher] [18/27] 📊 Running: 3 new | 10 unchanged | 5 failed
+2026-04-05 19:36:22 [INFO] [web_watcher] [19/27] (ETA: 19.6m) Scraping: https://www.fino.bank.in/company/awards-recognition
+2026-04-05 19:38:07 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/company/awards-recognition: Internal Server Error: Failed to scrape. All scraping engines failed to retrieve content from this URL. Engines tried: [index, fire-engine;chrome-cdp, fire-engine(retry);chrome-cdp, fire-engine;tlsclient, fetch]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation. - No additional error details provided.
+2026-04-05 19:38:07 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/company/awards-recognition (backoff=15s, wait_for=5000ms)
+2026-04-05 19:39:16 [INFO] [web.crawler]   ✅ Retry succeeded on attempt 2 for https://www.fino.bank.in/company/awards-recognition
+2026-04-05 19:39:17 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/company/awards-recognition -> doc_id=web_company_awards_recognition
+2026-04-05 19:39:17 [INFO] [agent.parser] Text cleaned -> content_hash=6eed2d78861b6762..., chars_post_clean=67
+2026-04-05 19:39:17 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:39:17 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/company/awards-recognition
+2026-04-05 19:39:17 [INFO] [web_watcher] [19/27] 📊 Running: 3 new | 11 unchanged | 5 failed
+2026-04-05 19:39:17 [INFO] [web_watcher] [20/27] (ETA: 17.7m) Scraping: https://www.fino.bank.in/payments/bill-payment
+2026-04-05 19:40:05 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/payments/bill-payment: Internal Server Error: Failed to scrape. All scraping engines failed to retrieve content from this URL. Engines tried: [index, fire-engine;chrome-cdp, fire-engine(retry);chrome-cdp, fire-engine;tlsclient, fetch]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation. - No additional error details provided.
+2026-04-05 19:40:05 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/payments/bill-payment (backoff=15s, wait_for=5000ms)
+2026-04-05 19:40:54 [INFO] [web.crawler]   ✅ Retry succeeded on attempt 2 for https://www.fino.bank.in/payments/bill-payment
+2026-04-05 19:40:54 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/payments/bill-payment -> doc_id=web_payments_bill_payment
+2026-04-05 19:40:54 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 19:40:54 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:40:54 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/payments/bill-payment
+2026-04-05 19:40:54 [INFO] [web_watcher] [20/27] 📊 Running: 3 new | 12 unchanged | 5 failed
+2026-04-05 19:40:54 [INFO] [web_watcher] [21/27] (ETA: 15.3m) Scraping: https://www.fino.bank.in/more/sweep-account
+2026-04-05 19:41:58 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/more/sweep-account: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:41:58 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/more/sweep-account (backoff=15s, wait_for=5000ms)
+2026-04-05 19:43:06 [INFO] [web.crawler]   ✅ Retry succeeded on attempt 2 for https://www.fino.bank.in/more/sweep-account
+2026-04-05 19:43:06 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/more/sweep-account -> doc_id=web_more_sweep_account
+2026-04-05 19:43:06 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 19:43:06 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:43:06 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/more/sweep-account
+2026-04-05 19:43:06 [INFO] [web_watcher] [21/27] 📊 Running: 3 new | 13 unchanged | 5 failed
+2026-04-05 19:43:06 [INFO] [web_watcher] [22/27] (ETA: 13.1m) Scraping: https://www.fino.bank.in/saving-accounts/cash-management-services
+2026-04-05 19:44:50 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/saving-accounts/cash-management-services: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:44:50 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/saving-accounts/cash-management-services (backoff=15s, wait_for=5000ms)
+2026-04-05 19:45:23 [INFO] [web.crawler]   ✅ Retry succeeded on attempt 2 for https://www.fino.bank.in/saving-accounts/cash-management-services
+2026-04-05 19:45:24 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/saving-accounts/cash-management-services -> doc_id=web_saving_accounts_cash_management_services
+2026-04-05 19:45:24 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 19:45:24 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:45:24 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/saving-accounts/cash-management-services
+2026-04-05 19:45:24 [INFO] [web_watcher] [22/27] 📊 Running: 3 new | 14 unchanged | 5 failed
+2026-04-05 19:45:24 [INFO] [web_watcher] [23/27] (ETA: 11.0m) Scraping: https://www.fino.bank.in/product-list/loan-referrals
+2026-04-05 19:46:27 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/product-list/loan-referrals: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:46:27 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/product-list/loan-referrals (backoff=15s, wait_for=5000ms)
+2026-04-05 19:47:46 [WARNING] [web.crawler] Scrape attempt 2/3 failed for https://www.fino.bank.in/product-list/loan-referrals: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:47:46 [INFO] [web.crawler]   ↻ Retry 2/2 for https://www.fino.bank.in/product-list/loan-referrals (backoff=30s, wait_for=2000ms)
+2026-04-05 19:48:30 [INFO] [web.crawler]   ✅ Retry succeeded on attempt 3 for https://www.fino.bank.in/product-list/loan-referrals
+2026-04-05 19:48:30 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/product-list/loan-referrals -> doc_id=web_product_list_loan_referrals
+2026-04-05 19:48:30 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 19:48:30 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:48:30 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/product-list/loan-referrals
+2026-04-05 19:48:30 [INFO] [web_watcher] [23/27] 📊 Running: 3 new | 15 unchanged | 5 failed
+2026-04-05 19:48:30 [INFO] [web_watcher] [24/27] (ETA: 8.9m) Scraping: https://www.fino.bank.in/cards/platinum-debit-card
+2026-04-05 19:49:47 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/cards/platinum-debit-card -> doc_id=web_cards_platinum_debit_card
+2026-04-05 19:49:47 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 19:49:47 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:49:47 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/cards/platinum-debit-card
+2026-04-05 19:49:47 [INFO] [web_watcher] [24/27] 📊 Running: 3 new | 16 unchanged | 5 failed
+2026-04-05 19:49:47 [INFO] [web_watcher] [25/27] (ETA: 6.6m) Scraping: https://www.fino.bank.in/personal/products/cards/platinum-debit-card
+2026-04-05 19:49:49 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/personal/products/cards/platinum-debit-card -> doc_id=web_personal_products_cards_platinum_debit_card
+2026-04-05 19:49:49 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 19:49:49 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:49:49 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/personal/products/cards/platinum-debit-card
+2026-04-05 19:49:49 [INFO] [web_watcher] [25/27] 📊 Running: 3 new | 17 unchanged | 5 failed
+2026-04-05 19:49:49 [INFO] [web_watcher] [26/27] (ETA: 4.2m) Scraping: https://www.fino.bank.in/personal/products/cards/classic-debit-card
+2026-04-05 19:49:51 [INFO] [web_watcher] ⏭️  Content hash already in DB: https://www.fino.bank.in/personal/products/cards/classic-debit-card -> web_personal_products_cards_classic_debit_card
+2026-04-05 19:49:51 [INFO] [web_watcher] [26/27] 📊 Running: 3 new | 18 unchanged | 5 failed
+2026-04-05 19:49:51 [INFO] [web_watcher] [27/27] (ETA: 2.0m) Scraping: https://www.fino.bank.in/general-insurance/go-digit-my-business-policy
+2026-04-05 19:50:14 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/general-insurance/go-digit-my-business-policy -> doc_id=web_general_insurance_go_digit_my_business_policy
+2026-04-05 19:50:14 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 19:50:14 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 19:50:14 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/general-insurance/go-digit-my-business-policy
+2026-04-05 19:50:14 [INFO] [web_watcher] [27/27] 📊 Running: 3 new | 19 unchanged | 5 failed
+2026-04-05 19:50:14 [INFO] [web_watcher] Pass 1 done: 3 processed, 19 skipped, 5 failed, 27 total
+2026-04-05 19:50:14 [INFO] [web_watcher] 
+============================================================
+2026-04-05 19:50:14 [INFO] [web_watcher] RETRY SWEEP: 5 failed URLs — cooling down 60s before retry...
+2026-04-05 19:50:14 [INFO] [web_watcher] ============================================================
+2026-04-05 19:51:14 [INFO] [web_watcher]   [RETRY 1/5] Scraping: https://www.fino.bank.in/merchant/services
+2026-04-05 19:52:18 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/merchant/services: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:52:18 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/merchant/services (backoff=15s, wait_for=5000ms)
+2026-04-05 19:54:08 [WARNING] [web.crawler] Scrape attempt 2/3 failed for https://www.fino.bank.in/merchant/services: Internal Server Error: Failed to scrape. All scraping engines failed to retrieve content from this URL. Engines tried: [index, fire-engine;chrome-cdp, fire-engine(retry);chrome-cdp, fire-engine;tlsclient, fetch]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation. - No additional error details provided.
+2026-04-05 19:54:08 [INFO] [web.crawler]   ↻ Retry 2/2 for https://www.fino.bank.in/merchant/services (backoff=30s, wait_for=2000ms)
+2026-04-05 19:55:55 [WARNING] [web.crawler] Scrape attempt 3/3 failed for https://www.fino.bank.in/merchant/services: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:55:55 [ERROR] [web.crawler] ❌ All 3 scrape attempts failed for https://www.fino.bank.in/merchant/services
+2026-04-05 19:55:55 [WARNING] [web_watcher]   [RETRY 1/5] ❌ Still failed: https://www.fino.bank.in/merchant/services
+2026-04-05 19:55:55 [INFO] [web_watcher]   [RETRY 2/5] Scraping: https://www.fino.bank.in/saving-accounts/fixed-deposit
+2026-04-05 19:56:59 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/saving-accounts/fixed-deposit: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 19:56:59 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/saving-accounts/fixed-deposit (backoff=15s, wait_for=5000ms)
+2026-04-05 19:58:49 [WARNING] [web.crawler] Scrape attempt 2/3 failed for https://www.fino.bank.in/saving-accounts/fixed-deposit: Internal Server Error: Failed to scrape. All scraping engines failed to retrieve content from this URL. Engines tried: [index, fire-engine;chrome-cdp, fire-engine(retry);chrome-cdp, fire-engine;tlsclient, fetch]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation. - No additional error details provided.
+2026-04-05 19:58:49 [INFO] [web.crawler]   ↻ Retry 2/2 for https://www.fino.bank.in/saving-accounts/fixed-deposit (backoff=30s, wait_for=2000ms)
+2026-04-05 20:00:49 [WARNING] [web.crawler] Scrape attempt 3/3 failed for https://www.fino.bank.in/saving-accounts/fixed-deposit: Internal Server Error: Failed to scrape. All scraping engines failed to retrieve content from this URL. Engines tried: [index, fire-engine;chrome-cdp, fire-engine(retry);chrome-cdp, fire-engine;tlsclient, fetch]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation. - No additional error details provided.
+2026-04-05 20:00:49 [ERROR] [web.crawler] ❌ All 3 scrape attempts failed for https://www.fino.bank.in/saving-accounts/fixed-deposit
+2026-04-05 20:00:49 [WARNING] [web_watcher]   [RETRY 2/5] ❌ Still failed: https://www.fino.bank.in/saving-accounts/fixed-deposit
+2026-04-05 20:00:49 [INFO] [web_watcher]   [RETRY 3/5] Scraping: https://www.fino.bank.in/contact-us
+2026-04-05 20:02:35 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/contact-us: Internal Server Error: Failed to scrape. All scraping engines failed to retrieve content from this URL. Engines tried: [index, fire-engine;chrome-cdp, fire-engine(retry);chrome-cdp, fire-engine;tlsclient, fetch]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation. - No additional error details provided.
+2026-04-05 20:02:35 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/contact-us (backoff=15s, wait_for=5000ms)
+2026-04-05 20:03:54 [WARNING] [web.crawler] Scrape attempt 2/3 failed for https://www.fino.bank.in/contact-us: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 20:03:54 [INFO] [web.crawler]   ↻ Retry 2/2 for https://www.fino.bank.in/contact-us (backoff=30s, wait_for=2000ms)
+2026-04-05 20:05:41 [WARNING] [web.crawler] Scrape attempt 3/3 failed for https://www.fino.bank.in/contact-us: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 20:05:41 [ERROR] [web.crawler] ❌ All 3 scrape attempts failed for https://www.fino.bank.in/contact-us
+2026-04-05 20:05:41 [WARNING] [web_watcher]   [RETRY 3/5] ❌ Still failed: https://www.fino.bank.in/contact-us
+2026-04-05 20:05:41 [INFO] [web_watcher]   [RETRY 4/5] Scraping: https://www.fino.bank.in/life-insurance
+2026-04-05 20:07:16 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/life-insurance -> doc_id=web_life_insurance
+2026-04-05 20:07:16 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 20:07:16 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 20:07:16 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/life-insurance
+2026-04-05 20:07:16 [INFO] [web_watcher]   [RETRY 5/5] Scraping: https://www.fino.bank.in/more/aadhaar-seeding
+2026-04-05 20:09:20 [WARNING] [web.crawler] Scrape attempt 1/3 failed for https://www.fino.bank.in/more/aadhaar-seeding: Internal Server Error: Failed to scrape. All scraping engines failed to retrieve content from this URL. Engines tried: [index, fire-engine;chrome-cdp, fire-engine(retry);chrome-cdp, fire-engine;tlsclient, fetch]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation. - No additional error details provided.
+2026-04-05 20:09:20 [INFO] [web.crawler]   ↻ Retry 1/2 for https://www.fino.bank.in/more/aadhaar-seeding (backoff=15s, wait_for=5000ms)
+2026-04-05 20:10:38 [WARNING] [web.crawler] Scrape attempt 2/3 failed for https://www.fino.bank.in/more/aadhaar-seeding: Internal Server Error: Failed to scrape. The URL failed to load in the browser with error code "ERR_TIMED_OUT". The connection timed out. The server is not responding or is too slow. Please verify the URL is correct and the website is accessible. - No additional error details provided.
+2026-04-05 20:10:38 [INFO] [web.crawler]   ↻ Retry 2/2 for https://www.fino.bank.in/more/aadhaar-seeding (backoff=30s, wait_for=2000ms)
+2026-04-05 20:11:55 [INFO] [web.crawler]   ✅ Retry succeeded on attempt 3 for https://www.fino.bank.in/more/aadhaar-seeding
+2026-04-05 20:11:55 [INFO] [web_watcher] 🔄 Processing: https://www.fino.bank.in/more/aadhaar-seeding -> doc_id=web_more_aadhaar_seeding
+2026-04-05 20:11:55 [INFO] [agent.parser] Text cleaned -> content_hash=8bb873c4ae2f2b09..., chars_post_clean=61
+2026-04-05 20:11:55 [INFO] [agent.parser] Chunking done -> total=0, text=0, table=0, avg_quality=0.00
+2026-04-05 20:11:55 [WARNING] [web_watcher] ⚠️  No chunks produced: https://www.fino.bank.in/more/aadhaar-seeding
+2026-04-05 20:11:55 [INFO] [web_watcher] 
+Retry sweep results: 0 recovered, 3 permanently failed
+2026-04-05 20:11:55 [INFO] [web_watcher] 
+============================================================
+FINAL CRAWL REPORT:
+  Total URLs:    27
+  Processed:     3
+  Unchanged:     21
+  Failed:        3
+  Total Time:    74.8m
+============================================================
