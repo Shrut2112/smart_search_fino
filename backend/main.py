@@ -61,6 +61,7 @@ app.add_middleware(
 
 class ChatRequest(BaseModel):
     query: str
+    thread_id: str
 
 class ChatResponse(BaseModel):
     answer: str
@@ -83,7 +84,8 @@ async def chat(request: ChatRequest):
     log.info(f"Received query: {request.query}")
     try:
         # Invoke the graph using the same format as the original app
-        result = await graph.ainvoke({"query": request.query})
+        config = {"configurable": {"thread_id": request.thread_id}}
+        result = await graph.ainvoke({"query": request.query}, config)
         answer = result.get("answer", "I'm sorry, I couldn't process that request.")
         
         log.info("Successfully processed query.")

@@ -1,5 +1,6 @@
 from typing import List, Literal
 from langgraph.graph import StateGraph, END, START
+from langgraph.checkpoint.memory import MemorySaver
 from utils.schema import AnswerState, RefinedQuery
 from answering_agent.retrival_class import RetrievalPipeline
 from utils.get_embedd_model import embedding_model
@@ -16,7 +17,7 @@ import json
 from utils.logger import get_logger
 
 log = get_logger("answering_agent.main")
-
+memory = MemorySaver()
 
 def get_models():
     llm = get_llm()
@@ -31,10 +32,14 @@ encoding = tiktoken.get_encoding("cl100k_base")
 top_k = 30
 
     
-def limit_context_by_tokens(chunks,prompt,query,max_limit=6000):
+def limit_context_by_tokens(chunks,prompt,query,detected_language,max_limit=6000):
         if not chunks: return ""
         try:
-            static_text = prompt.format(clean_entry="",user_query=query)
+            static_text = prompt.format(
+            clean_entry="", 
+            user_query=query, 
+            detected_language=detected_language
+        )
             static_tokens = len(encoding.encode(static_text))
             available_tokens = max_limit - static_tokens - 1000
         
@@ -199,6 +204,12 @@ def extract_json_from_text(text):
     except Exception:
         return None
 
+def get_recent_history(messages: list, k: int = 6):
+    """Returns the last k messages from the history."""
+    if not messages:
+        return []
+    return messages[-k:]
+
 def answer_agent_node(state: AnswerState):
     log.info(f"Answer Generation Invoked.")
     try:
@@ -227,8 +238,11 @@ def answer_agent_node(state: AnswerState):
         user_query = state.get('query', "")
         detected_language = state.get('detected_language', 'English')
 
+        full_history = state.get('messages', [])
+        recent_history = get_recent_history(full_history, k=6)
         prompt = ChatPromptTemplate.from_messages([
             ("system", answering_prompt),
+            *recent_history,
             ("human", """
             ### CONTEXT:\n{clean_entry}\n\n
             ### USER QUESTION:\n{user_query}\n\n
@@ -240,31 +254,20 @@ def answer_agent_node(state: AnswerState):
             """)
         ])
 
-        final_chunk = limit_context_by_tokens(clean_entry, prompt, user_query)
+        final_chunk = limit_context_by_tokens(clean_entry, prompt, user_query, detected_language)
         final_prompt = prompt.invoke({"clean_entry": final_chunk, "user_query": user_query, "detected_language": detected_language})
         
-        raw_response = ans_llm.bind(response_format={"type":"json_object"}).invoke(final_prompt)
-        
-        try:
-            content = raw_response.content
-            parsed_json = extract_json_from_text(content)
+        raw_response = ans_llm.invoke(final_prompt)
+        answer = raw_response.content.strip()
+        if not answer or len(answer) < 10:
+             return {
+                "answer": "I'm sorry, I'm having trouble formatting that answer. Could you please ask again?",
+                "skip_cache": True
+            }
 
-            if parsed_json:
-                answer = parsed_json.get("final_answer")
-                if answer:
-                    log.info(f"Answer Generation Successful. Answer length: {len(answer)} characters.")
-                    return {"answer": answer, "skip_cache": False}
+        log.info(f"Answer Generation Successful. Length: {len(answer)}")
+        return {"answer": answer, "skip_cache": False}
 
-            if len(content) > 50:
-                log.warning("JSON failed but content is substantial. Using raw content.")
-                return {"answer": content.strip(), "skip_cache": True}
-            
-            log.error(f"JSON failed and content is not substantial. Returning error message. {content}")
-            return {"answer": f"I'm sorry, I ran into an error while drafting your answer.","skip_cache":True}
-        except (json.JSONDecodeError, ValueError) as e:
-            log.error(f"Answer Generation JSON Parsing Error: {e}. Raw response: {raw_response.content}")
-            return {"answer": "I'm sorry, I ran into an error while drafting your answer.","skip_cache":True}
-        
     except Exception as e:
         log.error(f"Answer Generation Error: {e}")
         return {"answer": "I'm sorry, I ran into an error while drafting your answer.", "skip_cache":True}
@@ -299,6 +302,9 @@ def route_to_cache(state: AnswerState):
     if state.get("skip_cache", False):
         return "skip"
     failure_phrases = [
+        "no information found regarding this query",
+        "No information found regarding this query in our current records.",
+        "I'm sorry, but I couldn't find any information regarding this query in our current records.",
         "i'm sorry", 
         "i don't know", 
         "couldn't find", 
@@ -366,7 +372,7 @@ def create_graph():
     )
     builder.add_edge("push_cache_node", END)
 
-    graph = builder.compile()
+    graph = builder.compile(checkpointer=memory)
     # img_path = "langgraph_diagram.png"
     # graph.get_graph().draw_mermaid_png(output_file_path=img_path, draw_method=MermaidDrawMethod.API)
 
