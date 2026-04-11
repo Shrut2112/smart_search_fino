@@ -49,6 +49,7 @@ class AnswerState(TypedDict,total=False):
     # Language detected from the raw user query (e.g. "Hindi", "English", "Hinglish")
     # Used to instruct the answer LLM to reply in the user's language.
     detected_language: Optional[str]
+    language: Optional[str]
     retrived_sem_doc: Annotated[list, add] 
     retrived_key_doc: Annotated[list, add]
 

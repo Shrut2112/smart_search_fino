@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import i18n from './i18n';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ChatContainer from './components/ChatContainer';
 import MessageInput from './components/MessageInput';
+import LanguageSplash from './components/LanguageSplash';
 
 const API_BASE_URL = 'http://localhost:8000';
 
 function App() {
+  // ── Splash / Language state ────────────────────────────────────────────────
+  const [showSplash, setShowSplash] = useState(() => {
+    // Only show on first visit per session
+    return !sessionStorage.getItem('fino_language');
+  });
+  const [language, setLanguage] = useState(() => {
+    const saved = sessionStorage.getItem('fino_language');
+    return saved ? JSON.parse(saved) : { code: 'en', name: 'English', native: 'English' };
+  });
+
+  // ── Chat state ─────────────────────────────────────────────────────────────
   const [messages, setMessages] = useState(() => {
     const saved = sessionStorage.getItem('fino_chat_history');
     return saved ? JSON.parse(saved) : [];
   });
   const [inputValue, setInputValue] = useState('');
-  const [language, setLanguage] = useState('English');
   const [isLoading, setIsLoading] = useState(false);
   const [healthStatus, setHealthStatus] = useState('offline');
   const [hasStarted, setHasStarted] = useState(false);
@@ -27,17 +40,33 @@ function App() {
     return id;
   });
 
+  const { t } = useTranslation();
+
+  const handleLanguageSelect = (lang) => {
+    setLanguage(lang);
+    sessionStorage.setItem('fino_language', JSON.stringify(lang));
+    i18n.changeLanguage(lang.code);
+    document.documentElement.setAttribute('dir', lang.code === 'ur' ? 'rtl' : 'ltr');
+    setShowSplash(false);
+  };
+
+  // Sync i18n language on mount if saved
+  useEffect(() => {
+    if (language && language.code) {
+      i18n.changeLanguage(language.code);
+      document.documentElement.setAttribute('dir', language.code === 'ur' ? 'rtl' : 'ltr');
+    }
+  }, []);
+
   useEffect(() => {
     sessionStorage.setItem('fino_chat_history', JSON.stringify(messages));
     if (messages.length > 0) setHasStarted(true);
   }, [messages]);
 
-
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
-  // Health check polling
   useEffect(() => {
     const checkHealth = async () => {
       try {
@@ -48,7 +77,6 @@ function App() {
         setHealthStatus('offline');
       }
     };
-
     checkHealth();
     const interval = setInterval(checkHealth, 15000);
     return () => clearInterval(interval);
@@ -71,10 +99,7 @@ function App() {
       const response = await fetch(`${API_BASE_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          query,
-          thread_id: threadId
-        })
+        body: JSON.stringify({ query, thread_id: threadId, language: language.code })
       });
 
       if (!response.ok) throw new Error('Backend error');
@@ -82,29 +107,26 @@ function App() {
       const data = await response.json();
       let displayContent = data.answer;
 
-      // If the answer looks like JSON, try to extract the final_answer field
       if (typeof displayContent === 'string' && displayContent.trim().startsWith('{')) {
         try {
           const parsed = JSON.parse(displayContent);
           displayContent = parsed.final_answer || displayContent;
         } catch (e) {
-          console.error("Failed to parse AI JSON response", e);
+          console.error('Failed to parse AI JSON response', e);
         }
       }
 
-      const aiMsg = {
+      setMessages(prev => [...prev, {
         id: Date.now() + 1,
         role: 'ai',
-        content: displayContent, // Use the cleaned content
+        content: displayContent,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-      };
-
-      setMessages(prev => [...prev, aiMsg]);
+      }]);
     } catch (error) {
       setMessages(prev => [...prev, {
         id: Date.now() + 1,
         role: 'ai',
-        content: "Identity connection lost. Please ensure the Fino intelligence core is operational.",
+        content: 'Identity connection lost. Please ensure the Fino intelligence core is operational.',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       }]);
     } finally {
@@ -119,31 +141,40 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <Navbar
-        healthStatus={healthStatus}
-        isDarkMode={isDarkMode}
-        toggleDarkMode={() => setIsDarkMode(!isDarkMode)}
-      />
+    <>
+      {/* Language splash renders on top of everything */}
+      {showSplash && (
+        <LanguageSplash onLanguageSelect={handleLanguageSelect} />
+      )}
 
-      <main className="main-content">
-        {!hasStarted ? (
-          <Hero onSuggestionClick={(text) => handleSend(text)} />
-        ) : (
-          <ChatContainer messages={messages} isLoading={isLoading} />
-        )}
-      </main>
+      <div className="app-container">
+        <Navbar
+          healthStatus={healthStatus}
+          isDarkMode={isDarkMode}
+          toggleDarkMode={() => setIsDarkMode(!isDarkMode)}
+          language={language}
+          onChangeLanguage={() => setShowSplash(true)}
+        />
 
-      <MessageInput
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-        onSend={() => handleSend()}
-        onClear={handleClear}
-        isLoading={isLoading}
-        language={language}
-        setLanguage={setLanguage}
-      />
-    </div>
+        <main className="main-content">
+          {!hasStarted ? (
+            <Hero onSuggestionClick={(text) => handleSend(text)} />
+          ) : (
+            <ChatContainer messages={messages} isLoading={isLoading} />
+          )}
+        </main>
+
+        <MessageInput
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          onSend={() => handleSend()}
+          onClear={handleClear}
+          isLoading={isLoading}
+          language={language.name}
+          setLanguage={(name) => setLanguage(prev => ({ ...prev, name }))}
+        />
+      </div>
+    </>
   );
 }
 

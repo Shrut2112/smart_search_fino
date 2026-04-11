@@ -1,0 +1,32 @@
+{
+  "hero": {
+    "title": "Welcome to Fino",
+    "subtitle": "Your intelligent multilingual assistant for all Fino Payments Bank products, policies, and services.",
+    "suggestions": [
+      "What are the Gullak account charges?",
+      "How do I open a savings account?",
+      "What is the KYC process?",
+      "How to block my debit card?"
+    ]
+  },
+  "input": {
+    "placeholder": "Ask anything about Fino Bank...",
+    "disclaimer": "AI-generated responses can have errors. Please verify important information."
+  },
+  "nav": {
+    "online": "Online",
+    "offline": "Offline",
+    "degraded": "Degraded",
+    "dark": "Dark",
+    "light": "Light",
+    "changeLanguage": "Change Language"
+  },
+  "chat": {
+    "aiLabel": "FINO AI",
+    "youLabel": "YOU"
+  },
+  "splash": {
+    "subtitle": "Choose your language to get started",
+    "footer": "Fino Payments Bank · Powered by AI · All languages supported"
+  }
+}

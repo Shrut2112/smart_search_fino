@@ -1,10 +1,11 @@
+from tenacity import asyncio
 from typing import List, Literal
 from langgraph.graph import StateGraph, END, START
 from langgraph.checkpoint.memory import MemorySaver
 from utils.schema import AnswerState, RefinedQuery
 from answering_agent.retrival_class import RetrievalPipeline
 from utils.get_embedd_model import embedding_model
-from answering_agent.db_ret import retrieve_similar_chunks, retrieve_similar_chunks_key
+from database.db_ret import retrieve_similar_chunks, retrieve_similar_chunks_key
 from utils.prompts.retrival_prompts import refine_query_prompt,answering_prompt
 from utils.get_llm import get_llm
 from utils.get_cross_encoder import get_crossencoder
@@ -12,6 +13,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from answering_agent.caching_logic import cache_check_node, push_cache
 import tiktoken
 import json
+import asyncio
+
 # from IPython.display import Image, display
 # from langchain_core.runnables.graph import MermaidDrawMethod
 from utils.logger import get_logger
@@ -29,16 +32,16 @@ def get_models():
 llm, emb_model, ans_llm, reranker = get_models()
 retriever = RetrievalPipeline(emb_model, llm, ans_llm, reranker)
 encoding = tiktoken.get_encoding("cl100k_base")
-top_k = 30
+top_k = 15
 
     
-def limit_context_by_tokens(chunks,prompt,query,detected_language,max_limit=6000):
+def limit_context_by_tokens(chunks,prompt,query,language,max_limit=6000):
         if not chunks: return ""
         try:
             static_text = prompt.format(
             clean_entry="", 
             user_query=query, 
-            detected_language=detected_language
+            language=language
         )
             static_tokens = len(encoding.encode(static_text))
             available_tokens = max_limit - static_tokens - 1000
@@ -60,8 +63,17 @@ def limit_context_by_tokens(chunks,prompt,query,detected_language,max_limit=6000
             log.error(f"Error during tokenization: {e}")
             return "".join(chunks[:2]) # Aggressive fallback
         
-def refiner_agent_node(state: AnswerState) -> AnswerState:
+async def refiner_agent_node(state: AnswerState) -> AnswerState:
     user_query = state['query']
+    words = user_query.split()
+    if len(words) <= 8:
+        log.info("Refiner: Fast-Path triggered (Skipping LLM)")
+        return {
+            "keyword_query": user_query,
+            "semantic_query": user_query,
+            "detected_language": "English",
+            "attempt_count": 1
+        }
     current_attempts = state.get("attempt_count", 0) + 1
     
     log.info(f"Refiner Agent Invoked - Attempt {current_attempts} for query: {user_query}")
@@ -70,7 +82,7 @@ def refiner_agent_node(state: AnswerState) -> AnswerState:
     prompt = refine_query_prompt.substitute(user_query=user_query)
     content = ""
     try:    
-        response = llm.invoke(prompt)
+        response = await llm.ainvoke(prompt)
         content = response.content
         
         refined_dict = extract_json_from_text(content)
@@ -99,89 +111,117 @@ def refiner_agent_node(state: AnswerState) -> AnswerState:
             "attempt_count": current_attempts
         }
 
-def semantic_search_node(state: AnswerState):
+async def semantic_search_node(state: AnswerState):
     log.info(f"Semantic Search Invoked")
     query = state.get('semantic_query') or state['query']
     
     if not query: return {"retrived_sem_doc": []}
     
     try:
-        query_embedding = emb_model.embed_query(query)
-        docs = retrieve_similar_chunks(query_embedding, top_k)
+        loop = asyncio.get_event_loop()
+        # query_embedding = await loop.run_in_executor(None, emb_model.embed_query,query)
+        query_embedding = state.get('query_embedding')
+        docs = await loop.run_in_executor(None, retrieve_similar_chunks,query_embedding, top_k)
         log.info(f"Semantic Search found {len(docs)} chunks.")
         return {"retrived_sem_doc": docs or []}
     except Exception as e:
         log.error(f"Semantic Search Error for query: {query} - {e}")
         return {"retrived_sem_doc": []}
 
-def keyword_search_node(state: AnswerState):
+async def keyword_search_node(state: AnswerState):
     log.info(f"Keyword Search Invoked.")
     query = state.get('keyword_query') or state['query']
     try:
+        loop = asyncio.get_event_loop()
         clean_query = query.replace("(","").replace(")","").replace("|","")
         words = [w for w in clean_query.split()]
         lenient_query = " | ".join(words)
-        docs = retrieve_similar_chunks_key(lenient_query, top_k) 
+        docs = await loop.run_in_executor(None, retrieve_similar_chunks_key,lenient_query, top_k) 
         log.info(f"Keyword Search found {len(docs)} chunks.")
         return {"retrived_key_doc": docs}
     except Exception as e:
         log.error(f"Keyword Search Error for query: {query} - {e}")
         return {"retrived_key_doc": []}
 
-def rerank_doc_node(state: AnswerState):
-    #print(f"--- [3] RRF MERGING NODE ---")
+async def rerank_doc_node(state: AnswerState):
+    """
+    RRF Merging is mostly dictionary operations, but for consistency 
+    and to ensure no micro-blocking, we convert it to async.
+    """
     log.info(f"RRF Merging Invoked.")
-    k = 60
-    rrf_scores = {} 
-    semantic_doc = state.get('retrived_sem_doc', [])
-    keyword_doc = state.get('retrived_key_doc', [])
     
-    for rank, chunk in enumerate(semantic_doc):
-        chunk_id = chunk[0] 
-        rrf_scores[chunk_id] = rrf_scores.get(chunk_id, 0) + 1 / (k + rank + 1)
+    # We define the logic in a small inner function to pass to the thread pool
+    def sync_rrf_logic():
+        k = 15
+        rrf_scores = {} 
+        semantic_doc = state.get('retrived_sem_doc', [])
+        keyword_doc = state.get('retrived_key_doc', [])
         
-    for rank, chunk in enumerate(keyword_doc):
-        chunk_id = chunk[0]
-        rrf_scores[chunk_id] = rrf_scores.get(chunk_id, 0) + 1 / (k + rank + 1)
-    
-    all_chunks = {c[0]: c for c in semantic_doc + keyword_doc}
-    sorted_ids = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
-    final_chunks = [all_chunks[chunk_id] for chunk_id, score in sorted_ids]
-    
-    log.info(f"RRF Merging completed. Total unique chunks after merging: {len(final_chunks)}")
-    return {"reranked_docs": final_chunks}
+        for rank, chunk in enumerate(semantic_doc):
+            chunk_id = chunk[0] 
+            rrf_scores[chunk_id] = rrf_scores.get(chunk_id, 0) + 1 / (k + rank + 1)
+            
+        for rank, chunk in enumerate(keyword_doc):
+            chunk_id = chunk[0]
+            rrf_scores[chunk_id] = rrf_scores.get(chunk_id, 0) + 1 / (k + rank + 1)
+        
+        all_chunks = {c[0]: c for c in semantic_doc + keyword_doc}
+        sorted_ids = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
+        return [all_chunks[chunk_id] for chunk_id, score in sorted_ids]
 
-def get_final_context_node(state: AnswerState):
-    log.info(f"Cross-Encoder Reranking Invoked.")
+    # Offload the computation
+    final_chunks = await asyncio.to_thread(sync_rrf_logic)
+    
+    log.info(f"RRF Merging completed. Total unique chunks: {len(final_chunks)}")
+    return {"reranked_docs": final_chunks[:10]}
+
+async def get_final_context_node(state: AnswerState):
+    """
+    CRITICAL: This node contains the Cross-Encoder .predict() call.
+    Moving this to a thread prevents it from blocking the FastAPI event loop.
+    """
+    log.info("Cross-Encoder Reranking Invoked (Async Path).")
     docs = state.get('reranked_docs', [])
+    
     if not docs:
-        log.info("No documents to rerank. Skipping to answer generation.")
+        log.info("No documents to rerank. Skipping.")
         return {"final_doc": []}
 
-    unique_docs = {doc[0]: doc for doc in docs}
-    deduplicated_docs = list(unique_docs.values())
-    # Use the refined English semantic_query for cross-encoding.
-    # The raw query may be in Hindi/Hinglish, but docs are in English —
-    # using the translated semantic_query gives accurate reranking scores.
     query = state.get('semantic_query') or state['query']
+
+    # Define the CPU-heavy work
+    def cpu_bound_reranking():
+        # 1. Deduplicate
+        unique_docs = {doc[0]: doc for doc in docs}
+        deduplicated_docs = list(unique_docs.values())
+        docs_to_score = deduplicated_docs[:12] 
+        
+        # 2. Prepare pairs
+        pairs = [[query, doc[2]] for doc in docs_to_score]
+        
+        # 3. Model Prediction (The actual bottleneck)
+        scores = reranker.predict(pairs, batch_size=12, show_progress_bar=False)
+        
+        # 4. Construct Results
+        reranked_list = []
+        for i, doc in enumerate(docs_to_score):
+            meta = doc[3]
+            reranked_list.append({
+                'id': doc[0],
+                'doc_id': doc[1],
+                'text': doc[2],
+                'page_no': meta.get('page_number', ""),
+                'chunk_type': "Has Table Data" if meta.get('has_tables') else "No table Data", 
+                'rerank_score': float(scores[i])
+            })
+        
+        reranked_list.sort(key=lambda x: x['rerank_score'], reverse=True)
+        return reranked_list[:3]
+
+    # Await the CPU work in a separate thread
+    top_docs = await asyncio.to_thread(cpu_bound_reranking)
     
-    pairs = [[query, doc[2]] for doc in deduplicated_docs]
-    scores = reranker.predict(pairs)
-    
-    reranked_list = []
-    for i, doc in enumerate(deduplicated_docs):
-        reranked_list.append({
-            'id': doc[0],
-            'doc_id': doc[1],
-            'text': doc[2],
-            'page_no': doc[3].get('page_number',""),
-            'chunk_type': "Has Table Data" if doc[3].get('has_tables') else "No table Data", 
-            'rerank_score': float(scores[i])
-        })
-    
-    reranked_list.sort(key=lambda x: x['rerank_score'], reverse=True)
-    top_docs = reranked_list[:5]
-    log.info(f"Cross-Encoder reranking completed. Top doc score: {top_docs[0]['rerank_score'] if top_docs else 'N/A'}")
+    log.info(f"Cross-Encoder completed via ThreadPool. Top score: {top_docs[0]['rerank_score'] if top_docs else 'N/A'}")
     return {"final_doc": top_docs}
 
 import re
@@ -210,7 +250,7 @@ def get_recent_history(messages: list, k: int = 6):
         return []
     return messages[-k:]
 
-def answer_agent_node(state: AnswerState):
+async def answer_agent_node(state: AnswerState):
     log.info(f"Answer Generation Invoked.")
     try:
         # Check if we failed the 3-try limit
@@ -236,7 +276,7 @@ def answer_agent_node(state: AnswerState):
             return {"answer": "I couldn't find specific info to answer that question.","skip_cache":True}
 
         user_query = state.get('query', "")
-        detected_language = state.get('detected_language', 'English')
+        language = state.get('language', 'English')
 
         full_history = state.get('messages', [])
         recent_history = get_recent_history(full_history, k=6)
@@ -247,17 +287,17 @@ def answer_agent_node(state: AnswerState):
             ### CONTEXT:\n{clean_entry}\n\n
             ### USER QUESTION:\n{user_query}\n\n
             ### LANGUAGE INSTRUCTION:\n
-            1. The user's query was in **{detected_language}**. 
-            2. You MUST write the 'final_answer' entirely in **{detected_language}**.
+            1. The user's query was in **{language}**. 
+            2. You MUST write the 'final_answer' entirely in **{language}**.
             3. Even though the CONTEXT is in English, do not use English sentences. 
-            4. Translate technical banking terms to the common **{detected_language}** equivalent used by Fino Bank customers.
+            4. Translate technical banking terms to the common **{language}** equivalent used by Fino Bank customers.
             """)
         ])
 
-        final_chunk = limit_context_by_tokens(clean_entry, prompt, user_query, detected_language)
-        final_prompt = prompt.invoke({"clean_entry": final_chunk, "user_query": user_query, "detected_language": detected_language})
+        final_chunk = limit_context_by_tokens(clean_entry, prompt, user_query, language)
+        final_prompt = prompt.invoke({"clean_entry": final_chunk, "user_query": user_query, "language": language})
         
-        raw_response = ans_llm.invoke(final_prompt)
+        raw_response = await ans_llm.ainvoke(final_prompt)
         answer = raw_response.content.strip()
         if not answer or len(answer) < 10:
              return {

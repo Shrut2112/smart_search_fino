@@ -1,17 +1,20 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Hero = ({ onSuggestionClick }) => {
-  const suggestions = [
+  const { t, i18n } = useTranslation();
+  
+  const suggestions = t('hero.suggestions', { returnObjects: true }) || [
     "What is our refund policy?",
     "Show Q3 revenue data",
     "Summarize loan structure"
   ];
 
   return (
-    <section className="hero-section">
-      <h1 className="hero-title">Welcome to Fino</h1>
+    <section className="hero-section" data-lang={i18n.language}>
+      <h1 className="hero-title">{t('hero.title')}</h1>
       <p className="hero-subtitle">
-        Your intelligent multilingual search assistant - ask anything about policies, structure, or data.
+        {t('hero.subtitle')}
       </p>
       <div className="suggestions-grid">
         {suggestions.map((text, idx) => (

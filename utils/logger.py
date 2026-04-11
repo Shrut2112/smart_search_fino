@@ -38,9 +38,9 @@ def _setup_root():
     )
 
     # Console handler
-    # console = logging.StreamHandler()
-    # console.setFormatter(fmt)
-    # root.addHandler(console)
+    console = logging.StreamHandler()
+    console.setFormatter(fmt)
+    root.addHandler(console)
 
     # Rotating file handler — 10 MB per file, keep 5 backups
     file_handler = RotatingFileHandler(
