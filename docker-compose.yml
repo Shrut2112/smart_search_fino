@@ -1,78 +1,30 @@
 version: '3.8'
 
 services:
-  # React Frontend Server
+  # 1. The Frontend (React/Vite)
   frontend:
-    build:
-      context: ./frontend
-      dockerfile_inline: |
-        FROM node:20-alpine AS builder
-        WORKDIR /app
-        COPY package*.json ./
-        RUN npm install
-        COPY . .
-        RUN npm run build
-        
-        FROM nginx:alpine
-        COPY --from=builder /app/dist /usr/share/nginx/html
-        # Nginx config for client-side routing
-        RUN echo 'server { listen 80; location / { root /usr/share/nginx/html; index index.html index.htm; try_files $$uri $$uri/ /index.html =404; } }' > /etc/nginx/conf.d/default.conf
-        EXPOSE 80
+    build: ./frontend
     ports:
-      - "5173:80"
+      - "3000:80"
+    depends_on:
+      - answering-agent
 
-  # FastAPI Backend (RAG Core)
-  api-backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: gunicorn api:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+  # 2. The Answering Agent (FastAPI)
+  answering-agent:
+    build: 
+      context: ./backend
+    # This runs your main.py (FastAPI)
+    command: gunicorn main:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:7860
     ports:
-      - "8000:8000"
-    environment:
-      - LOG_LEVEL=INFO
-    env_file:
-      - .env
-    volumes:
-      - ./logs:/app/logs
-      - ./data:/app/data
+      - "8000:7860"
+    env_file: ./backend/.env
 
-  # Streamlit Admin Dashboard
-  admin-dashboard:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: streamlit run admin_dashboard/Home.py --server.port 8502 --server.address 0.0.0.0
+  # 3. The Ingestion Agent (Streamlit)
+  ingestion-agent:
+    build: 
+      context: ./backend
+    # This tells the SAME image to run the Streamlit dashboard instead
+    command: streamlit run data_ingestion/app.py --server.port 7860 --server.address 0.0.0.0
     ports:
-      - "8502:8502"
-    environment:
-      - LOG_LEVEL=INFO
-    env_file:
-      - .env
-    volumes:
-      - ./logs:/app/logs
-      - ./data:/app/data
-
-  # Persistent PDF File Watcher
-  file-watcher:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: python watchers/watcher.py
-    env_file:
-      - .env
-    volumes:
-      - ./logs:/app/logs
-      - ./data:/app/data
-
-  # Periodic Firecrawl Web Watcher
-  web-watcher:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: python watchers/web_watcher.py
-    env_file:
-      - .env
-    volumes:
-      - ./logs:/app/logs
-      - ./data:/app/data
+      - "8501:7860"
+    env_file: ./backend/.env

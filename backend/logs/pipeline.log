@@ -15310,3 +15310,77 @@ DETAIL:  Vector contents must start with "[".
 2026-04-11 21:01:25 [INFO] [answering_agent.main] Answer Generation Successful. Length: 648
 2026-04-11 21:01:25 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
 2026-04-11 21:01:25 [INFO] [backend] Successfully processed query.
+2026-04-12 14:57:17 [INFO] [utils.embedding] Cohere v3.0 multilingual embedding model initialized (1024 dimensions) with Free Tier Rate Limiter
+2026-04-12 14:57:17 [INFO] [utils.embedding] Cohere v3.0 multilingual embedding model initialized (1024 dimensions) with Free Tier Rate Limiter
+2026-04-12 14:57:41 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-04-12 14:57:41 [INFO] [backend] Starting up FastAPI application...
+2026-04-12 14:57:41 [INFO] [backend] Loading LangGraph agent...
+2026-04-12 14:57:41 [INFO] [backend] LangGraph agent loaded successfully.
+2026-04-12 14:57:48 [INFO] [backend] Received query: डेबिट कार्ड कैसे ब्लॉक करें?
+2026-04-12 14:57:48 [ERROR] [backend] Error processing query: could not translate host name "aws-1-ap-southeast-1.pooler.supabase.com" to address: Name or service not known
+
+2026-04-12 14:58:54 [INFO] [backend] Received query: डेबिट कार्ड कैसे ब्लॉक करें?
+
+
+2026-04-12 14:58:55 [INFO] [db.hooks] Connection Pool Initialized
+2026-04-12 14:58:56 [INFO] [httpx] HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-04-12 14:58:56 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
+2026-04-12 14:58:56 [INFO] [answering_agent.main] Refiner: Fast-Path triggered (Skipping LLM)
+2026-04-12 14:58:56 [INFO] [answering_agent.main] Keyword Search Invoked.
+2026-04-12 14:58:56 [INFO] [answering_agent.main] Semantic Search Invoked
+2026-04-12 14:58:57 [INFO] [answering_agent.main] Keyword Search found 0 chunks.
+2026-04-12 14:58:58 [INFO] [answering_agent.main] Semantic Search found 15 chunks.
+2026-04-12 14:58:58 [INFO] [answering_agent.main] RRF Merging Invoked.
+2026-04-12 14:58:58 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks: 15
+2026-04-12 14:58:58 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked (Async Path).
+2026-04-12 14:58:59 [INFO] [answering_agent.main] Cross-Encoder completed via ThreadPool. Top score: 7.472586154937744
+2026-04-12 14:58:59 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 3 documents.
+2026-04-12 14:58:59 [INFO] [answering_agent.main] Answer Generation Invoked.
+2026-04-12 14:59:00 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-12 14:59:00 [INFO] [answering_agent.main] Answer Generation Successful. Length: 270
+2026-04-12 14:59:00 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
+2026-04-12 14:59:00 [INFO] [backend] Successfully processed query.
+2026-04-12 16:04:59 [INFO] [utils.embedding] Cohere v3.0 multilingual embedding model initialized (1024 dimensions) with Free Tier Rate Limiter
+2026-04-12 16:05:00 [INFO] [utils.embedding] Cohere v3.0 multilingual embedding model initialized (1024 dimensions) with Free Tier Rate Limiter
+2026-04-12 16:05:00 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:01 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:01 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-04-12 16:05:01 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:02 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:02 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/config.json "HTTP/1.1 200 OK"
+2026-04-12 16:05:02 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:03 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:03 [WARNING] [huggingface_hub.utils._http] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-04-12 16:05:03 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-12 16:05:03 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:03 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-12 16:05:04 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:04 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-12 16:05:04 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:05 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:05 [INFO] [httpx] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/c5ee24cb16019beea0893ab7796b1df96625c6b8/README.md "HTTP/1.1 200 OK"
+2026-04-12 16:05:05 [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+2026-04-12 16:05:05 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2 "HTTP/1.1 307 Temporary Redirect"
+2026-04-12 16:05:06 [INFO] [httpx] HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-12 16:05:06 [INFO] [backend] Starting up FastAPI application...
+2026-04-12 16:05:06 [INFO] [backend] Loading LangGraph agent...
+2026-04-12 16:05:06 [INFO] [backend] LangGraph agent loaded successfully.
+2026-04-12 16:05:26 [INFO] [backend] Received query: डेबिट कार्ड कैसे ब्लॉक करें?
+2026-04-12 16:05:26 [INFO] [db.hooks] Connection Pool Initialized
+2026-04-12 16:05:27 [INFO] [httpx] HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-04-12 16:05:27 [INFO] [answering_agent.main] No cache hit. Routing to retrieval and answer generation.
+2026-04-12 16:05:27 [INFO] [answering_agent.main] Refiner: Fast-Path triggered (Skipping LLM)
+2026-04-12 16:05:27 [INFO] [answering_agent.main] Keyword Search Invoked.
+2026-04-12 16:05:27 [INFO] [answering_agent.main] Semantic Search Invoked
+2026-04-12 16:05:28 [INFO] [answering_agent.main] Keyword Search found 0 chunks.
+2026-04-12 16:05:29 [INFO] [answering_agent.main] Semantic Search found 15 chunks.
+2026-04-12 16:05:29 [INFO] [answering_agent.main] RRF Merging Invoked.
+2026-04-12 16:05:29 [INFO] [answering_agent.main] RRF Merging completed. Total unique chunks: 15
+2026-04-12 16:05:29 [INFO] [answering_agent.main] Cross-Encoder Reranking Invoked (Async Path).
+2026-04-12 16:05:30 [INFO] [answering_agent.main] Cross-Encoder completed via ThreadPool. Top score: 7.472586154937744
+2026-04-12 16:05:30 [INFO] [answering_agent.main] Routing Decision: PROCEED - Found 3 documents.
+2026-04-12 16:05:30 [INFO] [answering_agent.main] Answer Generation Invoked.
+2026-04-12 16:05:31 [INFO] [httpx] HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-12 16:05:31 [INFO] [answering_agent.main] Answer Generation Successful. Length: 314
+2026-04-12 16:05:31 [INFO] [answering_agent.main] Answer deemed suitable for caching. Executed cache push.
+2026-04-12 16:05:31 [INFO] [backend] Successfully processed query.

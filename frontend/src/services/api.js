@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:7860';
 
 export const FinoAPI = {
   checkHealth: async () => {
@@ -22,11 +22,11 @@ export const FinoAPI = {
         },
         body: JSON.stringify({ query }),
       });
-      
+
       if (!response.ok) {
         throw new Error(`API Error: ${response.status}`);
       }
-      
+
       const data = await response.json();
       return data.answer;
     } catch (error) {
