@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:7860';
+const API_BASE_URL = 'https://shrut04-fino-backend-api.hf.space';
 
 export const FinoAPI = {
   checkHealth: async () => {

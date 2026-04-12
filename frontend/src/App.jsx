@@ -7,7 +7,7 @@ import ChatContainer from './components/ChatContainer';
 import MessageInput from './components/MessageInput';
 import LanguageSplash from './components/LanguageSplash';
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'https://shrut04-fino-backend-api.hf.space';
 
 function App() {
   // ── Splash / Language state ────────────────────────────────────────────────
