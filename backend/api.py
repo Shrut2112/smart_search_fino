@@ -7,6 +7,7 @@ import logging
 from fastapi.middleware.cors import CORSMiddleware
 
 origins = [
+    "https://smart-search-fino.vercel.app/",
     "http://localhost:3000",  # Your React/Vue local dev port
     "http://localhost:8501",  # Default Streamlit port
     "http://localhost:5173",  # Vite default port
