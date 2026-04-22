@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import List, TypedDict, Dict, Optional, Any, Set,Annotated
 from operator import add
+from langgraph.graph.message import add_messages
 
 # Data Ingestion State
 class State(TypedDict):
@@ -50,8 +51,8 @@ class AnswerState(TypedDict,total=False):
     # Used to instruct the answer LLM to reply in the user's language.
     detected_language: Optional[str]
     language: Optional[str]
-    retrived_sem_doc: Annotated[list, add] 
-    retrived_key_doc: Annotated[list, add]
+    retrived_sem_doc: Optional[list] 
+    retrived_key_doc: Optional[list]
 
     reranked_docs: Optional[List[tuple]]
     final_doc: Optional[List[dict]]
@@ -63,3 +64,4 @@ class AnswerState(TypedDict,total=False):
     
     query_hash: Optional[str]
     query_embedding: Optional[List[float]]
+    messages: Annotated[list,add_messages]

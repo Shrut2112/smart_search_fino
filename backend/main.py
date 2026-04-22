@@ -5,6 +5,10 @@ from contextlib import asynccontextmanager
 import uvicorn
 import logging
 from fastapi.middleware.cors import CORSMiddleware
+import traceback
+import os
+from psycopg_pool import AsyncConnectionPool
+from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 
 origins = [
     "https://smart-search-fino.vercel.app/",
@@ -29,22 +33,40 @@ ml_models = {}
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Load the LangGraph graph at startup
     log.info("Starting up FastAPI application...")
+    
+    # --- Build the Postgres checkpointer INSIDE the event loop ---
+    DB_URI = os.getenv("DATABASE_URL")
+    pool = AsyncConnectionPool(
+        conninfo=DB_URI,
+        min_size=1,
+        max_size=10,
+        open=False,          # Don't open immediately — we'll open it below
+        kwargs={
+            "prepare_threshold": None,
+            "autocommit": True,
+            "sslmode": "require"
+        }
+    )
+    await pool.open()        # Opens connections inside the running event loop
+    checkpointer = AsyncPostgresSaver(pool)
+    await checkpointer.setup()  # Creates checkpoint/writes tables if missing
+    log.info("Postgres checkpointer initialised and tables verified.")
+
     log.info("Loading LangGraph agent...")
-
     try:
-        ml_models["graph"] = create_graph()
+        ml_models["graph"] = create_graph(checkpointer)
         log.info("LangGraph agent loaded successfully.")
-
     except Exception as e:
         log.error(f"Failed to load LangGraph agent: {e}")
-        # Not raising here to allow startup, but health check could fail if critical.
-        # Alternatively, could raise e to prevent startup.
+
     yield
+
     # Clean up on shutdown
     log.info("Shutting down FastAPI application...")
     ml_models.clear()
+    await pool.close()
+    log.info("Postgres connection pool closed.")
 
 app = FastAPI(
     title="Fino Smart Search API", 
@@ -93,7 +115,7 @@ async def chat(request: ChatRequest):
         log.info("Successfully processed query.")
         return ChatResponse(answer=answer)
     except Exception as e:
-        log.error(f"Error processing query: {e}")
+        log.error(f"Error processing query: {traceback.format_exc()}")
         raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
 
 if __name__ == "__main__":

@@ -1,36 +1,36 @@
 from tenacity import asyncio
 from typing import List, Literal
 from langgraph.graph import StateGraph, END, START
-from langgraph.checkpoint.memory import MemorySaver
+from langchain_core.messages import HumanMessage, AIMessage
 from utils.schema import AnswerState, RefinedQuery
 from answering_agent.retrival_class import RetrievalPipeline
 from utils.get_embedd_model import embedding_model
 from database.db_ret import retrieve_similar_chunks, retrieve_similar_chunks_key
 from utils.prompts.retrival_prompts import refine_query_prompt,answering_prompt
-from utils.get_llm import get_llm
+from utils.get_llm import get_llm,get_refiner_model
 from utils.get_cross_encoder import get_crossencoder
 from langchain_core.prompts import ChatPromptTemplate
 from answering_agent.caching_logic import cache_check_node, push_cache
 import tiktoken
 import json
 import asyncio
-
+import os
 # from IPython.display import Image, display
 # from langchain_core.runnables.graph import MermaidDrawMethod
 from utils.logger import get_logger
 
 log = get_logger("answering_agent.main")
-memory = MemorySaver()
 
 def get_models():
     llm = get_llm()
     emb_model = embedding_model()
     ans_llm = get_llm()
+    refiner_llm = get_refiner_model()
     reranker = get_crossencoder()
-    return llm, emb_model, ans_llm, reranker
+    return llm, emb_model, ans_llm, reranker,refiner_llm
 
-llm, emb_model, ans_llm, reranker = get_models()
-retriever = RetrievalPipeline(emb_model, llm, ans_llm, reranker)
+llm, emb_model, ans_llm, reranker,refiner_llm = get_models()
+# retriever = RetrievalPipeline(emb_model, llm, ans_llm, reranker,refiner_llm)
 encoding = tiktoken.get_encoding("cl100k_base")
 top_k = 15
 
@@ -65,68 +65,86 @@ def limit_context_by_tokens(chunks,prompt,query,language,max_limit=6000):
         
 async def refiner_agent_node(state: AnswerState) -> AnswerState:
     user_query = state['query']
-    words = user_query.split()
-    if len(words) <= 8:
-        log.info("Refiner: Fast-Path triggered (Skipping LLM)")
-        return {
-            "keyword_query": user_query,
-            "semantic_query": user_query,
-            "detected_language": "English",
-            "attempt_count": 1
-        }
+    full_history = state.get('messages', [])
     current_attempts = state.get("attempt_count", 0) + 1
-    
-    log.info(f"Refiner Agent Invoked - Attempt {current_attempts} for query: {user_query}")
-    
-    # Use the same prompt template
-    prompt = refine_query_prompt.substitute(user_query=user_query)
-    content = ""
-    try:    
-        response = await llm.ainvoke(prompt)
-        content = response.content
-        
-        refined_dict = extract_json_from_text(content)
-        
-        if refined_dict:
-            keyword = refined_dict.get("keyword_query") or refined_dict.get("keyword") or user_query
-            semantic = refined_dict.get("semantic_query") or refined_dict.get("semantic") or user_query
-            # The refiner prompt returns the detected input language — use it to
-            # make the final answer respond in the user's own language.
-            detected_lang = refined_dict.get("detected_language", "English")
-            
-            log.info(f"Refiner Output - Attempt {current_attempts}: Success. Language: {detected_lang}")
-            return {
-                "keyword_query": keyword,
-                "semantic_query": semantic,
-                "detected_language": detected_lang,
-                "attempt_count": current_attempts
-            }
 
-    except Exception as e:
-        log.error(f"Refiner Error on Attempt {current_attempts}: {e} {content}. Falling back to raw query.")
+    recent_history = get_recent_history(full_history, k=4)
+    
+    log.info(f"Refiner Agent Invoked - Attempt {current_attempts}")
+
+    # Fast-path: only skip refiner if there is NO history AND the query is very short (≤3 words).
+    # ≤4 was too aggressive — short Hinglish follow-ups (e.g. "aur 20000 nikalne ho to?") were
+    # bypassing the refiner even when conversation context was available.
+    if not recent_history and len(user_query.split()) <= 3:
+        log.info("Refiner: Fast-Path triggered (No history + Short query ≤3 words)")
         return {
             "keyword_query": user_query,
             "semantic_query": user_query,
-            "detected_language": "English",
             "attempt_count": current_attempts
         }
 
+    # Format history as clean text so the refiner LLM can actually parse it
+    formatted_history = format_history_for_refiner(recent_history)
+
+    try:
+        prompt = refine_query_prompt.substitute(user_query=user_query, recent_history=formatted_history)
+
+        response = await refiner_llm.ainvoke(prompt)
+        
+        content = response.content
+        refined_dict = extract_json_from_text(content)
+        
+        if refined_dict:
+            keyword = refined_dict.get("keyword") or user_query
+            semantic = refined_dict.get("semantic") or user_query
+            
+            # Validate the refiner actually refined — if it echoed the raw query back, warn and proceed
+            if keyword == user_query or semantic == user_query:
+                log.warning("Refiner returned raw query unchanged. Quality may be degraded.")
+            
+            log.info(f"Refiner Output: Query de-referenced successfully {refined_dict}. Semantic - {semantic}, Keyword - {keyword}")
+            return {
+                "keyword_query": keyword,
+                "semantic_query": semantic,
+                "attempt_count": current_attempts
+            }
+    except Exception as e:
+        log.error(f"Refiner Error: {e}. Falling back to raw query.")
+        return {
+            "keyword_query": user_query,
+            "semantic_query": user_query,
+            "attempt_count": current_attempts
+        }
+
+
 async def semantic_search_node(state: AnswerState):
     log.info(f"Semantic Search Invoked")
-    query = state.get('semantic_query') or state['query']
+    semantic_query = state.get('semantic_query') or state['query']
+    original_query = state['query']
     
-    if not query: return {"retrived_sem_doc": []}
+    if not semantic_query: return {"retrived_sem_doc": []}
     
     try:
         loop = asyncio.get_event_loop()
-        # query_embedding = await loop.run_in_executor(None, emb_model.embed_query,query)
-        query_embedding = state.get('query_embedding')
-        docs = await loop.run_in_executor(None, retrieve_similar_chunks,query_embedding, top_k)
+        
+        # Use the refined English semantic_query for embedding if it differs from the raw query.
+        # The cache_check_node embeds the raw user query (Hinglish/Hindi), which is a poor
+        # match against our English document corpus. The refiner produces a clean English
+        # policy-heading — embedding THAT gives significantly better vector search results.
+        if semantic_query.strip().lower() != original_query.strip().lower():
+            log.info(f"Semantic Search: re-embedding refined query → '{semantic_query}'")
+            query_embedding = await emb_model.aembed_query(semantic_query)
+        else:
+            # Fast-path or refiner echoed raw query — reuse the pre-computed embedding
+            query_embedding = state.get('query_embedding')
+        
+        docs = await loop.run_in_executor(None, retrieve_similar_chunks, query_embedding, top_k)
         log.info(f"Semantic Search found {len(docs)} chunks.")
         return {"retrived_sem_doc": docs or []}
     except Exception as e:
-        log.error(f"Semantic Search Error for query: {query} - {e}")
+        log.error(f"Semantic Search Error for query: {semantic_query} - {e}")
         return {"retrived_sem_doc": []}
+
 
 async def keyword_search_node(state: AnswerState):
     log.info(f"Keyword Search Invoked.")
@@ -216,7 +234,16 @@ async def get_final_context_node(state: AnswerState):
             })
         
         reranked_list.sort(key=lambda x: x['rerank_score'], reverse=True)
-        return reranked_list[:3]
+        
+        # Return top 3. Note: ms-marco-MiniLM scores for banking/policy docs can legitimately
+        # range from -10 to +8. Withdrawal queries regularly score -8 to -9 even when
+        # the retrieved docs are correct. Hallucination is prevented by prompts, not here.
+        top3 = reranked_list[:3]
+        log.info(
+            f"Cross-encoder top scores: "
+            + ", ".join(f"{d['rerank_score']:.3f}" for d in top3)
+        )
+        return top3
 
     # Await the CPU work in a separate thread
     top_docs = await asyncio.to_thread(cpu_bound_reranking)
@@ -249,6 +276,26 @@ def get_recent_history(messages: list, k: int = 6):
     if not messages:
         return []
     return messages[-k:]
+
+def format_history_for_refiner(messages: list) -> str:
+    """
+    Converts LangChain HumanMessage/AIMessage objects into clean readable text
+    that the refiner LLM can parse. Without this, the model receives raw
+    Python repr like [HumanMessage(content='...')] which it struggles to use.
+    """
+    if not messages:
+        return "No prior conversation."
+    lines = []
+    for msg in messages:
+        msg_type = getattr(msg, 'type', None)
+        content = getattr(msg, 'content', str(msg))
+        if msg_type == 'human':
+            lines.append(f"User: {content}")
+        elif msg_type == 'ai':
+            lines.append(f"Assistant: {content}")
+        else:
+            lines.append(str(msg))
+    return "\n".join(lines)
 
 async def answer_agent_node(state: AnswerState):
     log.info(f"Answer Generation Invoked.")
@@ -299,34 +346,47 @@ async def answer_agent_node(state: AnswerState):
         
         raw_response = await ans_llm.ainvoke(final_prompt)
         answer = raw_response.content.strip()
+        
+        # Internal retry: Sarvam occasionally returns empty/very short on complex follow-ups.
+        # One retry is cheaper than showing the user a "trouble formatting" dead-end.
         if not answer or len(answer) < 10:
-             return {
-                "answer": "I'm sorry, I'm having trouble formatting that answer. Could you please ask again?",
+            log.warning("Answer < 10 chars on first attempt. Retrying once...")
+            raw_response = await ans_llm.ainvoke(final_prompt)
+            answer = raw_response.content.strip()
+        
+        if not answer or len(answer) < 10:
+            log.error("Answer still empty after retry. Returning FALLBACK.")
+            return {
+                "answer": "No information found regarding this query in our current records.",
                 "skip_cache": True
             }
 
         log.info(f"Answer Generation Successful. Length: {len(answer)}")
-        return {"answer": answer, "skip_cache": False}
+        return {"answer": answer, 
+                "skip_cache": False, 
+                "attempt_count": 0,
+                "messages": [HumanMessage(content=user_query), AIMessage(content=answer)]}
 
     except Exception as e:
         log.error(f"Answer Generation Error: {e}")
         return {"answer": "I'm sorry, I ran into an error while drafting your answer.", "skip_cache":True}
 
 def route_after_retrieval(state: AnswerState):
-    doc_count = len(state.get("final_doc", []))
+    final_doc = state.get("final_doc", [])
+    doc_count = len(final_doc)
     attempt = state.get("attempt_count", 0)
     
     if attempt >= 3:
-        #print(f"Routing: TERMINATE (Failed after {attempt} attempts)")
-        log.error(f"Routing Decision: TERMINATE - No documents found after {attempt} attempts for query: {state.get('query')}")
+        log.error(f"Routing Decision: TERMINATE - No relevant documents after {attempt} attempts for query: {state.get('query')}")
         return "fail"
     
     if doc_count > 0:
-        #print(f"Routing: PROCEED (Found {doc_count} docs)")
-        log.info(f"Routing Decision: PROCEED - Found {doc_count} documents.")
+        top_score = final_doc[0].get('rerank_score', -999)
+        log.info(f"Routing Decision: PROCEED - Found {doc_count} documents. Top rerank score: {top_score:.3f}")
         return "generate"
     
-    print(f"Routing: RETRY (Attempt {attempt} yielded no results)")
+    # doc_count == 0 means quality gate filtered everything out
+    log.warning(f"Routing Decision: RETRY - Attempt {attempt} returned no qualifying documents.")
     return "retry"
 
 def route_cached(state:AnswerState):
@@ -360,7 +420,11 @@ def route_to_cache(state: AnswerState):
     log.info("Answer deemed suitable for caching. Executed cache push.")
     return "push"
 
-def create_graph():
+def create_graph(checkpointer):
+    """Build and compile the LangGraph RAG pipeline.
+    The checkpointer is passed in from the lifespan context (after the
+    event loop is running) to avoid the module-level AsyncConnectionPool bug.
+    """
     builder = StateGraph(AnswerState)
 
     builder.add_node("cache_check", cache_check_node)
@@ -412,7 +476,7 @@ def create_graph():
     )
     builder.add_edge("push_cache_node", END)
 
-    graph = builder.compile(checkpointer=memory)
+    graph = builder.compile(checkpointer=checkpointer)
     # img_path = "langgraph_diagram.png"
     # graph.get_graph().draw_mermaid_png(output_file_path=img_path, draw_method=MermaidDrawMethod.API)
 

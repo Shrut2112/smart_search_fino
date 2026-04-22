@@ -38,3 +38,5 @@ pydantic
 langchain-cohere
 langgraph
 langchain-core
+langgraph-checkpoint-postgres
+psycopg-pool

@@ -34,8 +34,8 @@ def check_semantic(query,language):
                 conn.commit()
             return result
         
-def update_cache(query_hash, user_query, answer, embedding_vector):
+def update_cache(query_hash, user_query, answer, embedding_vector, language):
     with get_db_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute(insert_cache,(query_hash, user_query, answer, embedding_vector))
-            conn.commit()
+            cur.execute(insert_cache,(query_hash, user_query, answer, embedding_vector, language))
+            conn.commit()
